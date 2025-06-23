@@ -64,7 +64,8 @@ export default function Home() {
   return (
     <main className="">
       {showPopup && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+ <div className="fixed inset-0 backdrop-blur-sm bg-white/30 flex justify-center items-center z-[1000]">
+
     <div className="bg-white w-[90%] max-w-md rounded-2xl p-6 relative shadow-2xl">
       <button
         onClick={() => setShowPopup(false)}
