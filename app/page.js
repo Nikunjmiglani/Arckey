@@ -11,6 +11,8 @@ const images = [
 ];
 
 export default function Home() {
+  const [showPopup, setShowPopup] = useState(true);
+
   const [index, setIndex] = useState(0);
   const statsRef = useRef(null);
   const [startCount, setStartCount] = useState(false);
@@ -61,6 +63,45 @@ export default function Home() {
 
   return (
     <main className="">
+      {showPopup && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+    <div className="bg-white w-[90%] max-w-md rounded-2xl p-6 relative shadow-2xl">
+      <button
+        onClick={() => setShowPopup(false)}
+        className="absolute top-3 right-4 text-2xl font-bold text-gray-600 hover:text-black"
+      >
+        &times;
+      </button>
+
+      <h2 className="text-2xl font-bold mb-4 text-center">Get a <span className="text-red-500">free design consultation</span></h2>
+
+      <div className="flex flex-wrap gap-2 justify-center mb-4">
+        <button className="border border-gray-400 px-3 py-1 rounded-full text-sm">1 BHK</button>
+        <button className="border border-gray-400 px-3 py-1 rounded-full text-sm">2 BHK</button>
+        <button className="border border-gray-400 px-3 py-1 rounded-full text-sm">3 BHK</button>
+        <button className="border border-gray-400 px-3 py-1 rounded-full text-sm">4+ BHK / Duplex</button>
+      </div>
+
+      <form className="flex flex-col gap-3">
+        <input type="text" placeholder="Property Location" className="border border-gray-300 rounded-lg px-4 py-2 w-full" />
+        <input type="text" placeholder="Name" className="border border-gray-300 rounded-lg px-4 py-2 w-full" />
+        <input type="tel" placeholder="Mobile Number" className="border border-gray-300 rounded-lg px-4 py-2 w-full" />
+        <label className="text-sm flex items-center gap-2 mt-2">
+          <input type="checkbox" defaultChecked className="accent-green-600" />
+          Yes, send me updates via WhatsApp.
+        </label>
+        <button type="submit" className="bg-red-700 hover:bg-red-800 text-white rounded-lg py-2 font-semibold mt-2">
+          Book a Free Consultation
+        </button>
+      </form>
+
+      <p className="text-xs text-center mt-3 text-gray-500">
+        By submitting, you consent to our <a href="#" className="underline">privacy policy</a> and <a href="#" className="underline">terms of use</a>.
+      </p>
+    </div>
+  </div>
+)}
+
 
       <section className="relative w-full min-h-[300px] sm:h-[500px] overflow-hidden bg-gray-100">
         <div className="relative w-full h-full">
