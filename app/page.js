@@ -1,5 +1,6 @@
 'use client';
 import Image from "next/image";
+import Link from "next/link";
 
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
@@ -17,7 +18,7 @@ const images = [
 
 
 export default function Home() {
-  
+
   const [showPopup, setShowPopup] = useState(true);
   const [index, setIndex] = useState(0);
   const statsRef = useRef(null);
@@ -58,17 +59,17 @@ export default function Home() {
   }, [startCount]);
   const testimonials = [
     {
-      name: "Mr Mukul Hudiya",
+      name: "Mr Rahul Bansal",
       message:
-        "Mr. Shivam Manchanda has made our house look really beautiful. We are all very pleased with his work. He and his team showed a lot of dedication while designing our house. I would recommend their services to everyone. If you want to design your house, choose Mr. Shivam from Latest Interiors.",
+        "Mrs Arti Gupta has made our house look really beautiful. We are all very pleased with her work. she and her team showed a lot of dedication while designing our house. I would recommend their services to everyone. If you want to design your house, choose Mrs. Arti from Miggla Interiors.",
     },
     {
-      name: "Mrs Priya Sharma",
+      name: "Mr Amit Jain",
       message:
         "From the first meeting to the final reveal, everything was so smooth! Thank you for bringing our vision to life.",
     },
     {
-      name: "Mr Arjun Verma",
+      name: "Mr Anshul Goel",
       message:
         "Professional, creative, and incredibly talented team. Highly recommend Latest Interiors for premium home design.",
     },
@@ -95,40 +96,40 @@ export default function Home() {
 
   const blogs = [
     {
-      img: "/post-image1.webp",
-      date: "DESIGN / JUN 12, 2024",
-      title: "Modern 2BHK Interior Under ₹8 Lakh",
-      desc: "Explore how we transformed a compact 2BHK into a sleek, modern space with custom storage solutions and ambient lighting.",
+      img: "/blogimg4.webp",
+      date: "JUN 12, 2024",
+      title: "Top 7 Commercial Interior Design Trends Transforming Modern Workspaces in 2025",
+      
+    },
+    {
+      img: "/blogimg1.webp",
+      date: " MAY 28, 2024",
+      title: "Top 5 Bathroom Interior Designers in Delhi NCR | Interior designers near me",
+      
+    },
+    {
+      img: "/blogimg3.webp",
+      date: " APR 10, 2024",
+      title: "Top 5 Commercial Interior Designers in Delhi NCR – Offices, Retail & Hospitality Spaces",
+     
+    },
+    {
+      img: "/blogimg2.webp",
+      date: " MAR 15, 2024",
+      title: "Modern Luxury Living Room Design Tips to Transform Your Home in 2025",
+      
     },
     {
       img: "/post-image2.webp",
-      date: "STYLING / MAY 28, 2024",
-      title: "Best Color Combinations for Small Living Rooms",
-      desc: "Get inspired with palettes that enhance space perception and give a luxurious feel even in compact homes.",
-    },
-    {
-      img: "/post-image3.webp",
-      date: "TRENDS / APR 10, 2024",
-      title: "2024 Interior Design Trends You Must Know",
-      desc: "From Japandi styles to fluted panels, explore the top home interior trends shaping Indian homes this year.",
-    },
-    {
-      img: "/post-image1.webp",
-      date: "LUXURY / MAR 15, 2024",
-      title: "Affordable Luxury Interiors for 3BHK Flats",
-      desc: "How to achieve a premium finish under ₹12 lakh using budget-friendly materials and smart modular units.",
-    },
-    {
-      img: "/post-image2.webp",
-      date: "INSPIRATION / FEB 20, 2024",
+      date: "FEB 20, 2024",
       title: "Interior Tips for Newly Married Couples",
-      desc: "From shared closets to cozy corners, personalize your new home with thoughtful design ideas.",
+      
     },
     {
       img: "/post-image3.webp",
-      date: "MODULAR / JAN 5, 2024",
+      date: " JAN 5, 2024",
       title: "Modular Kitchen Ideas for Indian Homes",
-      desc: "Explore top layouts and materials for a functional, easy-to-clean kitchen design tailored for Indian cooking.",
+     
     },
   ];
 
@@ -173,91 +174,7 @@ export default function Home() {
 
   return (
     <main className="font-sans">
-      {showPopup && (
-        <div className="fixed inset-0 backdrop-blur-md bg-white/40 flex justify-center items-center z-[1000] px-4">
-          <div className="bg-white w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
-            <button
-              onClick={() => setShowPopup(false)}
-              className="absolute top-3 right-4 text-2xl font-bold text-gray-600 hover:text-black"
-            >
-              &times;
-            </button>
-            <h2 className="text-2xl font-bold mb-4 text-center">
-              Get a <span className="text-red-500">free design consultation</span>
-            </h2>
 
-            <div className="flex flex-wrap gap-2 justify-center mb-4">
-              {["1 BHK", "2 BHK", "3 BHK", "4+ BHK / Duplex"].map(type => (
-                <button key={type} className="border border-gray-400 px-3 py-1 rounded-full text-sm">{type}</button>
-              ))}
-            </div>
-
-            <form
-              onSubmit={handleSubmit}
-              className="w-full sm:max-w-md flex flex-col gap-4 mx-auto"
-            >
-              <input
-                type="text"
-                name="name"
-                placeholder="Name*"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
-              />
-              <input
-                type="text"
-                name="phone"
-                placeholder="Mobile Number*"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email*"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
-              />
-              <textarea
-                name="query"
-                placeholder="Your Query*"
-                rows="4"
-                value={formData.query}
-                onChange={handleChange}
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full resize-none"
-              />
-              <select
-                name="budget"
-                value={formData.budget}
-                onChange={handleChange}
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full text-gray-500"
-              >
-                <option value="">Estimated Budget*</option>
-                <option value="Below ₹5 Lakh">Below ₹5 Lakh</option>
-                <option value="₹5 - ₹10 Lakh">₹5 - ₹10 Lakh</option>
-                <option value="₹10+ Lakh">₹10+ Lakh</option>
-              </select>
-              <button
-                type="submit"
-                className="bg-black text-white font-bold rounded-full py-3 shadow-lg hover:scale-110 transition-transform duration-200"
-              >
-                SUBMIT
-              </button>
-            </form>
-
-            <p className="text-xs text-center mt-3 text-gray-500">
-              By submitting, you consent to our <a href="#" className="underline">privacy policy</a> and <a href="#" className="underline">terms of use</a>.
-            </p>
-          </div>
-        </div>
-      )}
 
       {/* Carousel Section */}
       <section className="relative w-full h-[300px] sm:h-[500px] overflow-hidden bg-gray-100">
@@ -279,7 +196,6 @@ export default function Home() {
         </button>
       </section>
 
-      {/* Intro Text + Steps */}
       <section className="mt-10 px-4 sm:px-10">
         <div className="ml-2 sm:ml-10">
           <h1 className="font-bold text-2xl mb-4">Home Interiors Made Easy</h1>
@@ -288,31 +204,49 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 text-center">
+        {/* Responsive Steps */}
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { src: '/photo1.jpg', title: "Book an appointment" },
             { src: '/photo2.jpg', title: "Meet our designers" },
             { src: '/photo3.jpg', title: "Personalise your designs" },
             { src: '/photo4.webp', title: "Move in" },
           ].map(({ src, title }, i) => (
-            <div key={i} className="overflow-hidden rounded-xl">
-              <img src={src} alt={title} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" />
-              <h2 className="mt-4 font-bold text-xl">{title}</h2>
+            <div key={i} className="flex sm:block items-start sm:items-center gap-4 sm:gap-0 text-left sm:text-center">
+              <div className="flex-shrink-0 w-1/3 sm:w-full">
+                <img
+                  src={src}
+                  alt={title}
+                  className="w-full h-auto object-cover rounded-xl hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="sm:mt-4">
+                <h2 className="font-bold text-lg sm:text-xl">
+                  <span className="block sm:hidden text-red-500 text-xl font-semibold mb-1">
+                    {`0${i + 1}`}
+                  </span>
+                  {title}
+                </h2>
+              </div>
             </div>
           ))}
         </div>
 
+        {/* CTA */}
         <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-5 text-center">
           <a href="/" className="hover:text-black text-red-500 text-2xl cursor-pointer">Learn More - </a>
-          <a href="/">
-            <button className="px-6 py-5 hover:scale-110 transition-transform duration-200 rounded-full bg-red-400 font-mono text-center">Get Started Now</button>
+          <a href="#contactform">
+            <button className="px-6 py-5 hover:scale-110 transition-transform duration-200 rounded-full bg-red-400 font-mono text-center">
+              Get Started Now
+            </button>
           </a>
         </div>
       </section>
 
 
 
-      <section className="bg-[#f4f0e9] py-10 px-4 sm:px-10 mt-10">
+
+      <section className="bg-[#f4f0e9] py-10 px-4 sm:px-10 mt-10" id="contactform" >
         <div className="text-center max-w-3xl mx-auto mb-10">
           <h1 className="font-bold text-3xl sm:text-4xl mb-3">
             Transform Your Space With The Best Interior Designers In Delhi
@@ -321,8 +255,8 @@ export default function Home() {
             Your dream home is just a click away. Take the first step towards a more beautiful and functional living space.
           </p>
           <h2 className="mt-3 text-lg font-medium">Let's bring your vision to life!</h2>
-          <button className="bg-green-950 text-white font-bold cursor-pointer hover:scale-110 transition-transform duration-200 rounded-full px-6 py-3 mt-4">
-            Schedule Appointment Now
+          <button className="bg-green-950 text-white font-bold  hover:scale-110 transition-transform duration-200 rounded-full px-6 py-3 mt-4">
+            Fill the form Now to get a Call
           </button>
         </div>
 
@@ -342,12 +276,12 @@ export default function Home() {
               <option>₹5 - ₹10 Lakh</option>
               <option>₹10+ Lakh</option>
             </select>
-            <button type="submit" className="bg-black text-white font-bold rounded-full py-3 shadow-lg hover:scale-110 transition-transform duration-200">SUBMIT</button>
+            <button type="submit" className="bg-black text-white font-bold rounded-full py-3 shadow-lg hover:scale-110 transition-transform cursor-pointer duration-200">SUBMIT</button>
           </form>
 
 
           {/* Circular Images Section */}
-        <div className="relative w-full flex-1 h-[500px] mt-10 lg:mt-0 hidden lg:block">
+          <div className="relative w-full flex-1 h-[500px] mt-10 lg:mt-0 hidden lg:block">
 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
               <img src="/roundimg1.webp" className="rounded-full w-60 sm:w-72 h-60 sm:h-72 object-cover border-4 border-white shadow-xl" />
@@ -369,42 +303,106 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="border-t border-gray-500 mx-6 sm:mx-20"></div>
+
+
+      <section className="bg-[#f4f0e9] py-16 px-4 sm:px-10 " id="services">
+        <div className="text-center max-w-4xl mx-auto mb-12">
+          <h2 className="text-4xl font-bold mb-4 text-gray-800">Services We Provide</h2>
+          <p className="text-gray-600 text-lg">
+            Discover our range of expert services that transform spaces into dream homes with thoughtful design and flawless execution.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {[
+            {
+              title: "Full Home Interiors",
+              desc: "Complete design and execution for every room, customized to your style.",
+              img: "/servicesimg (2).jpeg",
+            },
+            {
+              title: "Modular Kitchens & Wardrobes",
+              desc: "Smart storage and beautiful finishes to make your everyday easy and elegant.",
+              img: "/servicesimg (5).jpeg",
+            },
+            {
+              title: "Living & Bedroom Makeovers",
+              desc: "Stylish upgrades with curated furniture, lighting, and textiles.",
+              img: "/servicesimg (4).jpeg",
+            },
+            {
+              title: "Design Consultation",
+              desc: "Work with our expert designers to create your personalized design plan.",
+              img: "/servicesimg (3).jpeg",
+            },
+            {
+              title: "Décor & Styling",
+              desc: "Add the perfect finishing touches with our décor and styling services.",
+              img: "/servicesimg (6).jpeg",
+            },
+            {
+              title: "Office & Commercial Spaces",
+              desc: "Modern, productive environments tailored to your brand and business.",
+              img: "/servicesimg (1).jpeg",
+            },
+          ].map(({ title, desc, img }, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-2xl shadow-md hover:scale-110 transition-transform duration-200 overflow-hidden"
+            >
+              <img
+                src={img}
+                alt={title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+                <p className="text-gray-600 text-sm">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+
 
 
 
       {/* Stats Section */}
       <section className="py-16 px-4 sm:px-10 bg-white" >
-     
-       <div className="text-center mb-16">
-  <h2 className="text-3xl font-bold mb-4">
-    Why Clients Trust Us as the Best Interior Designers in Delhi
-  </h2>
-  <p className="text-gray-700 mb-12 max-w-4xl mx-auto">
-    Clients trust Miggla as the best interior designers in Delhi for our perfect blend of luxury interior design, functional space planning, and customized turnkey solutions.
-  </p>
 
-  <div
-    className="border-t border-b py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-    ref={statsRef} 
-  >
-    <div>
-      <h3 className="text-3xl font-bold text-[#444444]">Journey</h3>
-      <p className="text-gray-600 mt-2">Migglа began with a vision to transform ordinary spaces into timeless.</p>
-    </div>
-    <div>
-      <h3 className="text-3xl font-bold text-[#444444]">{counts[0]}+</h3>
-      <p className="text-gray-700 mt-2">Satisfied Customers</p>
-    </div>
-    <div>
-      <h3 className="text-3xl font-bold text-[#444444]">{counts[1]}+</h3>
-      <p className="text-gray-700 mt-2">Projects Completed</p>
-    </div>
-    <div>
-      <h3 className="text-3xl font-bold text-[#444444]">{counts[2]}+</h3>
-      <p className="text-gray-700 mt-2">Years Experience</p>
-    </div>
-  </div>
-</div>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4">
+            Why Clients Trust Us as the Best Interior Designers in Delhi
+          </h2>
+          <p className="text-gray-700 mb-12 max-w-4xl mx-auto">
+            Clients trust Miggla as the best interior designers in Delhi for our perfect blend of luxury interior design, functional space planning, and customized turnkey solutions.
+          </p>
+
+          <div
+            className="border-t border-b py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            ref={statsRef}
+          >
+            <div>
+              <h3 className="text-3xl font-bold text-[#444444]">Journey</h3>
+              <p className="text-gray-600 mt-2">Migglа began with a vision to transform ordinary spaces into timeless.</p>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-[#444444]">{counts[0]}+</h3>
+              <p className="text-gray-700 mt-2">Satisfied Customers</p>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-[#444444]">{counts[1]}+</h3>
+              <p className="text-gray-700 mt-2">Projects Completed</p>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-[#444444]">{counts[2]}+</h3>
+              <p className="text-gray-700 mt-2">Years Experience</p>
+            </div>
+          </div>
+        </div>
 
 
 
@@ -422,15 +420,13 @@ export default function Home() {
             <p className="text-gray-700 mb-6">
               Miggla delivers turnkey interior solutions for luxury homes and corporate offices, blending innovation, style, and functionality. With a client-first mindset and trend-led design, we’re redefining interior design in Delhi NCR.
             </p>
-            <button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3 rounded-md">
-              READ MORE
-            </button>
+
           </div>
 
           {/* RIGHT: Image Grid */}
           <div className="">
             <img src="/bigimg.webp" className="" alt="Interior 1" />
-           
+
           </div>
         </div>
 
@@ -444,6 +440,7 @@ export default function Home() {
               { label: "Luxury Bathroom Design", src: "/spcimg3.webp" },
               { label: "Modular TV Unit", src: "/spcimg4.webp" },
               { label: "Designer Beds", src: "/spcimg5.webp" },
+
             ].map((item, idx) => (
               <div key={idx} className="bg-blue-50 p-3 cursor-pointer hover:scale-110 transition-transform duration-200">
                 <img src={item.src} alt={item.label} className="w-50  h-50 object-cover mx-auto mb-2" />
@@ -458,7 +455,7 @@ export default function Home() {
 
 
 
-      <section
+      <section id="reviews"
         className="relative bg-cover bg-center py-16 px-4 sm:px-8 bg-[#f4f0e9]"
         style={{ backgroundImage: "url('/bgimage.webp')" }}
 
@@ -520,9 +517,9 @@ export default function Home() {
           ))}
         </div>
       </section>
-      
 
-      <section className="px-6 sm:px-12 mb-20 relative ">
+
+      <section className="px-6 sm:px-12 mb-20 relative " id="blogs">
         <h1 className="text-left text-xl sm:text-2xl mb-6 mt-10 font-bold text-gray-800" data-aos="fade-right">
           READ BLOG POSTS
         </h1>
@@ -539,18 +536,26 @@ export default function Home() {
                 data-aos="fade-up"
                 data-aos-delay={idx * 100}
               >
+                <Link
+                  key={idx}
+                  href={`/blog${idx + 1}`}
+                  className="min-w-[100%] sm:min-w-[50%] lg:min-w-[33.3333%]"
+                  data-aos="fade-up"
+                  data-aos-delay={idx * 100}
+                >
                 <Image
                   src={post.img}
                   alt={post.title}
                   width={300}
                   height={220}
-                  className="object-cover w-full h-[220px] rounded-xl hover:scale-105 transition-transform duration-500 shadow-md"
+                  className="object-cover w-full h-[220px] rounded-xl hover:scale-105 transition-transform duration-500 shadow-md cursor-pointer"
                 />
                 <h2 className="text-gray-500 mt-3 text-sm sm:text-base">{post.date}</h2>
                 <h1 className="mt-2 text-lg sm:text-xl font-semibold hover:underline transition text-gray-800">
                   {post.title}
                 </h1>
                 <p className="text-gray-600 mt-2 text-sm sm:text-base">{post.desc}</p>
+                </Link>
               </div>
             ))}
           </div>
@@ -593,12 +598,12 @@ export default function Home() {
               <div className="mt-4">
                 <p className="text-white font-semibold">Follow Us On:</p>
                 <div className="flex gap-3 mt-2 text-gray-300 text-lg">
-                  <a href=""> <i className=" hover:scale-110 transition-transform duration-200 fab fa-facebook"></i></a>
-                  <a href=""><i className="fab  hover:scale-110 transition-transform duration-200 fa-twitter"></i></a>
-                  <a href=""> <i className="fab  hover:scale-110 transition-transform duration-200  fa-youtube"></i></a>
-                  <a href=""><i className="fab  hover:scale-110 transition-transform duration-200 fa-pinterest"></i></a>
-                  <a href=""><i className="fab  hover:scale-110 transition-transform duration-200 fa-instagram"></i></a>
-                  <a href=""><i className="fab  hover:scale-110 transition-transform duration-200 fa-linkedin"></i></a>
+                  <a href="https://www.facebook.com/migglaofficial" target="/"> <i className=" hover:scale-110 transition-transform duration-200 fab fa-facebook"></i></a>
+                  <a href="https://x.com/miggla_official" target="/"><i className="fab  hover:scale-110 transition-transform duration-200 fa-twitter"></i></a>
+                  <a href="https://www.youtube.com/@miggla_official" target="/"> <i className="fab  hover:scale-110 transition-transform duration-200  fa-youtube"></i></a>
+                  <a href="https://in.pinterest.com/miggla_official/" target="/"><i className="fab  hover:scale-110 transition-transform duration-200 fa-pinterest"></i></a>
+                  <a href="https://www.instagram.com/miggla_official/#" target="/"><i className="fab  hover:scale-110 transition-transform duration-200 fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com/company/miggla/posts/?feedView=all" target=""><i className="fab  hover:scale-110 transition-transform duration-200 fa-linkedin"></i></a>
                 </div>
               </div>
 
