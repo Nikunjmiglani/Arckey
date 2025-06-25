@@ -46,12 +46,12 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-6 font-medium text-gray-800 text-sm">
        <Link  href="/about">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">About</li></Link>
-          <Link  href="#contactform">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link>
-        <Link  href="#reviews" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li></Link>
-          <Link  href="#services" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
+          <Link  href="/#contactform">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link>
+        <Link  href="/#reviews" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li></Link>
+          <Link  href="/#services" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
           <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li>
           <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li>
-          <Link  href="#blogs" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
+          <Link  href="/#blogs" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
            <Link  href="/cities"> <li className="hover:text-red-600 hover:font-bold cursor-pointer">Cities</li></Link>
          
         </ul>
