@@ -10,7 +10,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
 const images = [
-  '/image1.webp',
+  '/imgimg.webp',
   '/image2.webp',
   '/image3.webp',
 ];
