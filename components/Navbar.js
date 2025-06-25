@@ -174,10 +174,11 @@ const Navbar = () => {
           <Link  href="/#services" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
           <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li>
           <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li>
+          <li className="hover:text-red-600 hover:font-bold cursor-pointer">check</li>
           <Link  href="/#blogs" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
          <Link  href="/cities">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Cities</li></Link>
         <Link href="/#contactform">  <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer animate-bounce " >
-            Get Free Estimate
+            Get Free Estimate Now!!
           </button></Link>
           
         </ul>
