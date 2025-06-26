@@ -21,7 +21,7 @@ const page = () => {
 Whether it's a stylish office, a high-end boutique, or a cozy café, the right interior designer can elevate your space into a brand experience.
 Here are the Top 5 Commercial Interior Designers in Delhi NCR you should consider in 2025
         </p>
-       <img src="blog2img1.webp" alt="" />
+       <img src="blog2img1.webp" alt="blogimg" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">1.Miggla Interiors</h2>
         <p>
@@ -57,7 +57,7 @@ Clientele Highlights: Startups, IT companies, fashion stores, cafes, and showroo
 
 </li>
         </ul>
-        <img src="blog3img2.webp" alt="" />
+        <img src="blog3img2.webp" alt="blogimgg" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">2. Studio Lotus</h2>
         <p>
@@ -187,7 +187,7 @@ A design-led architecture firm, Studio Lotus is known for innovation and sustain
 
 </li>
         </ul>
-        <img src="blog1img6.webp" alt="" />
+        <img src="blog1img6.webp" alt="blogimgg" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">Why Commercial Interior Design Matters in 2025 With work culture, retail dynamics, and hospitality expectations evolving rapidly, interior design is no longer just about looks—it's about brand identity, employee engagement, and customer experience.
 Key Commercial Trends This Year:</h2>

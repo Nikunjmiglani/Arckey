@@ -19,7 +19,7 @@ const page = () => {
         <p>
           As hybrid work reshapes how we use office spaces, commercial interior design is undergoing a transformation. In 2025, workspaces are not just about functionality — they’re about wellbeing, technology, brand identity, and sustainability. Here are the top 7 trends redefining modern commercial interiors this year
         </p>
-       <img src="blog1img1.webp" alt="" />
+       <img src="blog1img1.webp" alt="interior img" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">1.Biophilic Design: Nature Meets Functionality</h2>
         <p>
@@ -36,7 +36,7 @@ const page = () => {
 
 </li>
         </ul>
-        <img src="blog1img2.webp" alt="" />
+        <img src="blog1img2.webp" alt="interiors" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">2. Smart Workspaces Powered by Technology</h2>
         <p>
@@ -58,7 +58,7 @@ The rise of AI-powered lighting, occupancy sensors, and smart HVAC systems is re
 
 </li>
         </ul>
-        <img src="blog1img3.webp" alt="" />
+        <img src="blog1img3.webp" alt="modern rooms img" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">3. Flexible Layouts for Hybrid Work</h2>
         <p>
@@ -81,7 +81,7 @@ The rise of AI-powered lighting, occupancy sensors, and smart HVAC systems is re
 
 </li>
         </ul>
-        <img src="blog1img4.webp" alt="" />
+        <img src="blog1img4.webp" alt="modern" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">4. Branding Through Interior Identity</h2>
         <p>
@@ -108,7 +108,7 @@ The rise of AI-powered lighting, occupancy sensors, and smart HVAC systems is re
 
 </li>
         </ul>
-        <img src="blog1img5.webp" alt="" />
+        <img src="blog1img5.webp" alt="imageee" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">5.Sustainable and Eco-Friendly Materials</h2>
         <p>
@@ -137,7 +137,7 @@ The rise of AI-powered lighting, occupancy sensors, and smart HVAC systems is re
 
 </li>
         </ul>
-        <img src="blog1img6.webp" alt="" />
+        <img src="blog1img6.webp" alt="seo" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">6. Wellness-Centered Ergonomics</h2>
         <p>

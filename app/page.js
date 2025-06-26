@@ -200,7 +200,7 @@ export default function Home() {
      
       <section className="relative w-full h-[300px] sm:h-[500px] overflow-hidden bg-gray-100">
         <div className="relative w-full h-full">
-        <img src="imgimg.webp" className="absolute w-full h-full object-cover top-0 left-0 transition-opacity duration-700 ease-in-out" alt="" />
+        <img src="imgimg.webp" className="absolute w-full h-full object-cover top-0 left-0 transition-opacity duration-700 ease-in-out" alt="mainimg" />
         </div>
       
       </section>
@@ -293,19 +293,19 @@ export default function Home() {
           <div className="relative w-full flex-1 h-[500px] mt-10 lg:mt-0 hidden lg:block">
 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <img src="/roundimg1.webp" className="rounded-full w-60 sm:w-72 h-60 sm:h-72 object-cover border-4 border-white shadow-xl" />
+              <img src="/roundimg1.webp" className="rounded-full w-60 sm:w-72 h-60 sm:h-72 object-cover border-4 border-white shadow-xl" alt="imgform"/>
               <div className="absolute top-5 right-5 bg-white px-4 py-2 rounded-xl shadow text-xl font-semibold">Design</div>
             </div>
             <div className="absolute bottom-0 right-0">
-              <img src="/roundimg2.webp" className="rounded-full w-40 sm:w-48 h-40 sm:h-48 object-cover border-4 border-white shadow-xl" />
+              <img src="/roundimg2.webp" className="rounded-full w-40 sm:w-48 h-40 sm:h-48 object-cover border-4 border-white shadow-xl" alt="imgfor" />
               <div className="absolute bottom-5 right-5 bg-black text-white px-4 py-1 rounded-xl shadow text-lg font-semibold">Implement</div>
             </div>
             <div className="absolute bottom-0 left-0">
-              <img src="/roundimg3.webp" className="rounded-full w-40 sm:w-48 h-40 sm:h-48 object-cover border-4 border-white shadow-xl" />
+              <img src="/roundimg3.webp" className="rounded-full w-40 sm:w-48 h-40 sm:h-48 object-cover border-4 border-white shadow-xl" alt="imgfom" />
               <div className="absolute bottom-5 left-5 bg-black text-white px-4 py-1 rounded-xl shadow text-lg font-semibold">Survey</div>
             </div>
             <div className="absolute top-0 right-0">
-              <img src="/roundimg4.webp" className="rounded-full w-28 h-28 object-cover border-4 border-white shadow-xl" />
+              <img src="/roundimg4.webp" className="rounded-full w-28 h-28 object-cover border-4 border-white shadow-xl" alt="imgfrm" />
               <div className="absolute bottom-1 right-1 bg-white px-3 py-1 rounded-xl shadow text-sm font-semibold">Handover</div>
             </div>
           </div>

@@ -27,7 +27,7 @@ Whether you seek a spa-like escape, a sleek contemporary look, or timeless elega
 
 This editorial guide introduces the Top 5 Bathroom Interior Designers in Delhi NCR, known for blending style, functionality, and fine craftsmanship into unforgettable spaces. Each designer featured here has redefined the modern bathroom through bespoke designs, smart solutions, and a deep understanding of client needs.
         </p>
-       <img src="blog2img1.webp" alt="" />
+       <img src="blog2img1.webp" alt="img" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">1.Miggla – Crafting Luxury Bathrooms with Purpose and Precision</h2>
         <p>
@@ -54,7 +54,7 @@ Miggla specializes in custom vanities, layered lighting, high-end fixtures, natu
 
 </li>
         </ul>
-        <img src="blog2img2.webp" alt="" />
+        <img src="blog2img2.webp" alt="image" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">2. Spaces of Serenity – Elegant, Minimalist Bathrooms That Calm the Senses</h2>
         <p>
@@ -80,7 +80,7 @@ Popular in neighborhoods like Saket, Vasant Kunj, and East of Kailash, they ofte
 
 </li>
         </ul>
-        <img src="blog1img3.webp" alt="" />
+        <img src="blog1img3.webp" alt="imgg" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">3. Metro Mod Studio – Contemporary Bathroom Design for Urban Living</h2>
         <p>
@@ -146,7 +146,7 @@ Especially popular in Rajouri Garden, Janakpuri, and South Extension, their clie
 
 </li>
         </ul>
-        <img src="blog1img5.webp" alt="" />
+        <img src="blog1img5.webp" alt="blogg" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">5.Studio Aqua Luxe – Ultra-Luxurious Bathrooms Inspired by Hotel Suites</h2>
         <p>
@@ -181,7 +181,7 @@ Ideal for clients in Golf Links, Connaught Place, and Sunder Nagar, this studio 
 
 </li>
         </ul>
-        <img src="blog1img6.webp" alt="" />
+        <img src="blog1img6.webp" alt="blog" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">Tips for Hiring the Right Bathroom Designer in Delhi NCR</h2>
        
