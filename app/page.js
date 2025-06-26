@@ -199,12 +199,17 @@ export default function Home() {
 
      
       <section className="relative w-full h-[300px] sm:h-[500px] overflow-hidden bg-gray-100">
-        <div className="relative w-full h-full">
-        <img src="imgimg.webp" className="absolute w-full h-full object-cover top-0 left-0 transition-opacity duration-700 ease-in-out" alt="mainimg" />
-        </div>
-      
-      </section>
-
+      <div className="relative w-full h-full">
+        <Image
+          src="/imgimg.webp"
+          alt="mainimg"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
+    </section>
+    
       <section className="mt-10 px-4 sm:px-10">
         <div className="ml-2 sm:ml-10">
           <h1 className="font-bold text-2xl mb-4">Home Interiors Made Easy</h1>
