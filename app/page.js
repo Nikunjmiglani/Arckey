@@ -329,39 +329,45 @@ useEffect(() => {
 
       <section className="mt-10 px-4 sm:px-10">
         <div className="ml-2 sm:ml-10">
-          <h1 className="font-bold text-2xl mb-4">Home Interiors Made Easy</h1>
+          <h1 className="font-bold text-2xl mb-4">Let’s design a space you’ll love — home or office.</h1>
           <p className="text-gray-700">
-            Book a FREE consultation, get expert guidance from 400+ top designers, and relax as we handle everything from design to installation. With 10,000+ homes transformed, your dream home is just a step away. Let’s design your dream home today!
+            Book your free interior design consultation today and get expert guidance from top residential and commercial interior designers.
+From space planning, modular kitchen and wardrobe design, to custom furniture and full turnkey execution, we handle everything — so you can move in stress-free.
+<br/>
+<br/>
+With a portfolio of 1000+ homes and commercial projects delivered, Miggla brings together style, function, and timely handovers — tailored just for you.
+
           </p>
         </div>
 
         {/* Responsive Steps */}
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { src: '/photo1.jpg', title: "Book an appointment" },
-            { src: '/photo2.jpg', title: "Meet our designers" },
-            { src: '/photo3.jpg', title: "Personalise" },
-            { src: '/photo4.webp', title: "Move in" },
-          ].map(({ src, title }, i) => (
-            <div key={i} className="flex sm:block items-start sm:items-center gap-4 sm:gap-0 text-left sm:text-center">
-              <div className="flex-shrink-0 w-1/3 sm:w-full">
-                <img
-                  src={src}
-                  alt={title}
-                  className="w-full h-auto object-cover rounded-xl hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="sm:mt-4">
-                <h2 className="font-bold text-lg sm:text-xl">
-                  <span className="block sm:hidden text-red-500 text-xl font-semibold mb-1">
-                    {`0${i + 1}`}
-                  </span>
-                  {title}
-                </h2>
-              </div>
-            </div>
-          ))}
-        </div>
+  {[
+    { src: '/finalnewimg (1).jpg', title: "Schedule Your Free Design Session" },
+    { src: '/finalnewimg (2).jpg', title: "Connect with Our Creative Minds" },
+    { src: '/finalnewimg (3).jpg', title: "Customise" },
+    { src: '/finalnewimg (4).jpg', title: "Step Into Your New Space" },
+  ].map(({ src, title }, i) => (
+    <div key={i} className="flex flex-col items-center text-center sm:block sm:text-center">
+      <div className="w-full">
+        <img
+          src={src}
+          alt={title}
+          className="w-full h-auto object-cover rounded-xl hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+      <div className="mt-3 sm:mt-4">
+        <h2 className="font-bold text-base sm:text-lg">
+          <span className="text-red-500 text-lg sm:text-xl font-semibold block mb-1">
+            {`0${i + 1}`}
+          </span>
+          {title}
+        </h2>
+      </div>
+    </div>
+  ))}
+</div>
+
 
         {/* CTA */}
         <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-5 text-center">
