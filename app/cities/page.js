@@ -52,16 +52,16 @@ export default function CitiesPage() {
         <p className="text-gray-600 mb-6">
           Whether you’re in a metro or a small town, we bring creativity and quality to every corner. Reach out to bring your vision to life!
         </p>
-        <Link href="/#contactform">
-          <button className="bg-red-400 text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition">
+        <Link href="/contact">
+          <button className="bg-red-400 cursor-pointer text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition">
             Contact Us
           </button>
         </Link>
       </section>
 
       {/* Footer */}
-      <footer className="mt-16 text-center text-sm text-gray-500 pb-6">
-        © {new Date().getFullYear()} YourCompanyName Interiors. All rights reserved.
+      <footer className="mt-16 text-center text-sm text-gray-500 pb-6"> 
+        © {new Date().getFullYear()} Miggla Interiors. All rights reserved.
       </footer>
     </main>
   )
