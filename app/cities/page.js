@@ -16,7 +16,7 @@ export default function CitiesPage() {
     <main className="bg-[#fdfbf7] text-gray-800">
       {/* Header */}
       <section className="text-center py-16 px-6">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Cities We’ve Transformed</h1>
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Cities We’ve Worked In</h1>
         <p className="max-w-2xl mx-auto text-lg text-gray-600">
           From north to south, our team has reimagined spaces across India’s most vibrant cities. Discover where we’ve worked and what we’ve built.
         </p>
