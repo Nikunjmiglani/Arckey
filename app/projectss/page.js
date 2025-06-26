@@ -26,6 +26,7 @@ const projectsData = [
       { name: 'Studio Apartment', image: '/projects/rohtak3.jpg', feedback: 'Impressive functionality in a small space.' },
       { name: 'Boutique Office', image: '/projects/rohtak4.jpg', feedback: 'Modern and client-friendly.' },
       { name: 'Bright Flat', image: '/projects/rohtak5.jpg', feedback: 'Loved the natural lighting.' },
+      { name: 'Bright Flat', image: '/projects/rohtak5.jpg', feedback: 'Loved the natural lighting.' },
     ],
   },
   {

@@ -17,10 +17,90 @@ const galleryImages = [
 ]
 
 
+const tabs = [
+  {
+    title: "Personalised for You",
+    content: (
+      <>
+        <p className="text-lg text-gray-700 mb-4">
+          Tell our design experts what makes you tick, and we deliver to your needs.
+        </p>
+        <p className="text-lg text-gray-700 mb-4">
+          Have a minimalist sensibility? Or a child who loves superheroes? Our designers bring your taste to life.
+        </p>
+        <p className="text-lg text-gray-700 mb-6">
+          Feeling a bit cramped? <span className="font-bold text-gray-900">Create up to 20% more space</span> at a fraction of the cost of a larger home.
+        </p>
+      </>
+    ),
+    image: "/images/personalised.jpg"
+  },
+  {
+    title: "Quality Guaranteed",
+    content: (
+      <>
+        <p className="text-lg text-gray-700 mb-4">
+          Every Miggla project is backed by rigorous quality checks and premium materials.
+        </p>
+        <p className="text-lg text-gray-700 mb-6">
+          From hinges to handles, we ensure top-grade components so your designs last for years.
+        </p>
+      </>
+    ),
+    image: "/images/quality.jpg"
+  },
+  {
+    title: "Project Management from A to Z",
+    content: (
+      <>
+        <p className="text-lg text-gray-700 mb-4">
+          Sit back while our experts manage everything from planning to installation.
+        </p>
+        <p className="text-lg text-gray-700 mb-6">
+          You’ll get regular updates and a dedicated team for seamless delivery.
+        </p>
+      </>
+    ),
+    image: "/images/project-management.jpg"
+  },
+  {
+    title: "Easy EMI Options",
+    content: (
+      <>
+        <p className="text-lg text-gray-700 mb-4">
+          With flexible EMI options, your dream home interior is now more affordable than ever.
+        </p>
+        <p className="text-lg text-gray-700 mb-6">
+          Choose a plan that fits your budget without compromising on design.
+        </p>
+      </>
+    ),
+    image: "/images/emi.jpg"
+  },
+  {
+    title: "On-time Delivery",
+    content: (
+      <>
+        <p className="text-lg text-gray-700 mb-4">
+          We value your time. Our teams follow strict timelines to ensure timely project completion.
+        </p>
+        <p className="text-lg text-gray-700 mb-6">
+          With Miggla, you’ll never have to worry about delays again.
+        </p>
+      </>
+    ),
+    image: "/images/ontime.jpg"
+  }
+];
+
+
 
 
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState(0);
+  
+
 
   const [showPopup, setShowPopup] = useState(true);
   const [index, setIndex] = useState(0);
@@ -189,12 +269,55 @@ export default function Home() {
     
    
   ]
+  const [showTimedPopup, setShowTimedPopup] = useState(false);
+
+useEffect(() => {
+  console.log("Mounted and checking popup...");
+  const popupShown = sessionStorage.getItem("popupShown");
+  if (!popupShown) {
+  
+    const timer = setTimeout(() => {
+      setShowTimedPopup(true);
+      sessionStorage.setItem("popupShown", "true");
+      console.log("Popup displayed");
+    }, 5000);
+    return () => clearTimeout(timer);
+  }
+}, []);
+
 
 
 
 
   return (
     <main className="font-sans">
+     {showTimedPopup && (
+  <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/50">
+    <div className="bg-white rounded-xl p-6 w-[90%] max-w-md shadow-lg relative">
+      <button
+        className="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl"
+        onClick={() => setShowTimedPopup(false)}
+      >
+        ×
+      </button>
+      <h2 className="text-xl font-bold mb-4">Book a Free Design Consultation</h2>
+      <form onSubmit={handleSubmit} className="space-y-3">
+        <input type="text" name="name" required placeholder="Name" className="w-full border p-2 rounded" onChange={handleChange} value={formData.name} />
+        <input type="tel" name="phone" required placeholder="Mobile Number" className="w-full border p-2 rounded" onChange={handleChange} value={formData.phone} />
+        <input type="email" name="email" required placeholder="Email" className="w-full border p-2 rounded" onChange={handleChange} value={formData.email} />
+        <textarea name="query" required placeholder="Your Query" className="w-full border p-2 rounded" onChange={handleChange} value={formData.query}></textarea>
+        <select name="budget" required className="w-full border p-2 rounded text-gray-600" onChange={handleChange} value={formData.budget}>
+          <option value="">Estimated Budget</option>
+          <option>Below ₹5 Lakh</option>
+          <option>₹5 - ₹10 Lakh</option>
+          <option>₹10+ Lakh</option>
+        </select>
+        <button type="submit" className="w-full bg-red-600 text-white py-2 rounded">Submit</button>
+      </form>
+    </div>
+  </div>
+)}
+
 
 
      
@@ -261,7 +384,7 @@ export default function Home() {
 
 
 
-      <section className="bg-[#f4f0e9] py-10 px-4 sm:px-10 mt-10" id="contactform" >
+      <section className="bg-[#f4f0e9] py-10 px-4 sm:px-10 mt-10" id="contactform"  >
         <div className="text-center max-w-3xl mx-auto mb-10">
           <h1 className="font-bold text-3xl sm:text-4xl mb-3">
             Transform Your Space With The Best Interior Designers In Delhi
@@ -296,25 +419,44 @@ export default function Home() {
 
 
           {/* Circular Images Section */}
-          <div className="relative w-full flex-1 h-[500px] mt-10 lg:mt-0 hidden lg:block">
+          {/* Custom Image Layout Section */}
+{/* Custom Image Layout Section - Hidden on mobile */}
+<div className="hidden lg:flex w-full flex-1 gap-10 mt-7">
 
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <img src="/roundimg1.webp" className="rounded-full w-60 sm:w-72 h-60 sm:h-72 object-cover border-4 border-white shadow-xl" alt="imgform"/>
-              <div className="absolute top-5 right-5 bg-white px-4 py-2 rounded-xl shadow text-xl font-semibold">Design</div>
-            </div>
-            <div className="absolute bottom-0 right-0">
-              <img src="/roundimg2.webp" className="rounded-full w-40 sm:w-48 h-40 sm:h-48 object-cover border-4 border-white shadow-xl" alt="imgfor" />
-              <div className="absolute bottom-5 right-5 bg-black text-white px-4 py-1 rounded-xl shadow text-lg font-semibold">Implement</div>
-            </div>
-            <div className="absolute bottom-0 left-0">
-              <img src="/roundimg3.webp" className="rounded-full w-40 sm:w-48 h-40 sm:h-48 object-cover border-4 border-white shadow-xl" alt="imgfom" />
-              <div className="absolute bottom-5 left-5 bg-black text-white px-4 py-1 rounded-xl shadow text-lg font-semibold">Survey</div>
-            </div>
-            <div className="absolute top-0 right-0">
-              <img src="/roundimg4.webp" className="rounded-full w-28 h-28 object-cover border-4 border-white shadow-xl" alt="imgfrm" />
-              <div className="absolute bottom-1 right-1 bg-white px-3 py-1 rounded-xl shadow text-sm font-semibold">Handover</div>
-            </div>
-          </div>
+  {/* Left Big Image */}
+  <div className="flex-1 h-[400px] rounded-xl overflow-hidden shadow-xl">
+    <div className="relative h-full w-full">
+      <img
+        src="/roundimg1.webp"
+        alt="Design"
+        className="w-full h-full object-cover rounded-xl"
+      />
+     
+    </div>
+  </div>
+
+  {/* Right Two Smaller Images */}
+  <div className="flex flex-col gap-6 w-[40%]">
+    <div className="relative h-[240px] rounded-xl overflow-hidden shadow-xl">
+      <img
+        src="/roundimg2.webp"
+        alt="Implement"
+        className="w-full h-full object-cover rounded-xl"
+      />
+      
+    </div>
+    <div className="relative h-[240px] rounded-xl overflow-hidden shadow-xl">
+      <img
+        src="/roundimg3.webp"
+        alt="Survey"
+        className="w-full h-full object-cover rounded-xl"
+      />
+      
+    </div>
+  </div>
+</div>
+
+
         </div>
       </section>
 
@@ -467,6 +609,103 @@ export default function Home() {
         </div>
       </div>
       </section>
+      <section className="bg-white py-16 px-4 sm:px-10" id="delivered-projects">
+  <div className="text-center max-w-4xl mx-auto mb-12">
+    <h2 className="text-4xl font-bold mb-4 text-gray-800">Delivered Projects</h2>
+    <p className="text-gray-600 text-lg">
+      Take a look at some of the beautiful spaces we've had the pleasure of creating for our clients.
+    </p>
+  </div>
+
+  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+    {[
+      {
+        title: "Elegant 3BHK in Gurgaon",
+        img: "/projects/project1.jpg",
+      },
+      {
+        title: "Modern Kitchen in Noida",
+        img: "/projects/project2.jpg",
+      },
+      {
+        title: "Luxury Living Room Delhi",
+        img: "/projects/project3.jpg",
+      },
+      {
+        title: "Office Interior Mumbai",
+        img: "/projects/project4.jpg",
+      },
+      {
+        title: "Classic Bedroom Setup",
+        img: "/projects/project5.jpg",
+      },
+      {
+        title: "Rustic Theme Apartment",
+        img: "/projects/project6.jpg",
+      },
+    ].map(({ title, img }, i) => (
+      <div
+        key={i}
+        className="bg-gray-50 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 overflow-hidden"
+      >
+        <img
+          src={img}
+          alt={title}
+          className="w-full h-48 object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+ <section className="py-10 px-4 md:px-20 bg-white">
+      <h2 className="text-3xl font-bold mb-6 text-gray-800">Why Miggla</h2>
+
+      {/* Tab Navigation */}
+      <div className="flex flex-wrap border-b border-gray-300 text-lg font-medium text-gray-700 mb-8">
+        {tabs.map((tab, index) => (
+          <button
+            key={index}
+            className={`px-4 py-2 ${
+              activeTab === index
+                ? 'border-b-2 border-yellow-500 text-black'
+                : 'text-gray-600 hover:text-black'
+            }`}
+            onClick={() => setActiveTab(index)}
+          >
+            {tab.title}
+          </button>
+        ))}
+      </div>
+
+      {/* Tab Content */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Left - Image */}
+        <div className="relative">
+          <img
+            src={tabs[activeTab].image}
+            alt={tabs[activeTab].title}
+            className="w-full rounded-lg shadow"
+          />
+          <div className="absolute bottom-4 left-4 bg-white bg-opacity-90 text-green-700 font-extrabold text-4xl px-4 py-2 rounded">
+            50+
+          </div>
+        </div>
+
+        {/* Right - Text */}
+        <div>
+          {tabs[activeTab].content}
+          <button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3 rounded">
+            Personalise Your Design
+          </button>
+        </div>
+      </div>
+    </section>
+
+
 
 
 
