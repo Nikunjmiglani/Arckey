@@ -201,15 +201,16 @@ export default function Home() {
       <section className="relative w-full h-[300px] sm:h-[500px] overflow-hidden bg-gray-100">
       <div className="relative w-full h-full">
         <Image
-          src="/imgimg.webp"
+          src="/imgimg1.webp"
           alt="mainimg"
           fill
           priority
+           sizes="(max-width: 640px) 100vw, 100vw" 
           className="object-cover"
         />
       </div>
     </section>
-    
+
       <section className="mt-10 px-4 sm:px-10">
         <div className="ml-2 sm:ml-10">
           <h1 className="font-bold text-2xl mb-4">Home Interiors Made Easy</h1>
