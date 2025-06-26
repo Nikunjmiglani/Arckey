@@ -7,13 +7,16 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
+const galleryImages = [
+  '/spcimg1.webp',
+  '/spcimg2.webp',
+  '/spcimg3.webp',
+  '/spcimg4.webp',
+  '/spcimg5.webp',
+  '/servicesimg (4).jpeg',
+]
 
 
-const images = [
-  '/imgimg.webp',
-  '/image2.webp',
-  '/image3.webp',
-];
 
 
 
@@ -168,6 +171,24 @@ export default function Home() {
     alert("Submitted Successfully!");
     setFormData({ name: "", phone: "", email: "", query: "", budget: "" });
   };
+   const handleDotClick = (index) => {
+    setCurrent(index)
+  }
+  const leftLinks = [
+    { name: "Services", href: "/#services" },
+    { name: "Testimonials", href: "/#reviews" },
+    { name: "Blog", href: "/#blogs" },
+    { name: "Contact us", href: "/contact" },
+    
+  ]
+  const rightLinks = [
+    { name: "Careers", href: "/careers" },
+    { name: "Privacy Policy", href: "/legal" },
+    { name: "Terms & Conditions", href: "/legal" },
+    { name: "FAQ", href: "/legal" },
+    
+   
+  ]
 
 
 
@@ -176,24 +197,12 @@ export default function Home() {
     <main className="font-sans">
 
 
-      {/* Carousel Section */}
+     
       <section className="relative w-full h-[300px] sm:h-[500px] overflow-hidden bg-gray-100">
         <div className="relative w-full h-full">
-          {images.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              className={`absolute w-full h-full object-cover top-0 left-0 transition-opacity duration-700 ease-in-out ${i === index ? "opacity-100 z-10" : "opacity-0 z-0"}`}
-              alt={`slide-${i}`}
-            />
-          ))}
+        <img src="imgimg.webp" className="absolute w-full h-full object-cover top-0 left-0 transition-opacity duration-700 ease-in-out" alt="" />
         </div>
-        <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white text-gray-800 p-3 rounded-full shadow hover:bg-gray-200 transition z-20">
-          <FaArrowLeft />
-        </button>
-        <button onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white text-gray-800 p-3 rounded-full shadow hover:bg-gray-200 transition z-20">
-          <FaArrowRight />
-        </button>
+      
       </section>
 
       <section className="mt-10 px-4 sm:px-10">
@@ -205,11 +214,11 @@ export default function Home() {
         </div>
 
         {/* Responsive Steps */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { src: '/photo1.jpg', title: "Book an appointment" },
             { src: '/photo2.jpg', title: "Meet our designers" },
-            { src: '/photo3.jpg', title: "Personalise your designs" },
+            { src: '/photo3.jpg', title: "Personalise" },
             { src: '/photo4.webp', title: "Move in" },
           ].map(({ src, title }, i) => (
             <div key={i} className="flex sm:block items-start sm:items-center gap-4 sm:gap-0 text-left sm:text-center">
@@ -234,7 +243,7 @@ export default function Home() {
 
         {/* CTA */}
         <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-5 text-center">
-          <a href="/" className="hover:text-black text-red-500 text-2xl cursor-pointer">Learn More - </a>
+        
           <a href="#contactform">
             <button className="px-6 py-5 hover:scale-110 transition-transform duration-200 rounded-full bg-red-400 font-mono text-center">
               Get Started Now
@@ -314,36 +323,36 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {[
             {
               title: "Full Home Interiors",
-              desc: "Complete design and execution for every room, customized to your style.",
+             
               img: "/servicesimg (2).jpeg",
             },
             {
               title: "Modular Kitchens & Wardrobes",
-              desc: "Smart storage and beautiful finishes to make your everyday easy and elegant.",
+             
               img: "/servicesimg (5).jpeg",
             },
             {
               title: "Living & Bedroom Makeovers",
-              desc: "Stylish upgrades with curated furniture, lighting, and textiles.",
+             
               img: "/servicesimg (4).jpeg",
             },
             {
               title: "Design Consultation",
-              desc: "Work with our expert designers to create your personalized design plan.",
+              
               img: "/servicesimg (3).jpeg",
             },
             {
               title: "Décor & Styling",
-              desc: "Add the perfect finishing touches with our décor and styling services.",
+             
               img: "/servicesimg (6).jpeg",
             },
             {
               title: "Office & Commercial Spaces",
-              desc: "Modern, productive environments tailored to your brand and business.",
+             
               img: "/servicesimg (1).jpeg",
             },
           ].map(({ title, desc, img }, i) => (
@@ -430,25 +439,27 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Section 3: Product Categories */}
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-10">Product Categories</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5 justify-items-center  ">
-            {[
-              { label: "Commercial Interior Design", src: "/spcimg1.webp" },
-              { label: "Residential Interior Design", src: "/spcimg2.webp" },
-              { label: "Luxury Bathroom Design", src: "/spcimg3.webp" },
-              { label: "Modular TV Unit", src: "/spcimg4.webp" },
-              { label: "Designer Beds", src: "/spcimg5.webp" },
-
-            ].map((item, idx) => (
-              <div key={idx} className="bg-blue-50 p-3 cursor-pointer hover:scale-110 transition-transform duration-200">
-                <img src={item.src} alt={item.label} className="w-50  h-50 object-cover mx-auto mb-2" />
-                <p className="text-base font-medium">{item.label}</p>
-              </div>
-            ))}
-          </div>
+        {/* Section 3: gallery */}
+         <div className="container mx-auto px-4">
+        <div className="text-center mb-10">
+          <h2 id="gallery"  className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Our Interior Designs</h2>
+          <p className="text-gray-600 text-lg">Explore our gallery of beautifully crafted spaces</p>
         </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {galleryImages.map((src, index) => (
+            <div key={index} className="overflow-hidden rounded-xl shadow-md group">
+              <Image
+                src={src}
+                alt={`Interior ${index + 1}`}
+                width={198}
+                height={198}
+                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
       </section>
 
 
@@ -467,30 +478,29 @@ export default function Home() {
 
 
         <div className="relative z-10 max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl text-amber-50 font-bold mb-10">Our Happy Clients</h2>
+      <h2 className="text-3xl text-amber-50 font-bold mb-10">Our Happy Clients</h2>
 
-          <div className="relative hover:scale-110 transition-transform duration-500 bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-gray-200 min-h-[250px]  ease-in-out">
-            <h3 className="text-xl font-bold mb-4 transition-all duration-500">{testimonials[current].name}</h3>
-            <hr className="my-4 w-20 mx-auto border-gray-300" />
-            <p className="text-gray-700 text-base transition-all duration-500">
-              {testimonials[current].message}
-            </p>
+      <div className="relative hover:scale-110 transition-transform duration-500 bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-gray-200 min-h-[250px] ease-in-out">
+        <h3 className="text-xl font-bold mb-4 transition-all duration-500">{testimonials[current].name}</h3>
+        <hr className="my-4 w-20 mx-auto border-gray-300" />
+        <p className="text-gray-700 text-base transition-all duration-500">
+          {testimonials[current].message}
+        </p>
+      </div>
 
-            {/* Arrows */}
-            <button
-              onClick={prevTestimonial}
-              className="absolute left-[-30px] top-1/2 -translate-y-1/2 bg-black text-white p-2 rounded-full shadow hover:bg-gray-800 transition"
-            >
-              <FaArrowLeft />
-            </button>
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-[-30px] top-1/2 -translate-y-1/2 bg-black text-white p-2 rounded-full shadow hover:bg-gray-800 transition"
-            >
-              <FaArrowRight />
-            </button>
-          </div>
-        </div>
+      {/* Dots */}
+      <div className="flex justify-center mt-6 space-x-2">
+        {testimonials.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleDotClick(index)}
+            className={`w-3 h-3 rounded-full ${
+              current === index ? 'bg-amber-500 scale-125' : 'bg-gray-300'
+            } transition-transform duration-300`}
+          />
+        ))}
+      </div>
+    </div>
       </section>
       <section className="py-12 bg-white text-center">
         <h2 className="text-3xl font-bold mb-10">Our Brands</h2>
@@ -585,13 +595,13 @@ export default function Home() {
 
             {/* Logo + About */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
+             <Link href="/"> <div className="flex items-center gap-2 mb-4">
                 <img src="/logoimg.png" alt="Logo" className="w-12 h-12" />
                 <h1 className="text-xl font-bold leading-tight">
                   MIGGLA <br />
                   <span className="text-red-500 font-extralight">luxurious Interior Designer & custom furniture manufacturer</span>
                 </h1>
-              </div>
+              </div></Link>
               <p className="text-gray-400 text-sm">
                 Miggla is at your service, if you want to give your home interiors a fresh and elegant look without spending huge fortune.
               </p>
@@ -610,26 +620,25 @@ export default function Home() {
             </div>
 
             {/* Useful Links */}
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <h2 className="text-xl font-bold mb-4">Useful Links</h2>
-                {[
-                  "3D Services", "Testimonials",
-                  "Blog", "Get a Quote", "Contact us", "Talk to Designer"
-                ].map((link, idx) => (
-                  <p key={idx} className="text-gray-400 text-sm hover:text-white cursor-pointer">+ {link}</p>
-                ))}
-              </div>
-              <div>
-                <h2 className="text-xl font-bold mb-4 invisible md:visible">&nbsp;</h2>
-                {[
-                  "Careers", "Privacy Policy", "Terms & Conditions",
-                  "FAQ", "Vastu for Interior", "Services"
-                ].map((link, idx) => (
-                  <p key={idx} className="text-gray-400 text-sm hover:text-white cursor-pointer">+ {link}</p>
-                ))}
-              </div>
-            </div>
+           <div className="grid grid-cols-2 gap-6">
+      <div>
+        <h2 className="text-xl font-bold mb-4">Useful Links</h2>
+        {leftLinks.map((link, idx) => (
+          <Link key={idx} href={link.href}>
+            <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
+          </Link>
+        ))}
+      </div>
+
+      <div>
+        <h2 className="text-xl font-bold mb-4 invisible md:visible">&nbsp;</h2>
+        {rightLinks.map((link, idx) => (
+          <Link key={idx} href={link.href}>
+            <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
+          </Link>
+        ))}
+      </div>
+    </div>
 
             {/* Subscribe */}
             <div>

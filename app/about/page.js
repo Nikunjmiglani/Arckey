@@ -16,7 +16,7 @@ export default function AboutPage() {
         {/* Hero Image */}
         <div className="mb-12">
           <Image
-            src="/interior-about.jpg" // Replace with your actual image path
+            src="/servicesimg (3).jpeg" // Replace with your actual image path
             alt="Beautiful modern interior"
             width={1200}
             height={600}

@@ -46,10 +46,10 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-6 font-medium text-gray-800 text-sm">
        <Link  href="/about">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">About</li></Link>
-          <Link  href="/#contactform">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link>
+          <Link  href="/contact">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link>
         <Link  href="/#reviews" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li></Link>
           <Link  href="/#services" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
-          <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li>
+           <Link  href="/#gallery" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
           <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li>
           <Link  href="/#blogs" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
            <Link  href="/cities"> <li className="hover:text-red-600 hover:font-bold cursor-pointer">Cities</li></Link>
@@ -168,16 +168,16 @@ const Navbar = () => {
       {isOpen && (
         <ul className="flex flex-col gap-3 mt-4 text-gray-800 text-sm font-medium lg:hidden">
           <Link  href="/about"> <li className="hover:text-red-600 hover:font-bold cursor-pointer">About</li></Link>  
-          <Link  href="/#contactform"><li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link> 
+          <Link  href="/contact"><li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link> 
           <Link  href="/#reviews">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li></Link>
           
           <Link  href="/#services" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
-          <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li>
+          <Link  href="/#gallery" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
           <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li>
          
           <Link  href="/#blogs" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
          <Link  href="/cities">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Cities</li></Link>
-        <Link href="/#contactform">  <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer animate-bounce " >
+        <Link href="/contact">  <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer animate-bounce " >
             Get Free Estimate Now!!
           </button></Link>
           
