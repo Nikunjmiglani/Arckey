@@ -7,14 +7,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
-const galleryImages = [
-  '/spcimg1.webp',
-  '/spcimg2.webp',
-  '/spcimg3.webp',
-  '/spcimg4.webp',
-  '/spcimg5.webp',
-  '/servicesimg (4).jpeg',
-]
+
 
 
 const tabs = [
@@ -33,7 +26,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/images/personalised.jpg"
+    image: "/roundimg4.webp"
   },
   {
     title: "Quality Guaranteed",
@@ -47,7 +40,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/images/quality.jpg"
+    image: "/finalnewimg (4).jpg"
   },
   {
     title: "Project Management from A to Z",
@@ -61,7 +54,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/images/project-management.jpg"
+    image: "/finalnewimg (1).jpg"
   },
   {
     title: "Easy EMI Options",
@@ -75,7 +68,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/images/emi.jpg"
+    image: "/finalnewimg (3).jpg"
   },
   {
     title: "On-time Delivery",
@@ -89,7 +82,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/images/ontime.jpg"
+    image: "/finalnewimg (2).jpg"
   }
 ];
 
@@ -418,20 +411,19 @@ useEffect(() => {
           </form>
 
 
-          {/* Circular Images Section */}
-          {/* Custom Image Layout Section */}
+        
+         
 {/* Custom Image Layout Section - Hidden on mobile */}
 <div className="hidden lg:flex w-full flex-1 gap-10 mt-7">
 
   {/* Left Big Image */}
-  <div className="flex-1 h-[400px] rounded-xl overflow-hidden shadow-xl">
+  <div className="flex-1 h-[504px] rounded-xl overflow-hidden shadow-xl">
     <div className="relative h-full w-full">
       <img
         src="/roundimg1.webp"
         alt="Design"
         className="w-full h-full object-cover rounded-xl"
       />
-     
     </div>
   </div>
 
@@ -443,7 +435,6 @@ useEffect(() => {
         alt="Implement"
         className="w-full h-full object-cover rounded-xl"
       />
-      
     </div>
     <div className="relative h-[240px] rounded-xl overflow-hidden shadow-xl">
       <img
@@ -451,10 +442,10 @@ useEffect(() => {
         alt="Survey"
         className="w-full h-full object-cover rounded-xl"
       />
-      
     </div>
   </div>
 </div>
+
 
 
         </div>
@@ -564,7 +555,7 @@ useEffect(() => {
 
 
         {/* Section 2: Story Behind */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-0">
           {/* LEFT: Text */}
           <div>
             <h2 className="text-4xl font-bold mb-6">The Story Behind Delhi’s Best Interiors</h2>
@@ -587,29 +578,10 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* Section 3: gallery */}
-         <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 id="gallery"  className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Our Interior Designs</h2>
-          <p className="text-gray-600 text-lg">Explore our gallery of beautifully crafted spaces</p>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {galleryImages.map((src, index) => (
-            <div key={index} className="overflow-hidden rounded-xl shadow-md group">
-              <Image
-                src={src}
-                alt={`Interior ${index + 1}`}
-                width={198}
-                height={198}
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+        
+         
       </section>
-      <section className="bg-white py-16 px-4 sm:px-10" id="delivered-projects">
+      <section className="bg-[#f4f0e9] py-10 px-4 sm:px-10" id="delivered-projects">
   <div className="text-center max-w-4xl mx-auto mb-12">
     <h2 className="text-4xl font-bold mb-4 text-gray-800">Delivered Projects</h2>
     <p className="text-gray-600 text-lg">
@@ -621,27 +593,27 @@ useEffect(() => {
     {[
       {
         title: "Elegant 3BHK in Gurgaon",
-        img: "/projects/project1.jpg",
+        img: "/nowimg (6).jpeg",
       },
       {
         title: "Modern Kitchen in Noida",
-        img: "/projects/project2.jpg",
+        img: "/servicesimg (5).jpeg",
       },
       {
         title: "Luxury Living Room Delhi",
-        img: "/projects/project3.jpg",
+        img: "/servicesimg (2).jpeg",
       },
       {
         title: "Office Interior Mumbai",
-        img: "/projects/project4.jpg",
+        img: "/servicesimg (1).jpeg",
       },
       {
         title: "Classic Bedroom Setup",
-        img: "/projects/project5.jpg",
+        img: "/nowimg (3).jpeg",
       },
       {
         title: "Rustic Theme Apartment",
-        img: "/projects/project6.jpg",
+        img: "/nowimg (4).jpeg",
       },
     ].map(({ title, img }, i) => (
       <div
@@ -661,49 +633,50 @@ useEffect(() => {
   </div>
 </section>
 
- <section className="py-10 px-4 md:px-20 bg-white">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">Why Miggla</h2>
+ <section className="py-10 px-4 sm:px-6 md:px-20 bg-white">
+  <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800 text-center sm:text-left">
+    Why Miggla
+  </h2>
 
-      {/* Tab Navigation */}
-      <div className="flex flex-wrap border-b border-gray-300 text-lg font-medium text-gray-700 mb-8">
-        {tabs.map((tab, index) => (
-          <button
-            key={index}
-            className={`px-4 py-2 ${
-              activeTab === index
-                ? 'border-b-2 border-yellow-500 text-black'
-                : 'text-gray-600 hover:text-black'
-            }`}
-            onClick={() => setActiveTab(index)}
-          >
-            {tab.title}
-          </button>
-        ))}
-      </div>
+  {/* Tab Navigation */}
+  <div className="flex flex-wrap justify-center sm:justify-start border-b border-gray-300 text-base sm:text-lg font-medium text-gray-700 mb-8 space-x-2">
+    {tabs.map((tab, index) => (
+      <button
+        key={index}
+        className={`px-3 sm:px-4 py-2 transition ${
+          activeTab === index
+            ? 'border-b-2 border-yellow-500 text-black'
+            : 'text-gray-600 hover:text-black'
+        }`}
+        onClick={() => setActiveTab(index)}
+      >
+        {tab.title}
+      </button>
+    ))}
+  </div>
 
-      {/* Tab Content */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        {/* Left - Image */}
-        <div className="relative">
-          <img
-            src={tabs[activeTab].image}
-            alt={tabs[activeTab].title}
-            className="w-full rounded-lg shadow"
-          />
-          <div className="absolute bottom-4 left-4 bg-white bg-opacity-90 text-green-700 font-extrabold text-4xl px-4 py-2 rounded">
-            50+
-          </div>
-        </div>
+  {/* Tab Content */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+    {/* Left - Image */}
+    <div className="relative w-full max-w-md mx-auto md:mx-0">
+      <img
+        src={tabs[activeTab].image}
+        alt={tabs[activeTab].title}
+        className="w-full rounded-lg shadow"
+      />
+      
+    </div>
 
-        {/* Right - Text */}
-        <div>
-          {tabs[activeTab].content}
-          <button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3 rounded">
-            Personalise Your Design
-          </button>
-        </div>
-      </div>
-    </section>
+    {/* Right - Text */}
+    <div className="text-center md:text-left space-y-4">
+      <p className="text-base sm:text-lg text-gray-700">
+        {tabs[activeTab].content}
+      </p>
+      
+    </div>
+  </div>
+</section>
+
 
 
 

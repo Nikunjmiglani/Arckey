@@ -31,28 +31,33 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-red-50 shadow-sm px-4 py-3">
+    <nav className="bg-red-50 shadow-sm px-4 py-0">
       {/* Top Row: Logo + Hamburger + Right Buttons */}
       <div className="flex justify-between items-center">
         {/* Logo */}
-     <Link  href="/">     <div className="flex items-center">
-          <img
-            src="/logoimg.png"
-            alt="logo"
-            className="w-32 sm:w-36 cursor-pointer hover:opacity-90 transition-opacity duration-300"
-          />
-        </div></Link>
+   <Link href="/"> <div className="flex items-center">
+  <img
+  src="/logofinal.png"
+  alt="Miggla Logo"
+  className="h-16 sm:h-20 w-auto object-scale-down"
+/>
+
+</div>
+
+</Link>
+
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-6 font-medium text-gray-800 text-sm">
        <Link  href="/about" target='/'>  <li className="hover:text-red-600 hover:font-bold cursor-pointer">About</li></Link>
-          <Link  href="/contact" target='/'>  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link>
+         
         <Link  href="/#reviews" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li></Link>
           <Link  href="/#services" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
-           <Link  href="/#gallery" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
+           <Link  href="/gallery" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
           <Link  href="/projectss" target='/'> <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li></Link>
           <Link  href="/#blogs" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
-           <Link  href="/cities" target='/'> <li className="hover:text-red-600 hover:font-bold cursor-pointer">Cities</li></Link>
+           <Link  href="/cities" target='/'> <li className="hover:text-red-600 hover:font-bold cursor-pointer">Our Presence</li></Link>
+            <Link  href="/contact" target='/'>  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link>
          
         </ul>
 

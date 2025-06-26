@@ -71,16 +71,16 @@ export default function ContactPage() {
             <FaPhoneAlt className="text-amber-500 text-xl" />
             <div>
               <p className="font-medium">Phone Numbers</p>
-              <p className="text-sm">+91 98765 43210</p>
-              <p className="text-sm">+91 91234 56789</p>
+              <p className="text-sm">+91 9899890157</p>
+              <p className="text-sm">+91 9643531515</p>
             </div>
           </div>
           <div className="flex items-center justify-center gap-4 text-gray-700">
             <FaEnvelope className="text-amber-500 text-xl" />
             <div>
               <p className="font-medium">Email Addresses</p>
-              <p className="text-sm">contact@interiordesigns.com</p>
-              <p className="text-sm">support@interiordesigns.com</p>
+              <p className="text-sm">info@miggla.com</p>
+              <p className="text-sm">skumar@miggla.com</p>
             </div>
           </div>
         </div>
