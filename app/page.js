@@ -1161,7 +1161,7 @@ export default function Home() {
                 </button>
               </form>
               <p className="text-gray-400 text-sm mt-3">
-                *Subscribe us and get latest news and updates
+                *Subscribe us and get latest news and updates.
               </p>
             </div>
 
