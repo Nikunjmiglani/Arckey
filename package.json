@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
+    "@tailwindcss/typography": "^0.5.16",
     "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.19.2",
     "lucide-react": "^0.523.0",
@@ -25,6 +26,6 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.10"
+    "tailwindcss": "^4.1.11"
   }
 }

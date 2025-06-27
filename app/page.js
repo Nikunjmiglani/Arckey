@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Head from 'next/head'
+import { blogs } from './blog/blogdata';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { FaCheckCircle } from 'react-icons/fa';
@@ -67,7 +68,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/finalnewimg (4).jpg"
+    image: "/ff.jpg"
   },
   {
     title: "On-Time Always",
@@ -78,7 +79,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/finalnewimg (1).jpg"
+    image: "/1 (2).jpg"
   },
   {
     title: "Crafted With Innovation",
@@ -89,7 +90,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/finalnewimg (3).jpg"
+    image: "/mm.jpg"
   },
   {
     title: "Delhi’s Trusted Designers",
@@ -100,7 +101,7 @@ const tabs = [
        </p>
       </>
     ),
-    image: "/finalnewimg (2).jpg"
+    image: "/fgfg.jpg"
   }
 ];
 
@@ -109,6 +110,7 @@ const tabs = [
 
 
 export default function Home() {
+   
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -195,43 +197,44 @@ export default function Home() {
   const visible = 3;
 
   const blogs = [
-    {
-      img: "/blogimg4.webp",
-      date: "JUN 12, 2024",
-      title: "Top 7 Commercial Interior Design Trends Transforming Modern Workspaces in 2025",
+  {
+    img: "/blogimg4.webp",
+    date: "JUN 12, 2024",
+    title: "Top 7 Commercial Interior Design Trends Transforming Modern Workspaces in 2025",
+    slug: "top-7-commercial-interior-design-trends-transforming-modern-workspaces-in-2025",
+  },
+  {
+    img: "/blogimg1.webp",
+    date: "MAY 28, 2024",
+    title: "Top 5 Bathroom Interior Designers in Delhi NCR | Interior designers near me",
+    slug: "top-5-bathroom-interior-designers-in-delhi-ncr-interior-desginers-near-me",
+  },
+  {
+    img: "/blogimg3.webp",
+    date: "APR 10, 2024",
+    title: "Top 5 Commercial Interior Designers in Delhi NCR – Offices, Retail & Hospitality Spaces",
+    slug: "top-5-commercial-interior-designers-in-delhi-ncr-offices-retail-hospitality-spaces",
+  },
+  {
+    img: "/blogimg2.webp",
+    date: "MAR 15, 2024",
+    title: "Modern Luxury Living Room Design Tips to Transform Your Home in 2025",
+    slug: "luxury-living-room-tips-2025",
+  },
+  {
+    img: "/post-image2.webp",
+    date: "FEB 20, 2024",
+    title: "Interior Tips for Newly Married Couples",
+    slug: "interior-newly-married-couples",
+  },
+  {
+    img: "/post-image3.webp",
+    date: "JAN 5, 2024",
+    title: "Modular Kitchen Ideas for Indian Homes",
+    slug: "modular-kitchen-indian-homes",
+  },
+];
 
-    },
-    {
-      img: "/blogimg1.webp",
-      date: " MAY 28, 2024",
-      title: "Top 5 Bathroom Interior Designers in Delhi NCR | Interior designers near me",
-
-    },
-    {
-      img: "/blogimg3.webp",
-      date: " APR 10, 2024",
-      title: "Top 5 Commercial Interior Designers in Delhi NCR – Offices, Retail & Hospitality Spaces",
-
-    },
-    {
-      img: "/blogimg2.webp",
-      date: " MAR 15, 2024",
-      title: "Modern Luxury Living Room Design Tips to Transform Your Home in 2025",
-
-    },
-    {
-      img: "/post-image2.webp",
-      date: "FEB 20, 2024",
-      title: "Interior Tips for Newly Married Couples",
-
-    },
-    {
-      img: "/post-image3.webp",
-      date: " JAN 5, 2024",
-      title: "Modular Kitchen Ideas for Indian Homes",
-
-    },
-  ];
 
   const next = () => {
     if (start + visible < blogs.length) setStart(start + 1);
@@ -301,6 +304,16 @@ export default function Home() {
       return () => clearTimeout(timer);
     }
   }, []);
+  const [blogIndex, setBlogIndex] = useState(0);
+  const visibleCount = 3; // Number of blog cards visible at once
+
+  const nextBlog = () => {
+    if (blogIndex + visibleCount < blogs.length) setBlogIndex(blogIndex + 1);
+  };
+
+  const prevBlog = () => {
+    if (blogIndex > 0) setBlogIndex(blogIndex - 1);
+  };
 
 
 
@@ -308,16 +321,114 @@ export default function Home() {
 
   return (
     <>
-      <Head>
+     <Head>
         <title>Leading Interior Designers in Delhi | Miggla</title>
-        <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr." />
-        <meta name="keywords" content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me" />
+        <meta
+          name="description"
+          content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr."
+        />
+        <meta
+          name="keywords"
+          content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me"
+        />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
         <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
-       
-        <meta property="og:url" content="arckey.vercel.app" />
+        <meta property="og:url" content="https://miggla.com" />
         <meta name="twitter:card" content="summary_large_image" />
+
+        {/* ✅ JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://miggla.com/#organization",
+                  "name": "Miggla",
+                  "legalName": "Miggla Industries Private Limited",
+                  "url": "https://miggla.com",
+                  "logo": "https://commons.wikimedia.org/wiki/Category:Interior_designers#/media/File:Miggla_logo.png",
+                  "description":
+                    "Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi NCR.",
+                  "telephone": "+919899890157",
+                  "email": "info@miggla.com",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "G-02, Ground floor, Best Sky Tower, Netaji Subhash Place, Pitampura",
+                    "addressLocality": "Delhi",
+                    "postalCode": "110034",
+                    "addressCountry": "IN"
+                  },
+                  "foundingDate": "2021-09-02",
+                  "foundingLocation": {
+                    "@type": "Place",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "addressLocality": "Delhi",
+                      "addressCountry": "IN"
+                    }
+                  },
+                  "employee": {
+                    "@type": "Person",
+                    "name": "Sandeep Kumar"
+                  },
+                  "areaServed": [
+                    "Delhi NCR",
+                    "Gurugram",
+                    "Noida",
+                    "Faridabad",
+                    "Ghaziabad",
+                    "Greater Noida"
+                  ],
+                  "sameAs": [
+                    "https://www.facebook.com/migglaofficial",
+                    "https://www.instagram.com/miggla_official/",
+                    "https://www.youtube.com/@miggla_official",
+                    "https://x.com/miggla_official"
+                  ]
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://miggla.com/#sandeepkumar",
+                  "name": "Sandeep Kumar",
+                  "jobTitle": "Director",
+                  "worksFor": {
+                    "@id": "https://miggla.com/#organization"
+                  },
+                  "email": "skumar@miggla.com",
+                  "description":
+                    "Director at Miggla Industries & Aim of Care Youth Empowerment Foundation. Helping people design spaces that inspire. Passionate about luxury interior design, custom furniture, and empowering youth through education and innovation.",
+                  "birthDate": "0000-10-15",
+                  "birthPlace": {
+                    "@type": "Place",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "addressLocality": "Delhi"
+                    }
+                  },
+                  "url": "https://www.linkedin.com/in/sandeepk-m/"
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://miggla.com/#website",
+                  "url": "https://miggla.com",
+                  "name": "miggla.com",
+                  "publisher": {
+                    "@id": "https://miggla.com/#organization"
+                  },
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://miggla.com/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                  }
+                }
+              ]
+            })
+          }}
+        />
       </Head>
     <main className="font-sans">
       {showTimedPopup && (
@@ -630,54 +741,73 @@ export default function Home() {
 
 <div className="border-t border-gray-500 mx-6 sm:mx-20"></div>
 
-      <section className="bg-white py-20 px-4  sm:px-10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        {/* Left Content */}
-        <div className="w-full md:w-1/2 space-y-6">
-          <h2 className="text-4xl font-bold text-gray-800">Meet Our Founders</h2>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            With over a decade of experience in architectural and interior excellence, our founders envisioned a design house
-            that not only delivers style but also understands space, budget, and human emotion.
-          </p>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            Their journey began with a shared passion for elegant functionality. Today, they lead a team of passionate designers
-            delivering turn-key solutions tailored for every lifestyle.
-          </p>
-          <ul className="space-y-3 mt-4">
-            {[
-              'In-house expert craftsmen and design leaders',
-              'Obsessive attention to quality and detailing',
-              'Use of 3D visualization and modern software',
-              'Trusted by 200+ happy clients across Delhi NCR',
-            ].map((item, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-gray-800">
-                <FaCheckCircle className="text-yellow-600 mt-1" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Right Image with Quote */}
-        <div className="w-full md:w-1/2 relative">
-          <div className="rounded-3xl overflow-hidden shadow-xl">
-            <Image
-              src="/Foundersimg.jpg" 
-              alt="Minimalist TV unit with wall-mounted storage
-
-"
-              width={600}
-              height={700}
-              className="object-cover w-full h-auto"
-            />
-          </div>
-          <div className="absolute bottom-[-40px] left-4 right-4 bg-white p-5 shadow-lg rounded-2xl border-l-4 border-yellow-500">
-            <p className="italic text-gray-700">“We design spaces that don’t just look beautiful, but feel like home.”</p>
-            <p className="mt-2 text-right font-semibold text-gray-800">– Founders</p>
-          </div>
-        </div>
+     <section className="bg-white py-20 px-4 sm:px-10">
+  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    {/* Left Content */}
+    <div className="w-full md:w-1/2 space-y-6">
+      <h2 className="text-4xl font-bold text-gray-800">Meet Our Founders</h2>
+      <p className="text-gray-700 text-lg leading-relaxed">
+        With over a decade of experience in architectural and interior excellence, our founders envisioned a design house
+        that not only delivers style but also understands space, budget, and human emotion.
+      </p>
+      <p className="text-gray-700 text-lg leading-relaxed">
+        Their journey began with a shared passion for elegant functionality. Today, they lead a team of passionate designers
+        delivering turn-key solutions tailored for every lifestyle.
+      </p>
+      
+      {/* New Founder Info Section */}
+      <div className="space-y-4">
+        <h3 className="text-2xl font-semibold text-gray-800">Designing Beyond Aesthetics</h3>
+        <p className="text-gray-700 text-lg leading-relaxed">
+        <strong> Miggla</strong> is driven by two creative leaders transforming both <strong> residential </strong> and <strong> commercial interiors </strong> across <strong> Delhi NCR.</strong>
+        </p>
+        <p className="text-gray-700 text-lg leading-relaxed">
+          <strong>Sandeep Kumar</strong>, <strong>Founder & Director</strong>, brings strategic vision and precision to every project. 
+          Known for delivering luxury interiors and custom furniture on time, he leads with innovation, ensuring every space performs beautifully.
+        </p>
+        <p className="text-gray-700 text-lg leading-relaxed">
+          <strong>Arti Gupta</strong>, <strong>Co-Founder & Lead Designer</strong>, is the creative force behind Miggla’s signature style. 
+          Her designs marry modern elegance with vastu harmony, crafting interiors that are both soulful and stunning.
+        </p>
+        <p className="text-gray-700 text-lg leading-relaxed">
+          Together, they shape interiors that inspire, function, and endure.
+        </p>
       </div>
-    </section>
+
+      <ul className="space-y-3 mt-6">
+        {[
+          'In-house expert craftsmen and design leaders',
+          'Obsessive attention to quality and detailing',
+          'Use of 3D visualization and modern software',
+          'Trusted by 200+ happy clients across Delhi NCR',
+        ].map((item, idx) => (
+          <li key={idx} className="flex items-start gap-3 text-gray-800">
+            <FaCheckCircle className="text-yellow-600 mt-1" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Right Image with Quote */}
+    <div className="w-full md:w-1/2 relative">
+      <div className="rounded-3xl overflow-hidden shadow-xl">
+        <Image
+          src="/founderfounder.jpg"
+          alt="Minimalist TV unit with wall-mounted storage"
+          width={600}
+          height={700}
+          className="object-cover w-full h-auto"
+        />
+      </div>
+      <div className="absolute bottom-[-40px] left-4 right-4 bg-white p-5 shadow-lg rounded-2xl border-l-4 border-yellow-500">
+        <p className="italic text-gray-700">“We design spaces that don’t just look beautiful, but feel like home.”</p>
+        <p className="mt-2 text-right font-semibold text-gray-800">– Founders</p>
+      </div>
+    </div>
+  </div>
+</section>
+
       <section className="bg-[#f4f0e9]  py-10 px-4 sm:px-10" id="delivered-projects">
         <div className="text-center max-w-4xl mx-auto mb-12">
           <h2 className="text-4xl font-bold mb-4 text-gray-800">Delivered Projects</h2>
@@ -907,30 +1037,23 @@ export default function Home() {
       
 
 
-      <section className="px-6 sm:px-12 mb-20 relative " id="blogs">
-        <h1 className="text-left text-xl sm:text-2xl mb-6 mt-10 font-bold text-gray-800" data-aos="fade-right">
+     {/* BLOG SECTION */}
+ <section className="px-6 sm:px-12 mb-20 relative" id="blogs">
+        <h1 className="text-left text-xl sm:text-2xl mb-6 mt-10 font-bold text-gray-800">
           READ BLOG POSTS
         </h1>
 
         <div className="relative overflow-hidden">
           <div
             className="flex gap-8 transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${start * (100 / visible)}%)` }}
+            style={{ transform: `translateX(-${blogIndex * (100 / visibleCount)}%)` }}
           >
-            {blogs.map((post, idx) => (
+            {blogs.map((post) => (
               <div
-                key={idx}
+                key={post.slug}
                 className="min-w-[100%] sm:min-w-[50%] lg:min-w-[33.3333%]"
-                data-aos="fade-up"
-                data-aos-delay={idx * 100}
               >
-                <Link
-                  key={idx}
-                  href={`/blog${idx + 1}`}
-                  className="min-w-[100%] sm:min-w-[50%] lg:min-w-[33.3333%]"
-                  data-aos="fade-up"
-                  data-aos-delay={idx * 100}
-                >
+                <Link href={`/blog/${post.slug}`}>
                   <Image
                     src={post.img}
                     alt={post.title}
@@ -938,34 +1061,34 @@ export default function Home() {
                     height={220}
                     className="object-cover w-full h-[220px] rounded-xl hover:scale-105 transition-transform duration-500 shadow-md cursor-pointer"
                   />
-                  <h2 className="text-gray-500 mt-3 text-sm sm:text-base">{post.date}</h2>
+                  <h2 className="text-gray-500 mt-3 text-sm sm:text-base">
+                    {post.date}
+                  </h2>
                   <h1 className="mt-2 text-lg sm:text-xl font-semibold hover:underline transition text-gray-800">
                     {post.title}
                   </h1>
-                  <p className="text-gray-600 mt-2 text-sm sm:text-base">{post.desc}</p>
                 </Link>
               </div>
             ))}
           </div>
 
-          {/* Arrows */}
+          {/* Arrow Buttons */}
           <button
-            onClick={prev}
-            disabled={start === 0}
+            onClick={prevBlog}
+            disabled={blogIndex === 0}
             className="absolute left-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow hover:bg-gray-800 transition disabled:opacity-30"
           >
             <FaArrowLeft />
           </button>
           <button
-            onClick={next}
-            disabled={start + visible >= blogs.length}
+            onClick={nextBlog}
+            disabled={blogIndex + visibleCount >= blogs.length}
             className="absolute right-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow hover:bg-gray-800 transition disabled:opacity-30"
           >
             <FaArrowRight />
           </button>
         </div>
       </section>
-
 
       <section>
         <footer className="bg-[#1e1e23] text-white pt-14 px-6 sm:px-12">

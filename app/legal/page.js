@@ -5,14 +5,80 @@ export default function LegalPage() {
       <>
       <Head>
         <title>Leading Interior Designers in Delhi | Miggla</title>
-        <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr." />
-        <meta name="keywords" content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me" />
+        <meta
+          name="description"
+          content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr."
+        />
+        <meta
+          name="keywords"
+          content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me"
+        />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
         <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
-       
-        <meta property="og:url" content="arckey.vercel.app" />
+        <meta property="og:url" content="https://arckey.vercel.app" />
         <meta name="twitter:card" content="summary_large_image" />
+
+        {/* ✅ JSON-LD Schema Markup for FAQ Page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What services does Miggla offer for interior design in Delhi NCR?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Miggla provides end-to-end interior design services for residential and commercial spaces including space planning, 3D designs, modular kitchen and wardrobe design, custom furniture manufacturing, and full turnkey interior solutions. We handle everything from concept to execution — so you can relax and move in stress-free."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do you offer commercial interior design for offices and retail spaces?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Miggla offers expert commercial interior design services across Delhi NCR for corporate offices, clinics, salons, showrooms, cafes, and more. We specialize in designing boss cabins, reception areas, conference rooms, workstations, and brand-aligned interiors that enhance both aesthetics and productivity. Whether you need a modern office makeover or a complete turnkey commercial setup, our team ensures smart space planning, quality execution, and on-time delivery."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How long does a full interior design project take?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Project timelines vary by size and complexity, but most 2BHK/3BHK homes are delivered within 45–60 days, and commercial spaces in 30–45 days. We’re known for our on-time handovers with regular progress updates."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What is a turnkey interior solution?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A turnkey interior solution means we handle everything—from design, material selection, civil work, electrical, false ceiling, carpentry, furnishing, to final styling. You simply approve the design, and we deliver the finished space, ready for you to walk in."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How is Miggla different from other interior designers in Delhi?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Miggla offers end-to-end residential and commercial interior design with in-house custom furniture, modular kitchens, and full turnkey execution. With 1000+ projects delivered across Delhi NCR, we ensure Vastu-aligned planning, on-time handovers, and tailored spaces that blend style and function."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can I see previous interior design projects done by Miggla?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can explore our portfolio of 1000+ completed projects across Delhi, Noida, Gurugram, and Faridabad. Visit our Project Gallery or follow us on Instagram for real-time design inspiration."
+                  }
+                }
+              ]
+            })
+          }}
+        />
       </Head>
         <main className="min-h-screen bg-gray-50 py-16 px-6">
             <div className="max-w-4xl mx-auto space-y-16 bg-white/80 backdrop-blur-xl p-10 rounded-3xl shadow-xl border border-gray-200">

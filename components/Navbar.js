@@ -70,7 +70,7 @@ const Navbar = () => {
           <Link  href="/#services" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
            <Link  href="/gallery" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
           <Link  href="/projectss" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li></Link>
-          <Link  href="/#blogs" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
+          <Link  href="/blog" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
            <Link  href="/cities" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Our Presence</li></Link>
             <Link  href="/contact" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link>
          
@@ -195,7 +195,7 @@ const Navbar = () => {
           <Link  href="/gallery" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
          <Link  href="/projectss" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li></Link> 
          
-          <Link  href="/#blogs" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
+          <Link  href="/blog" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
          <Link  href="/cities">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Our Presence</li></Link>
         <Link href="/contact">  <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer animate-bounce " >
             Get Free Estimate Now!!
