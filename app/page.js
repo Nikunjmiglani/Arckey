@@ -661,7 +661,7 @@ export default function Home() {
         <div className="w-full md:w-1/2 relative">
           <div className="rounded-3xl overflow-hidden shadow-xl">
             <Image
-              src="/foundersimg.jpg" // Make sure this is in your /public folder
+              src="/Foundersimg.jpg" 
               alt="Minimalist TV unit with wall-mounted storage
 
 "
