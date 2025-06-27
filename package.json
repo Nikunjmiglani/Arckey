@@ -11,6 +11,8 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@vercel/analytics": "^1.5.0",
+    "framer-motion": "^12.19.2",
+    "lucide-react": "^0.523.0",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

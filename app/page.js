@@ -1,12 +1,36 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
+const faqs = [
+  {
+    question: "What interior styles do you specialize in?",
+    answer:
+      "We specialize in a range of styles—from modern minimalist and Scandinavian to traditional Indian and bohemian aesthetics. Every design is tailored to your vision.",
+  },
+  {
+    question: "How long does a typical project take?",
+    answer:
+      "Depending on the size, it usually ranges from 2 weeks to 2 months. We always prioritize quality while meeting deadlines.",
+  },
+  {
+    question: "Can I be involved in the design process?",
+    answer:
+      "Absolutely! We believe in collaborative design. Your input and feedback are central to creating your dream space.",
+  },
+  {
+    question: "Do you offer eco-friendly options?",
+    answer:
+      "Yes, we provide sustainable materials and eco-conscious design strategies that don’t compromise on beauty or functionality.",
+  },
+];
 
 
 
@@ -91,8 +115,14 @@ const tabs = [
 
 
 export default function Home() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+  setActiveIndex(activeIndex === index ? null : index);
+};
+
   const [activeTab, setActiveTab] = useState(0);
-  
+
 
 
   const [showPopup, setShowPopup] = useState(true);
@@ -175,37 +205,37 @@ export default function Home() {
       img: "/blogimg4.webp",
       date: "JUN 12, 2024",
       title: "Top 7 Commercial Interior Design Trends Transforming Modern Workspaces in 2025",
-      
+
     },
     {
       img: "/blogimg1.webp",
       date: " MAY 28, 2024",
       title: "Top 5 Bathroom Interior Designers in Delhi NCR | Interior designers near me",
-      
+
     },
     {
       img: "/blogimg3.webp",
       date: " APR 10, 2024",
       title: "Top 5 Commercial Interior Designers in Delhi NCR – Offices, Retail & Hospitality Spaces",
-     
+
     },
     {
       img: "/blogimg2.webp",
       date: " MAR 15, 2024",
       title: "Modern Luxury Living Room Design Tips to Transform Your Home in 2025",
-      
+
     },
     {
       img: "/post-image2.webp",
       date: "FEB 20, 2024",
       title: "Interior Tips for Newly Married Couples",
-      
+
     },
     {
       img: "/post-image3.webp",
       date: " JAN 5, 2024",
       title: "Modular Kitchen Ideas for Indian Homes",
-     
+
     },
   ];
 
@@ -244,7 +274,7 @@ export default function Home() {
     alert("Submitted Successfully!");
     setFormData({ name: "", phone: "", email: "", query: "", budget: "" });
   };
-   const handleDotClick = (index) => {
+  const handleDotClick = (index) => {
     setCurrent(index)
   }
   const leftLinks = [
@@ -252,31 +282,31 @@ export default function Home() {
     { name: "Testimonials", href: "/#reviews" },
     { name: "Blog", href: "/#blogs" },
     { name: "Contact us", href: "/contact" },
-    
+
   ]
   const rightLinks = [
     { name: "Careers", href: "/careers" },
     { name: "Privacy Policy", href: "/legal" },
     { name: "Terms & Conditions", href: "/legal" },
     { name: "FAQ", href: "/legal" },
-    
-   
+
+
   ]
   const [showTimedPopup, setShowTimedPopup] = useState(false);
 
-useEffect(() => {
-  console.log("Mounted and checking popup...");
-  const popupShown = sessionStorage.getItem("popupShown");
-  if (!popupShown) {
-  
-    const timer = setTimeout(() => {
-      setShowTimedPopup(true);
-      sessionStorage.setItem("popupShown", "true");
-      console.log("Popup displayed");
-    }, 5000);
-    return () => clearTimeout(timer);
-  }
-}, []);
+  useEffect(() => {
+    console.log("Mounted and checking popup...");
+    const popupShown = sessionStorage.getItem("popupShown");
+    if (!popupShown) {
+
+      const timer = setTimeout(() => {
+        setShowTimedPopup(true);
+        sessionStorage.setItem("popupShown", "true");
+        console.log("Popup displayed");
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
 
 
@@ -284,94 +314,90 @@ useEffect(() => {
 
   return (
     <main className="font-sans">
-     {showTimedPopup && (
-  <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/50">
-    <div className="bg-white rounded-xl p-6 w-[90%] max-w-md shadow-lg relative">
-      <button
-        className="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl"
-        onClick={() => setShowTimedPopup(false)}
-      >
-        ×
-      </button>
-      <h2 className="text-xl font-bold mb-4">Book a Free Design Consultation</h2>
-      <form onSubmit={handleSubmit} className="space-y-3">
-        <input type="text" name="name" required placeholder="Name" className="w-full border p-2 rounded" onChange={handleChange} value={formData.name} />
-        <input type="tel" name="phone" required placeholder="Mobile Number" className="w-full border p-2 rounded" onChange={handleChange} value={formData.phone} />
-        <input type="email" name="email" required placeholder="Email" className="w-full border p-2 rounded" onChange={handleChange} value={formData.email} />
-        <textarea name="query" required placeholder="Your Query" className="w-full border p-2 rounded" onChange={handleChange} value={formData.query}></textarea>
-        <select name="budget" required className="w-full border p-2 rounded text-gray-600" onChange={handleChange} value={formData.budget}>
-          <option value="">Estimated Budget</option>
-          <option>Below ₹5 Lakh</option>
-          <option>₹5 - ₹10 Lakh</option>
-          <option>₹10+ Lakh</option>
-        </select>
-        <button type="submit" className="w-full bg-red-600 text-white py-2 rounded">Submit</button>
-      </form>
-    </div>
-  </div>
-)}
+      {showTimedPopup && (
+        <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/50">
+          <div className="bg-white rounded-xl p-6 w-[90%] max-w-md shadow-lg relative">
+            <button
+              className="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl"
+              onClick={() => setShowTimedPopup(false)}
+            >
+              ×
+            </button>
+            <h2 className="text-xl font-bold mb-4">Book a Free Design Consultation</h2>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <input type="text" name="name" required placeholder="Name" className="w-full border p-2 rounded" onChange={handleChange} value={formData.name} />
+              <input type="tel" name="phone" required placeholder="Mobile Number" className="w-full border p-2 rounded" onChange={handleChange} value={formData.phone} />
+              <input type="email" name="email" required placeholder="Email" className="w-full border p-2 rounded" onChange={handleChange} value={formData.email} />
+              <textarea name="query" required placeholder="Your Query" className="w-full border p-2 rounded" onChange={handleChange} value={formData.query}></textarea>
+              <select name="budget" required className="w-full border p-2 rounded text-gray-600" onChange={handleChange} value={formData.budget}>
+                <option value="">Estimated Budget</option>
+                <option>Below ₹5 Lakh</option>
+                <option>₹5 - ₹10 Lakh</option>
+                <option>₹10+ Lakh</option>
+              </select>
+              <button type="submit" className="w-full bg-red-600 text-white py-2 rounded">Submit</button>
+            </form>
+          </div>
+        </div>
+      )}
 
 
 
-     
+
       <section className="relative w-full h-[300px] sm:h-[500px] overflow-hidden bg-gray-100">
-      <div className="relative w-full h-full">
-        <Image
-          src="/imgimg1.webp"
-          alt="mainimg"
-          fill
-          priority
-           sizes="(max-width: 640px) 100vw, 100vw" 
-          className="object-cover"
-        />
-      </div>
-    </section>
+        <div className="relative w-full h-full">
+          <Image
+            src="/logologo.webp"
+            alt="mainimg"
+            fill
+            priority
+            sizes="(max-width: 640px) 100vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+      </section>
 
       <section className="mt-10 px-4 sm:px-10">
         <div className="ml-2 sm:ml-10">
           <h1 className="font-bold text-2xl mb-4">Let’s design a space you’ll love — home or office.</h1>
           <p className="text-gray-700">
-            Book your free interior design consultation today and get expert guidance from top residential and commercial interior designers.
-From space planning, modular kitchen and wardrobe design, to custom furniture and full turnkey execution, we handle everything — so you can move in stress-free.
-<br/>
-<br/>
-With a portfolio of 1000+ homes and commercial projects delivered, Miggla brings together style, function, and timely handovers — tailored just for you.
+          Book your free consultation with Delhi’s top interior designers! From stunning commercial and residential interiors to complete turnkey execution, we design for style, function, and timely delivery. Miggla excels in modular kitchens, custom furniture, and transforming spaces you'll love to live or work in.
 
           </p>
         </div>
 
         {/* Responsive Steps */}
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-  {[
-    { src: '/finalnewimg (1).jpg', title: "Schedule Your Free Design Session" },
-    { src: '/finalnewimg (2).jpg', title: "Connect with Our Creative Minds" },
-    { src: '/finalnewimg (3).jpg', title: "Customise" },
-    { src: '/finalnewimg (4).jpg', title: "Step Into Your New Space" },
-  ].map(({ src, title }, i) => (
-    <div key={i} className="flex flex-col items-center text-center sm:block sm:text-center">
-      <div className="w-full">
-        <img
-          src={src}
-          alt={title}
-          className="w-full h-auto object-cover rounded-xl hover:scale-105 transition-transform duration-500"
-        />
-      </div>
-      <div className="mt-3 sm:mt-4">
-        <h2 className="font-bold text-base sm:text-lg">
-          <span className="text-red-500 text-lg sm:text-xl font-semibold block mb-1">
-            {`0${i + 1}`}
-          </span>
-          {title}
-        </h2>
-      </div>
-    </div>
-  ))}
-</div>
+          {[
+            { src: '/finalnewimg (1).jpg', title: "Schedule a visit" },
+            { src: '/finalnewimg (2).jpg', title: "Consult Our Experts" },
+            { src: '/finalnewimg (3).jpg', title: "Tailor Your Space" },
+            { src: '/finalnewimg (4).jpg', title: "nter Your Dream Space" },
+          ].map(({ src, title }, i) => (
+            <div key={i} className="flex flex-col items-center text-center sm:block sm:text-center">
+              <div className="w-full">
+                <img
+                  src={src}
+                  alt={title}
+                  className="w-full h-auto object-cover rounded-xl hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="mt-3 sm:mt-4">
+                <h2 className="font-bold text-base sm:text-lg">
+                  <span className="text-red-500 text-lg sm:text-xl font-semibold block mb-1">
+                    {`0${i + 1}`}
+                  </span>
+                  {title}
+                </h2>
+              </div>
+            </div>
+          ))}
+        </div>
 
 
         {/* CTA */}
         <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-5 text-center">
-        
+
           <a href="#contactform">
             <button className="px-6 py-5 hover:scale-110 transition-transform duration-200 rounded-full bg-red-400 font-mono text-center">
               Get Started Now
@@ -417,40 +443,40 @@ With a portfolio of 1000+ homes and commercial projects delivered, Miggla brings
           </form>
 
 
-        
-         
-{/* Custom Image Layout Section - Hidden on mobile */}
-<div className="hidden lg:flex w-full flex-1 gap-10 mt-7">
 
-  {/* Left Big Image */}
-  <div className="flex-1 h-[504px] rounded-xl overflow-hidden shadow-xl">
-    <div className="relative h-full w-full">
-      <img
-        src="/roundimg1.webp"
-        alt="Design"
-        className="w-full h-full object-cover rounded-xl"
-      />
-    </div>
-  </div>
 
-  {/* Right Two Smaller Images */}
-  <div className="flex flex-col gap-6 w-[40%]">
-    <div className="relative h-[240px] rounded-xl overflow-hidden shadow-xl">
-      <img
-        src="/roundimg2.webp"
-        alt="Implement"
-        className="w-full h-full object-cover rounded-xl"
-      />
-    </div>
-    <div className="relative h-[240px] rounded-xl overflow-hidden shadow-xl">
-      <img
-        src="/roundimg3.webp"
-        alt="Survey"
-        className="w-full h-full object-cover rounded-xl"
-      />
-    </div>
-  </div>
-</div>
+          {/* Custom Image Layout Section - Hidden on mobile */}
+          <div className="hidden lg:flex w-full flex-1 gap-10 mt-7">
+
+            {/* Left Big Image */}
+            <div className="flex-1 h-[504px] rounded-xl overflow-hidden shadow-xl">
+              <div className="relative h-full w-full">
+                <img
+                  src="/roundimg1.webp"
+                  alt="Design"
+                  className="w-full h-full object-cover rounded-xl"
+                />
+              </div>
+            </div>
+
+            {/* Right Two Smaller Images */}
+            <div className="flex flex-col gap-6 w-[40%]">
+              <div className="relative h-[240px] rounded-xl overflow-hidden shadow-xl">
+                <img
+                  src="/roundimg2.webp"
+                  alt="Implement"
+                  className="w-full h-full object-cover rounded-xl"
+                />
+              </div>
+              <div className="relative h-[240px] rounded-xl overflow-hidden shadow-xl">
+                <img
+                  src="/roundimg3.webp"
+                  alt="Survey"
+                  className="w-full h-full object-cover rounded-xl"
+                />
+              </div>
+            </div>
+          </div>
 
 
 
@@ -471,33 +497,33 @@ With a portfolio of 1000+ homes and commercial projects delivered, Miggla brings
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {[
             {
-              title: "Full Home Interiors",
-             
+              title: "Commercial Interior design",
+
               img: "/servicesimg (2).jpeg",
             },
             {
-              title: "Modular Kitchens & Wardrobes",
-             
+              title: "Residential Interior Design",
+
               img: "/servicesimg (5).jpeg",
             },
             {
-              title: "Living & Bedroom Makeovers",
-             
+              title: "Turnkey Projects",
+
               img: "/servicesimg (4).jpeg",
             },
             {
-              title: "Design Consultation",
-              
+              title: "Modular kitchen",
+
               img: "/servicesimg (3).jpeg",
             },
             {
-              title: "Décor & Styling",
-             
+              title: "Design Consultation",
+
               img: "/servicesimg (6).jpeg",
             },
             {
-              title: "Office & Commercial Spaces",
-             
+              title: "Bathroom Remodelling",
+
               img: "/servicesimg (1).jpeg",
             },
           ].map(({ title, desc, img }, i) => (
@@ -584,104 +610,103 @@ With a portfolio of 1000+ homes and commercial projects delivered, Miggla brings
           </div>
         </div>
 
-        
-         
+
+
       </section>
       <section className="bg-[#f4f0e9] py-10 px-4 sm:px-10" id="delivered-projects">
-  <div className="text-center max-w-4xl mx-auto mb-12">
-    <h2 className="text-4xl font-bold mb-4 text-gray-800">Delivered Projects</h2>
-    <p className="text-gray-600 text-lg">
-      Take a look at some of the beautiful spaces we've had the pleasure of creating for our clients.
-    </p>
-  </div>
-
-  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-    {[
-      {
-        title: "Elegant 3BHK in Gurgaon",
-        img: "/nowimg (6).jpeg",
-      },
-      {
-        title: "Modern Kitchen in Noida",
-        img: "/servicesimg (5).jpeg",
-      },
-      {
-        title: "Luxury Living Room Delhi",
-        img: "/servicesimg (2).jpeg",
-      },
-      {
-        title: "Office Interior Mumbai",
-        img: "/servicesimg (1).jpeg",
-      },
-      {
-        title: "Classic Bedroom Setup",
-        img: "/nowimg (3).jpeg",
-      },
-      {
-        title: "Rustic Theme Apartment",
-        img: "/nowimg (4).jpeg",
-      },
-    ].map(({ title, img }, i) => (
-      <div
-        key={i}
-        className="bg-gray-50 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 overflow-hidden"
-      >
-        <img
-          src={img}
-          alt={title}
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+        <div className="text-center max-w-4xl mx-auto mb-12">
+          <h2 className="text-4xl font-bold mb-4 text-gray-800">Delivered Projects</h2>
+          <p className="text-gray-600 text-lg">
+            Take a look at some of the beautiful spaces we've had the pleasure of creating for our clients.
+          </p>
         </div>
-      </div>
-    ))}
-  </div>
-</section>
 
- <section className="py-10 px-4 sm:px-6 md:px-20 bg-white">
-  <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800 text-center sm:text-left">
-    Why Miggla
-  </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {[
+            {
+              title: "Elegant 3BHK in Gurgaon",
+              img: "/nowimg (6).jpeg",
+            },
+            {
+              title: "Modern Kitchen in Noida",
+              img: "/servicesimg (5).jpeg",
+            },
+            {
+              title: "Luxury Living Room Delhi",
+              img: "/servicesimg (2).jpeg",
+            },
+            {
+              title: "Office Interior Mumbai",
+              img: "/servicesimg (1).jpeg",
+            },
+            {
+              title: "Classic Bedroom Setup",
+              img: "/nowimg (3).jpeg",
+            },
+            {
+              title: "Rustic Theme Apartment",
+              img: "/nowimg (4).jpeg",
+            },
+          ].map(({ title, img }, i) => (
+            <div
+              key={i}
+              className="bg-gray-50 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 overflow-hidden"
+            >
+              <img
+                src={img}
+                alt={title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-  {/* Tab Navigation */}
-  <div className="flex flex-wrap justify-center sm:justify-start border-b border-gray-300 text-base sm:text-lg font-medium text-gray-700 mb-8 space-x-2">
-    {tabs.map((tab, index) => (
-      <button
-        key={index}
-        className={`px-3 sm:px-4 py-2 transition ${
-          activeTab === index
-            ? 'border-b-2 border-yellow-500 text-black'
-            : 'text-gray-600 hover:text-black'
-        }`}
-        onClick={() => setActiveTab(index)}
-      >
-        {tab.title}
-      </button>
-    ))}
-  </div>
+      <section className="py-10 px-4 sm:px-6 md:px-20 bg-white">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800 text-center sm:text-left">
+          Why Miggla
+        </h2>
 
-  {/* Tab Content */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-    {/* Left - Image */}
-    <div className="relative w-full max-w-md mx-auto md:mx-0">
-      <img
-        src={tabs[activeTab].image}
-        alt={tabs[activeTab].title}
-        className="w-full rounded-lg shadow"
-      />
-      
-    </div>
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center sm:justify-start border-b border-gray-300 text-base sm:text-lg font-medium text-gray-700 mb-8 space-x-2">
+          {tabs.map((tab, index) => (
+            <button
+              key={index}
+              className={`px-3 sm:px-4 py-2 transition ${activeTab === index
+                  ? 'border-b-2 border-yellow-500 text-black'
+                  : 'text-gray-600 hover:text-black'
+                }`}
+              onClick={() => setActiveTab(index)}
+            >
+              {tab.title}
+            </button>
+          ))}
+        </div>
 
-    {/* Right - Text */}
-    <div className="text-center md:text-left space-y-4">
-      <p className="text-base sm:text-lg text-gray-700">
-        {tabs[activeTab].content}
-      </p>
-      
-    </div>
-  </div>
-</section>
+        {/* Tab Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+          {/* Left - Image */}
+          <div className="relative w-full max-w-md mx-auto md:mx-0">
+            <img
+              src={tabs[activeTab].image}
+              alt={tabs[activeTab].title}
+              className="w-full rounded-lg shadow"
+            />
+
+          </div>
+
+          {/* Right - Text */}
+          <div className="text-center md:text-left space-y-4">
+            <p className="text-base sm:text-lg text-gray-700">
+              {tabs[activeTab].content}
+            </p>
+
+          </div>
+        </div>
+      </section>
 
 
 
@@ -702,29 +727,28 @@ With a portfolio of 1000+ homes and commercial projects delivered, Miggla brings
 
 
         <div className="relative z-10 max-w-2xl mx-auto text-center">
-      <h2 className="text-3xl text-amber-50 font-bold mb-10">Our Happy Clients</h2>
+          <h2 className="text-3xl text-amber-50 font-bold mb-10">Our Happy Clients</h2>
 
-      <div className="relative hover:scale-110 transition-transform duration-500 bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-gray-200 min-h-[250px] ease-in-out">
-        <h3 className="text-xl font-bold mb-4 transition-all duration-500">{testimonials[current].name}</h3>
-        <hr className="my-4 w-20 mx-auto border-gray-300" />
-        <p className="text-gray-700 text-base transition-all duration-500">
-          {testimonials[current].message}
-        </p>
-      </div>
+          <div className="relative hover:scale-110 transition-transform duration-500 bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-gray-200 min-h-[250px] ease-in-out">
+            <h3 className="text-xl font-bold mb-4 transition-all duration-500">{testimonials[current].name}</h3>
+            <hr className="my-4 w-20 mx-auto border-gray-300" />
+            <p className="text-gray-700 text-base transition-all duration-500">
+              {testimonials[current].message}
+            </p>
+          </div>
 
-      {/* Dots */}
-      <div className="flex justify-center mt-6 space-x-2">
-        {testimonials.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleDotClick(index)}
-            className={`w-3 h-3 rounded-full ${
-              current === index ? 'bg-amber-500 scale-125' : 'bg-gray-300'
-            } transition-transform duration-300`}
-          />
-        ))}
-      </div>
-    </div>
+          {/* Dots */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`w-3 h-3 rounded-full ${current === index ? 'bg-amber-500 scale-125' : 'bg-gray-300'
+                  } transition-transform duration-300`}
+              />
+            ))}
+          </div>
+        </div>
       </section>
       <section className="py-12 bg-white text-center">
         <h2 className="text-3xl font-bold mb-10">Our Brands</h2>
@@ -751,6 +775,49 @@ With a portfolio of 1000+ homes and commercial projects delivered, Miggla brings
           ))}
         </div>
       </section>
+       <section className="min-h-screen px-4 py-20 bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] flex items-center justify-center">
+      <div className="w-full max-w-4xl glassmorphism rounded-3xl shadow-2xl p-6 md:p-12">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center text-gray-800">
+          Frequently Asked <span className="text-indigo-500">Questions</span>
+        </h2>
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="bg-white/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/30 shadow-md"
+            >
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full flex justify-between items-center px-6 py-4 text-left text-gray-800 font-semibold text-lg hover:bg-white/50 transition"
+              >
+                {faq.question}
+                <motion.div
+                  animate={{ rotate: activeIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.1 }}
+                >
+                  <ChevronDown className="w-5 h-5" />
+                </motion.div>
+              </button>
+              <AnimatePresence initial={false}>
+                {activeIndex === index && (
+                  <motion.div
+                    key="content"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.1 }}
+                    className="px-6 pb-4 text-gray-600 text-sm"
+                  >
+                    <div>{faq.answer}</div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+      
 
 
       <section className="px-6 sm:px-12 mb-20 relative " id="blogs">
@@ -777,18 +844,18 @@ With a portfolio of 1000+ homes and commercial projects delivered, Miggla brings
                   data-aos="fade-up"
                   data-aos-delay={idx * 100}
                 >
-                <Image
-                  src={post.img}
-                  alt={post.title}
-                  width={300}
-                  height={220}
-                  className="object-cover w-full h-[220px] rounded-xl hover:scale-105 transition-transform duration-500 shadow-md cursor-pointer"
-                />
-                <h2 className="text-gray-500 mt-3 text-sm sm:text-base">{post.date}</h2>
-                <h1 className="mt-2 text-lg sm:text-xl font-semibold hover:underline transition text-gray-800">
-                  {post.title}
-                </h1>
-                <p className="text-gray-600 mt-2 text-sm sm:text-base">{post.desc}</p>
+                  <Image
+                    src={post.img}
+                    alt={post.title}
+                    width={300}
+                    height={220}
+                    className="object-cover w-full h-[220px] rounded-xl hover:scale-105 transition-transform duration-500 shadow-md cursor-pointer"
+                  />
+                  <h2 className="text-gray-500 mt-3 text-sm sm:text-base">{post.date}</h2>
+                  <h1 className="mt-2 text-lg sm:text-xl font-semibold hover:underline transition text-gray-800">
+                    {post.title}
+                  </h1>
+                  <p className="text-gray-600 mt-2 text-sm sm:text-base">{post.desc}</p>
                 </Link>
               </div>
             ))}
@@ -819,7 +886,7 @@ With a portfolio of 1000+ homes and commercial projects delivered, Miggla brings
 
             {/* Logo + About */}
             <div>
-             <Link href="/"> <div className="flex items-center gap-2 mb-4">
+              <Link href="/"> <div className="flex items-center gap-2 mb-4">
                 <img src="/logoimg.png" alt="Logo" className="w-12 h-12" />
                 <h1 className="text-xl font-bold leading-tight">
                   MIGGLA <br />
@@ -844,25 +911,25 @@ With a portfolio of 1000+ homes and commercial projects delivered, Miggla brings
             </div>
 
             {/* Useful Links */}
-           <div className="grid grid-cols-2 gap-6">
-      <div>
-        <h2 className="text-xl font-bold mb-4">Useful Links</h2>
-        {leftLinks.map((link, idx) => (
-          <Link key={idx} href={link.href}>
-            <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
-          </Link>
-        ))}
-      </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <h2 className="text-xl font-bold mb-4">Useful Links</h2>
+                {leftLinks.map((link, idx) => (
+                  <Link key={idx} href={link.href}>
+                    <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
+                  </Link>
+                ))}
+              </div>
 
-      <div>
-        <h2 className="text-xl font-bold mb-4 invisible md:visible">&nbsp;</h2>
-        {rightLinks.map((link, idx) => (
-          <Link key={idx} href={link.href}>
-            <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
-          </Link>
-        ))}
-      </div>
-    </div>
+              <div>
+                <h2 className="text-xl font-bold mb-4 invisible md:visible">&nbsp;</h2>
+                {rightLinks.map((link, idx) => (
+                  <Link key={idx} href={link.href}>
+                    <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             {/* Subscribe */}
             <div>
