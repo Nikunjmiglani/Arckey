@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
+import Head from 'next/head'
 
 
 const Navbar = () => {
@@ -31,6 +32,18 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
+    <>
+    <Head>
+        <title>Leading Interior Designers in Delhi | Miggla</title>
+        <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr." />
+        <meta name="keywords" content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
+        <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
+        
+        <meta property="og:url" content="arckey.vercel.app" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
     <nav className="bg-red-50 shadow-sm px-4 py-0">
       {/* Top Row: Logo + Hamburger + Right Buttons */}
       <div className="flex justify-between items-center">
@@ -38,7 +51,9 @@ const Navbar = () => {
    <Link href="/"> <div className="flex items-center">
   <img
   src="/logofinal.png"
-  alt="Miggla Logo"
+  alt="Stylish kids’ room interior with bunk bed setup
+
+"
   className="h-16 sm:h-20 w-auto object-scale-down"
 />
 
@@ -49,15 +64,15 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-6 font-medium text-gray-800 text-sm">
-       <Link  href="/about" target='/'>  <li className="hover:text-red-600 hover:font-bold cursor-pointer">About</li></Link>
+       <Link  href="/about" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">About</li></Link>
          
         <Link  href="/#reviews" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li></Link>
           <Link  href="/#services" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
            <Link  href="/gallery" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
-          <Link  href="/projectss" target='/'> <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li></Link>
+          <Link  href="/projectss" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li></Link>
           <Link  href="/#blogs" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
-           <Link  href="/cities" target='/'> <li className="hover:text-red-600 hover:font-bold cursor-pointer">Our Presence</li></Link>
-            <Link  href="/contact" target='/'>  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link>
+           <Link  href="/cities" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Our Presence</li></Link>
+            <Link  href="/contact" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link>
          
         </ul>
 
@@ -177,11 +192,11 @@ const Navbar = () => {
           <Link  href="/#reviews">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li></Link>
           
           <Link  href="/#services" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
-          <Link  href="/#gallery" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
+          <Link  href="/gallery" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
          <Link  href="/projectss" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li></Link> 
          
           <Link  href="/#blogs" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
-         <Link  href="/cities">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Cities</li></Link>
+         <Link  href="/cities">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Our Presence</li></Link>
         <Link href="/contact">  <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer animate-bounce " >
             Get Free Estimate Now!!
           </button></Link>
@@ -190,6 +205,7 @@ const Navbar = () => {
       )}
       
     </nav>
+    </>
   );
 };
 

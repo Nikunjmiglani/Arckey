@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { FaQuoteLeft } from 'react-icons/fa';
+import Head from 'next/head'
 
 const projectsData = [
   {
@@ -58,6 +59,18 @@ export default function RecentProjects() {
   const activeData = projectsData.find((c) => c.city === activeCity);
 
   return (
+    <>
+    <Head>
+        <title>Leading Interior Designers in Delhi | Miggla</title>
+        <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr." />
+        <meta name="keywords" content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
+        <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
+      
+        <meta property="og:url" content="arckey.vercel.app" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
     <div className="min-h-screen px-4 py-12 bg-gray-50 text-gray-800">
       <h2 className="text-4xl font-bold text-center mb-10">Our Recent Projects</h2>
 
@@ -109,5 +122,6 @@ export default function RecentProjects() {
         ))}
       </div>
     </div>
+    </>
   );
 }

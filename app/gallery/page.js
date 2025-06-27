@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import Image from 'next/image'
 const galleryImages = [
   '/spcimg1.webp',
@@ -11,6 +12,18 @@ const galleryImages = [
 
 const page = () => {
   return (
+    <>
+    <Head>
+        <title>Leading Interior Designers in Delhi | Miggla</title>
+        <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr." />
+        <meta name="keywords" content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
+        <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
+        
+        <meta property="og:url" content="arckey.vercel.app" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
     <div className="container mx-auto px-4 ">
         <div className="text-center mb-10 mt-10">
           <h2 id="gallery"  className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Our Interior Designs</h2>
@@ -31,6 +44,8 @@ const page = () => {
           ))}
         </div>
       </div>
+      </>
+
   )
 }
 

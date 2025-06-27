@@ -1,11 +1,24 @@
 'use client'
 import { useState } from 'react'
+import Head from 'next/head'
 import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 
 export default function ContactPage() {
  
 
   return (
+    <>
+    <Head>
+        <title>Leading Interior Designers in Delhi | Miggla</title>
+        <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr." />
+        <meta name="keywords" content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
+        <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
+       
+        <meta property="og:url" content="arckey.vercel.app" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
     <main className="min-h-screen bg-gray-50 py-16 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Left: Contact Form */}
@@ -86,6 +99,7 @@ export default function ContactPage() {
         </div>
       </div>
     </main>
+    </>
   )
 }
 

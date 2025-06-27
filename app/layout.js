@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Head from 'next/head'
 import Navbar from "@/components/Navbar";
 import { Analytics } from "@vercel/analytics/next"
 

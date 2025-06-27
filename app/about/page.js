@@ -3,6 +3,18 @@ import Image from 'next/image';
 
 export default function AboutPage() {
   return (
+    <>
+    <Head>
+        <title>Leading Interior Designers in Delhi | Miggla</title>
+        <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr." />
+        <meta name="keywords" content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
+        <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
+        
+        <meta property="og:url" content="arckey.vercel.app" />
+        
+      </Head>
     <section className="bg-white text-gray-800 px-6 py-16">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
@@ -72,6 +84,7 @@ export default function AboutPage() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

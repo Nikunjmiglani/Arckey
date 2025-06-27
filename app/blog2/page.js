@@ -11,7 +11,9 @@ const page = () => {
 
       <img
         src="/blogimg1.webp" // Replace with your actual image path
-        alt="Modern luxury living room"
+        alt="Modern office interior with workstations and ambient lighting
+
+"
         className="rounded-xl shadow-xl mb-10 w-full object-cover max-h-[500px]"
       />
 
@@ -27,7 +29,9 @@ Whether you seek a spa-like escape, a sleek contemporary look, or timeless elega
 
 This editorial guide introduces the Top 5 Bathroom Interior Designers in Delhi NCR, known for blending style, functionality, and fine craftsmanship into unforgettable spaces. Each designer featured here has redefined the modern bathroom through bespoke designs, smart solutions, and a deep understanding of client needs.
         </p>
-       <img src="blog2img1.webp" alt="img" />
+       <img src="blog2img1.webp" alt="Minimalist reception area with custom logo wall
+
+" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">1.Miggla – Crafting Luxury Bathrooms with Purpose and Precision</h2>
         <p>
@@ -54,7 +58,9 @@ Miggla specializes in custom vanities, layered lighting, high-end fixtures, natu
 
 </li>
         </ul>
-        <img src="blog2img2.webp" alt="image" />
+        <img src="blog2img2.webp" alt="Modular kitchen with acrylic finish and island counter
+
+" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">2. Spaces of Serenity – Elegant, Minimalist Bathrooms That Calm the Senses</h2>
         <p>
@@ -80,7 +86,9 @@ Popular in neighborhoods like Saket, Vasant Kunj, and East of Kailash, they ofte
 
 </li>
         </ul>
-        <img src="blog1img3.webp" alt="imgg" />
+        <img src="blog1img3.webp" alt="Vanity unit with LED mirror in bathroom
+
+" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">3. Metro Mod Studio – Contemporary Bathroom Design for Urban Living</h2>
         <p>
@@ -146,7 +154,9 @@ Especially popular in Rajouri Garden, Janakpuri, and South Extension, their clie
 
 </li>
         </ul>
-        <img src="blog1img5.webp" alt="blogg" />
+        <img src="blog1img5.webp" alt="Miggla interior designers in action
+
+" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">5.Studio Aqua Luxe – Ultra-Luxurious Bathrooms Inspired by Hotel Suites</h2>
         <p>
@@ -181,7 +191,9 @@ Ideal for clients in Golf Links, Connaught Place, and Sunder Nagar, this studio 
 
 </li>
         </ul>
-        <img src="blog1img6.webp" alt="blog" />
+        <img src="blog1img6.webp" alt="Turnkey commercial interior for IT office in Gurugram
+
+" />
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8">Tips for Hiring the Right Bathroom Designer in Delhi NCR</h2>
        

@@ -1,8 +1,10 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
+import Head from 'next/head'
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { FaCheckCircle } from 'react-icons/fa';
 
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
@@ -11,34 +13,34 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 const faqs = [
   {
+    question: "What services does Miggla offer for interior design in Delhi NCR?",
+    answer:
+      "Miggla provides end-to-end interior design services for residential and commercial spaces including space planning, 3D designs, modular kitchen and wardrobe design, custom furniture manufacturing, and full turnkey interior solutions. We handle everything from concept to execution — so you can relax and move in stress-free.",
+  },
+  {
     question: "Do you offer commercial interior design for offices and retail spaces?",
     answer:
       "Yes. Miggla offers expert commercial interior design services across Delhi NCR for corporate offices, clinics, salons, showrooms, cafes, and more. We specialize in designing boss cabins, reception areas, conference rooms, workstations, and brand-aligned interiors that enhance both aesthetics and productivity. Whether you need a modern office makeover or a complete turnkey commercial setup, our team ensures smart space planning, quality execution, and on-time delivery.",
   },
-  {
+ {
     question: "How long does a full interior design project take?",
     answer:
       "Project timelines vary by size and complexity, but most 2BHK/3BHK homes are delivered within 45–60 days, and commercial spaces in 30–45 days. We’re known for our on-time handovers with regular progress updates.",
-  },
-  {
-    question: "Can I see previous interior design projects done by Miggla?",
-    answer:
-      "Yes, you can explore our portfolio of 1000+ completed projects across Delhi, Noida, Gurugram, and Faridabad. Visit our [Project Gallery] or follow us on Instagram for real-time design inspiration.",
   },
   {
     question: "What is a turnkey interior solution?",
     answer:
       "A turnkey interior solution means we handle everything—from design, material selection, civil work, electrical, false ceiling, carpentry, furnishing, to final styling. You simply approve the design, and we deliver the finished space, ready for you to walk in.",
   },
-   {
-    question: "What services does Miggla offer for interior design in Delhi NCR?",
-    answer:
-      "Miggla provides end-to-end interior design services for residential and commercial spaces including space planning, 3D designs, modular kitchen and wardrobe design, custom furniture manufacturing, and full turnkey interior solutions. We handle everything from concept to execution — so you can relax and move in stress-free.",
-  },
-   {
+    {
     question: "How is Miggla different from other interior designers in Delhi?",
     answer:
       "Miggla offers end-to-end residential and commercial interior design with in-house custom furniture, modular kitchens, and full turnkey execution. With 1000+ projects delivered across Delhi NCR, we ensure Vastu-aligned planning, on-time handovers, and tailored spaces that blend style and function.",
+  },
+  {
+    question: "Can I see previous interior design projects done by Miggla?",
+    answer:
+      "Yes, you can explore our portfolio of 1000+ completed projects across Delhi, Noida, Gurugram, and Faridabad. Visit our [Project Gallery] or follow us on Instagram for real-time design inspiration.",
   },
 ];
 
@@ -305,6 +307,18 @@ export default function Home() {
 
 
   return (
+    <>
+      <Head>
+        <title>Leading Interior Designers in Delhi | Miggla</title>
+        <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr." />
+        <meta name="keywords" content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
+        <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
+       
+        <meta property="og:url" content="arckey.vercel.app" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
     <main className="font-sans">
       {showTimedPopup && (
         <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/50">
@@ -337,16 +351,15 @@ export default function Home() {
 
 
       <section className="relative w-full h-[300px] sm:h-[500px] overflow-hidden bg-gray-100">
-        <div className="relative w-full h-full">
-          <Image
-            src="/logologo.webp"
-            alt="mainimg"
-            fill
-            priority
-            sizes="(max-width: 640px) 100vw, 100vw"
-            className="object-cover"
-          />
-        </div>
+        <div className="relative w-full h-[90vh]">
+  <Image
+    src="/logologo.webp"
+    alt="mainimg"
+    fill
+    priority
+    className="object-cover"
+  />
+</div>
       </section>
 
       <section className="mt-10 px-4 sm:px-10">
@@ -445,7 +458,9 @@ export default function Home() {
               <div className="relative h-full w-full">
                 <img
                   src="/roundimg1.webp"
-                  alt="Design"
+                  alt="Contemporary master bedroom with ambient lighting
+
+"
                   className="w-full h-full object-cover rounded-xl"
                 />
               </div>
@@ -456,14 +471,18 @@ export default function Home() {
               <div className="relative h-[240px] rounded-xl overflow-hidden shadow-xl">
                 <img
                   src="/roundimg2.webp"
-                  alt="Implement"
+                  alt="Luxury 3BHK flat interior design in Noida
+
+"
                   className="w-full h-full object-cover rounded-xl"
                 />
               </div>
               <div className="relative h-[240px] rounded-xl overflow-hidden shadow-xl">
                 <img
                   src="/roundimg3.webp"
-                  alt="Survey"
+                  alt="Vastu-compliant pooja room with custom cabinetry
+
+"
                   className="w-full h-full object-cover rounded-xl"
                 />
               </div>
@@ -597,7 +616,9 @@ export default function Home() {
 
           {/* RIGHT: Image Grid */}
           <div className="">
-            <img src="/bigimg.webp" className="" alt="Interior 1" />
+            <img src="/bigimg.webp" className="" alt="Modular wardrobe design for compact spaces
+
+" />
 
           </div>
         </div>
@@ -605,7 +626,58 @@ export default function Home() {
 
 
       </section>
-      <section className="bg-[#f4f0e9] py-10 px-4 sm:px-10" id="delivered-projects">
+
+<div className="border-t border-gray-500 mx-6 sm:mx-20"></div>
+
+      <section className="bg-white py-20 px-4  sm:px-10">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        {/* Left Content */}
+        <div className="w-full md:w-1/2 space-y-6">
+          <h2 className="text-4xl font-bold text-gray-800">Meet Our Founders</h2>
+          <p className="text-gray-700 text-lg leading-relaxed">
+            With over a decade of experience in architectural and interior excellence, our founders envisioned a design house
+            that not only delivers style but also understands space, budget, and human emotion.
+          </p>
+          <p className="text-gray-700 text-lg leading-relaxed">
+            Their journey began with a shared passion for elegant functionality. Today, they lead a team of passionate designers
+            delivering turn-key solutions tailored for every lifestyle.
+          </p>
+          <ul className="space-y-3 mt-4">
+            {[
+              'In-house expert craftsmen and design leaders',
+              'Obsessive attention to quality and detailing',
+              'Use of 3D visualization and modern software',
+              'Trusted by 200+ happy clients across Delhi NCR',
+            ].map((item, idx) => (
+              <li key={idx} className="flex items-start gap-3 text-gray-800">
+                <FaCheckCircle className="text-yellow-600 mt-1" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Right Image with Quote */}
+        <div className="w-full md:w-1/2 relative">
+          <div className="rounded-3xl overflow-hidden shadow-xl">
+            <Image
+              src="/foundersimg.jpg" // Make sure this is in your /public folder
+              alt="Minimalist TV unit with wall-mounted storage
+
+"
+              width={600}
+              height={700}
+              className="object-cover w-full h-auto"
+            />
+          </div>
+          <div className="absolute bottom-[-40px] left-4 right-4 bg-white p-5 shadow-lg rounded-2xl border-l-4 border-yellow-500">
+            <p className="italic text-gray-700">“We design spaces that don’t just look beautiful, but feel like home.”</p>
+            <p className="mt-2 text-right font-semibold text-gray-800">– Founders</p>
+          </div>
+        </div>
+      </div>
+    </section>
+      <section className="bg-[#f4f0e9]  py-10 px-4 sm:px-10" id="delivered-projects">
         <div className="text-center max-w-4xl mx-auto mb-12">
           <h2 className="text-4xl font-bold mb-4 text-gray-800">Delivered Projects</h2>
           <p className="text-gray-600 text-lg">
@@ -692,9 +764,9 @@ export default function Home() {
 
           {/* Right - Text */}
           <div className="text-center md:text-left space-y-4">
-            <p className="text-base sm:text-lg text-gray-700">
+            <span className="text-base sm:text-lg text-gray-700">
               {tabs[activeTab].content}
-            </p>
+            </span>
 
           </div>
         </div>
@@ -776,7 +848,9 @@ export default function Home() {
   <div className="max-w-[400px] max-h-[700px] w-full h-full ">
     <Image
       src="/frthtrh.jpg"
-      alt="Interior Design FAQ"
+      alt="L-shaped modular kitchen in matte finish
+
+"
       width={350}
       height={500}
       className="rounded-2xl shadow-xl object-cover w-full h-full"
@@ -983,6 +1057,7 @@ export default function Home() {
 
 
     </main>
+    </>
   );
 }
 

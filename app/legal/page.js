@@ -1,5 +1,19 @@
+import Head from 'next/head'
+import React from 'react'
 export default function LegalPage() {
     return (
+      <>
+      <Head>
+        <title>Leading Interior Designers in Delhi | Miggla</title>
+        <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr." />
+        <meta name="keywords" content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
+        <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
+       
+        <meta property="og:url" content="arckey.vercel.app" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
         <main className="min-h-screen bg-gray-50 py-16 px-6">
             <div className="max-w-4xl mx-auto space-y-16 bg-white/80 backdrop-blur-xl p-10 rounded-3xl shadow-xl border border-gray-200">
 
@@ -221,5 +235,6 @@ export default function LegalPage() {
 
             </div>
         </main>
+        </>
     )
 }
