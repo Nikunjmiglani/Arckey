@@ -30,80 +30,72 @@ const faqs = [
     answer:
       "Yes, we provide sustainable materials and eco-conscious design strategies that don’t compromise on beauty or functionality.",
   },
+   {
+    question: "Do you offer eco-friendly options?",
+    answer:
+      "Yes, we provide sustainable materials and eco-conscious design strategies that don’t compromise on beauty or functionality.",
+  },
+   {
+    question: "Do you offer eco-friendly options?",
+    answer:
+      "Yes, we provide sustainable materials and eco-conscious design strategies that don’t compromise on beauty or functionality.",
+  },
 ];
 
 
 
 const tabs = [
   {
-    title: "Personalised for You",
+    title: "Beyond Just Aesthetics",
     content: (
       <>
-        <p className="text-lg text-gray-700 mb-4">
-          Tell our design experts what makes you tick, and we deliver to your needs.
-        </p>
-        <p className="text-lg text-gray-700 mb-4">
-          Have a minimalist sensibility? Or a child who loves superheroes? Our designers bring your taste to life.
-        </p>
-        <p className="text-lg text-gray-700 mb-6">
-          Feeling a bit cramped? <span className="font-bold text-gray-900">Create up to 20% more space</span> at a fraction of the cost of a larger home.
+        <p>
+          At Miggla, interior design goes far beyond looks — we craft intelligent, functional, and future-ready spaces. Whether it's a luxury apartment in Delhi or a commercial office in NCR, our team focuses on human-centric design, blending form with function. Every layout is optimized for energy flow, natural light, and usability, creating interiors that not only look stunning but also support better living and working.
         </p>
       </>
     ),
     image: "/roundimg4.webp"
   },
   {
-    title: "Quality Guaranteed",
+    title: "Tailored For You",
     content: (
       <>
-        <p className="text-lg text-gray-700 mb-4">
-          Every Miggla project is backed by rigorous quality checks and premium materials.
-        </p>
-        <p className="text-lg text-gray-700 mb-6">
-          From hinges to handles, we ensure top-grade components so your designs last for years.
+        <p>
+          We understand that no two spaces — or clients — are alike. That’s why we offer personalized interior solutions for both residential and commercial projects. From cozy urban apartments to expansive villas and high-end office interiors, Miggla delivers bespoke furniture, custom modular designs, and turnkey execution that align with your lifestyle or brand identity.
         </p>
       </>
     ),
     image: "/finalnewimg (4).jpg"
   },
   {
-    title: "Project Management from A to Z",
+    title: "On-Time Always",
     content: (
       <>
-        <p className="text-lg text-gray-700 mb-4">
-          Sit back while our experts manage everything from planning to installation.
-        </p>
-        <p className="text-lg text-gray-700 mb-6">
-          You’ll get regular updates and a dedicated team for seamless delivery.
+        <p>
+          Deadlines matter. At Miggla, we pride ourselves on on-time delivery and transparent project management. Our seasoned execution team, real-time progress tracking, and detailed planning ensure a smooth, delay-free transformation — so you can move in, launch, or host without stress. We take care of everything, from civil work to final styling.
         </p>
       </>
     ),
     image: "/finalnewimg (1).jpg"
   },
   {
-    title: "Easy EMI Options",
+    title: "Crafted With Innovation",
     content: (
       <>
-        <p className="text-lg text-gray-700 mb-4">
-          With flexible EMI options, your dream home interior is now more affordable than ever.
-        </p>
-        <p className="text-lg text-gray-700 mb-6">
-          Choose a plan that fits your budget without compromising on design.
+        <p>
+          With an in-house team of designers, artisans, and project managers, we bring together high-end craftsmanship and cutting-edge design tools. Every element — be it a custom TV unit, modular kitchen, or CEO cabin — is built to perfection. We use 3D visualization, vastu-integrated planning, and sustainable materials to deliver interiors that feel fresh, functional, and future-proof.
         </p>
       </>
     ),
     image: "/finalnewimg (3).jpg"
   },
   {
-    title: "On-time Delivery",
+    title: "Delhi’s Trusted Designers",
     content: (
       <>
-        <p className="text-lg text-gray-700 mb-4">
-          We value your time. Our teams follow strict timelines to ensure timely project completion.
-        </p>
-        <p className="text-lg text-gray-700 mb-6">
-          With Miggla, you’ll never have to worry about delays again.
-        </p>
+       <p>
+        With dozens of successful projects across Delhi, Noida, Gurgaon, and beyond, Miggla has earned its place as a leading interior design company in Delhi NCR. Our growing client base, 5-star reviews, and repeat business speak volumes about the trust we build. When you choose Miggla, you're choosing passion, precision, and peace of mind — all under one roof.
+       </p>
       </>
     ),
     image: "/finalnewimg (2).jpg"
@@ -369,10 +361,10 @@ export default function Home() {
         {/* Responsive Steps */}
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { src: '/finalnewimg (1).jpg', title: "Schedule a visit" },
-            { src: '/finalnewimg (2).jpg', title: "Consult Our Experts" },
-            { src: '/finalnewimg (3).jpg', title: "Tailor Your Space" },
-            { src: '/finalnewimg (4).jpg', title: "nter Your Dream Space" },
+            { src: '/finalnewimg (3).jpg', title: "Schedule a visit" },
+            { src: '/finalnewimg (4).jpg', title: "Consult Our Experts" },
+            { src: '/finalnewimg (1).jpg', title: "Tailor Your Space" },
+            { src: '/finalnewimg (2).jpg', title: "Enter Your Dream Space" },
           ].map(({ src, title }, i) => (
             <div key={i} className="flex flex-col items-center text-center sm:block sm:text-center">
               <div className="w-full">
@@ -494,7 +486,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-2 text-center lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {[
             {
               title: "Commercial Interior design",
@@ -621,7 +613,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 text-center sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {[
             {
               title: "Elegant 3BHK in Gurgaon",
@@ -775,45 +767,61 @@ export default function Home() {
           ))}
         </div>
       </section>
-       <section className="min-h-screen px-4 py-20 bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] flex items-center justify-center">
-      <div className="w-full max-w-4xl glassmorphism rounded-3xl shadow-2xl p-6 md:p-12">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center text-gray-800">
-          Frequently Asked <span className="text-indigo-500">Questions</span>
-        </h2>
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/30 shadow-md"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center px-6 py-4 text-left text-gray-800 font-semibold text-lg hover:bg-white/50 transition"
+      <section className="min-h-screen px-4 py-20 bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] flex items-center justify-center">
+      <div className="w-full max-w-7xl flex flex-col md:flex-row items-center gap-10">
+        
+       {/* Left Image (Only on md+ screens) */}
+<div className="hidden md:block w-full md:w-1/2">
+  <Image
+    src="/152cda45-a244-41b2-acf0-5abff16caa5e.png"
+    alt="Interior Design FAQ"
+    width={600}
+    height={500}
+    className="rounded-2xl shadow-xl w-full object-cover"
+  />
+</div>
+
+
+        {/* Right FAQ Glass Card */}
+        <div className="w-full md:w-1/2 glassmorphism rounded-3xl shadow-2xl p-6 md:p-10 bg-white/30 backdrop-blur-md border border-white/20">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-gray-800">
+            Frequently Asked <span className="text-indigo-500">Questions</span>
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/30 shadow-md"
               >
-                {faq.question}
-                <motion.div
-                  animate={{ rotate: activeIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.1 }}
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex justify-between items-center px-6 py-4 text-left text-gray-800 font-semibold text-lg hover:bg-white/50 transition"
                 >
-                  <ChevronDown className="w-5 h-5" />
-                </motion.div>
-              </button>
-              <AnimatePresence initial={false}>
-                {activeIndex === index && (
+                  {faq.question}
                   <motion.div
-                    key="content"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
+                    animate={{ rotate: activeIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.1 }}
-                    className="px-6 pb-4 text-gray-600 text-sm"
                   >
-                    <div>{faq.answer}</div>
+                    <ChevronDown className="w-5 h-5" />
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                </button>
+                <AnimatePresence initial={false}>
+                  {activeIndex === index && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="px-6 pb-4 text-gray-600 text-sm"
+                    >
+                      <div>{faq.answer}</div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
