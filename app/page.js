@@ -11,34 +11,34 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 const faqs = [
   {
-    question: "What interior styles do you specialize in?",
+    question: "Do you offer commercial interior design for offices and retail spaces?",
     answer:
-      "We specialize in a range of styles—from modern minimalist and Scandinavian to traditional Indian and bohemian aesthetics. Every design is tailored to your vision.",
+      "Yes. Miggla offers expert commercial interior design services across Delhi NCR for corporate offices, clinics, salons, showrooms, cafes, and more. We specialize in designing boss cabins, reception areas, conference rooms, workstations, and brand-aligned interiors that enhance both aesthetics and productivity. Whether you need a modern office makeover or a complete turnkey commercial setup, our team ensures smart space planning, quality execution, and on-time delivery.",
   },
   {
-    question: "How long does a typical project take?",
+    question: "How long does a full interior design project take?",
     answer:
-      "Depending on the size, it usually ranges from 2 weeks to 2 months. We always prioritize quality while meeting deadlines.",
+      "Project timelines vary by size and complexity, but most 2BHK/3BHK homes are delivered within 45–60 days, and commercial spaces in 30–45 days. We’re known for our on-time handovers with regular progress updates.",
   },
   {
-    question: "Can I be involved in the design process?",
+    question: "Can I see previous interior design projects done by Miggla?",
     answer:
-      "Absolutely! We believe in collaborative design. Your input and feedback are central to creating your dream space.",
+      "Yes, you can explore our portfolio of 1000+ completed projects across Delhi, Noida, Gurugram, and Faridabad. Visit our [Project Gallery] or follow us on Instagram for real-time design inspiration.",
   },
   {
-    question: "Do you offer eco-friendly options?",
+    question: "What is a turnkey interior solution?",
     answer:
-      "Yes, we provide sustainable materials and eco-conscious design strategies that don’t compromise on beauty or functionality.",
+      "A turnkey interior solution means we handle everything—from design, material selection, civil work, electrical, false ceiling, carpentry, furnishing, to final styling. You simply approve the design, and we deliver the finished space, ready for you to walk in.",
   },
    {
-    question: "Do you offer eco-friendly options?",
+    question: "What services does Miggla offer for interior design in Delhi NCR?",
     answer:
-      "Yes, we provide sustainable materials and eco-conscious design strategies that don’t compromise on beauty or functionality.",
+      "Miggla provides end-to-end interior design services for residential and commercial spaces including space planning, 3D designs, modular kitchen and wardrobe design, custom furniture manufacturing, and full turnkey interior solutions. We handle everything from concept to execution — so you can relax and move in stress-free.",
   },
    {
-    question: "Do you offer eco-friendly options?",
+    question: "How is Miggla different from other interior designers in Delhi?",
     answer:
-      "Yes, we provide sustainable materials and eco-conscious design strategies that don’t compromise on beauty or functionality.",
+      "Miggla offers end-to-end residential and commercial interior design with in-house custom furniture, modular kitchens, and full turnkey execution. With 1000+ projects delivered across Delhi NCR, we ensure Vastu-aligned planning, on-time handovers, and tailored spaces that blend style and function.",
   },
 ];
 
@@ -767,19 +767,23 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="min-h-screen px-4 py-20 bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] flex items-center justify-center">
-      <div className="w-full max-w-7xl flex flex-col md:flex-row items-center gap-10">
+      <section className="min-h-screen px-4 py-15 bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] flex items-center justify-center ">
+     <div className="w-full max-w-7xl flex flex-col md:flex-row items-center gap-5 md:ml-[-80px]">
+
         
        {/* Left Image (Only on md+ screens) */}
-<div className="hidden md:block w-full md:w-1/2">
-  <Image
-    src="/152cda45-a244-41b2-acf0-5abff16caa5e.png"
-    alt="Interior Design FAQ"
-    width={600}
-    height={500}
-    className="rounded-2xl shadow-xl w-full object-cover"
-  />
+<div className="hidden md:flex w-full md:w-1/2 justify-center items-center">
+  <div className="max-w-[400px] max-h-[700px] w-full h-full ">
+    <Image
+      src="/frthtrh.jpg"
+      alt="Interior Design FAQ"
+      width={350}
+      height={500}
+      className="rounded-2xl shadow-xl object-cover w-full h-full"
+    />
+  </div>
 </div>
+
 
 
         {/* Right FAQ Glass Card */}
@@ -895,7 +899,7 @@ export default function Home() {
             {/* Logo + About */}
             <div>
               <Link href="/"> <div className="flex items-center gap-2 mb-4">
-                <img src="/logoimg.png" alt="Logo" className="w-12 h-12" />
+                <img src="/logofooter.png" alt="Logo" className="w-12 h-12" />
                 <h1 className="text-xl font-bold leading-tight">
                   MIGGLA <br />
                   <span className="text-red-500 font-extralight">luxurious Interior Designer & custom furniture manufacturer</span>
