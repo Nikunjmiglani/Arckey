@@ -5,6 +5,7 @@ import Head from 'next/head'
 
 
 
+
 import { blogs } from './blog/blogdata';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -343,17 +344,7 @@ export default function Home() {
         <meta property="og:url" content="https://miggla.com" />
         <meta name="twitter:card" content="summary_large_image" />
 
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Test Schema Visible",
-      "url": "https://miggla.com"
-    })
-  }}
-/>
+
 
        
       </Head>
