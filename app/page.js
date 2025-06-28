@@ -9,6 +9,7 @@ import { blogs } from './blog/blogdata';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { FaCheckCircle } from 'react-icons/fa';
+import CentralSchema from "@/components/CentralSchema";
 
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
@@ -112,7 +113,7 @@ const tabs = [
 
 
 
-export default function Home() {
+export default function Home({components, pageProps}) {
    
   const [activeIndex, setActiveIndex] = useState(null);
 

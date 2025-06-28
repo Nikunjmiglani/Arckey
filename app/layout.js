@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import StructuredData from '../StructuredData'; // ✅ Keep this
+
 import Navbar from "@/components/Navbar";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -22,9 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <StructuredData /> {/* ✅ Now server-rendered and Google-readable */}
-      </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         {children}
