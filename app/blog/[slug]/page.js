@@ -1,4 +1,3 @@
-// app/blog/[slug]/page.js
 import { client } from '@/lib/sanity'
 import { PortableText } from '@portabletext/react'
 import BlogSchema from '@/components/BlogSchema'
@@ -9,6 +8,8 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }) {
+  const slug = params?.slug // no destructuring on top
+
   const query = `*[_type == "post" && slug.current == $slug][0]{
     title,
     slug,
@@ -17,7 +18,7 @@ export default async function BlogPostPage({ params }) {
     body
   }`
 
-  const blog = await client.fetch(query, { slug: params.slug })
+  const blog = await client.fetch(query, { slug })
 
   if (!blog) {
     return (
@@ -33,7 +34,7 @@ export default async function BlogPostPage({ params }) {
       <BlogSchema
         title={blog.title}
         description={`Blog post: ${blog.title}`}
-        url={`https://miggla.com/blog/${params.slug}`}
+        url={`https://miggla.com/blog/${slug}`}
         image={blog.mainImage?.asset?.url}
         datePublished={blog.publishedAt}
       />
@@ -59,6 +60,8 @@ export default async function BlogPostPage({ params }) {
     </>
   )
 }
+
+
 
 
 
