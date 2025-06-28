@@ -113,7 +113,7 @@ const tabs = [
 
 
 
-export default function Home({components, pageProps}) {
+export default function Home({Component, pageProps}) {
    
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -326,6 +326,8 @@ export default function Home({components, pageProps}) {
 
   return (
     <>
+    <CentralSchema />
+      <Component {...pageProps} />
     <Head>
         <title>Leading Interior Designers in Delhi | Miggla</title>
         <meta
