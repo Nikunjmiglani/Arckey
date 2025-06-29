@@ -529,7 +529,7 @@ export default function Home() {
       <div className="border-t border-gray-500 mx-6 sm:mx-20"></div>
 
 
-      import Link from 'next/link';
+     
 
 <section className="bg-[#f4f0e9] py-16 px-4 sm:px-10" id="services">
   <div className="text-center max-w-4xl mx-auto mb-12">
@@ -697,19 +697,7 @@ export default function Home() {
         </p>
       </div>
 
-      <ul className="space-y-3 mt-6">
-        {[
-          'In-house expert craftsmen and design leaders',
-          'Obsessive attention to quality and detailing',
-          'Use of 3D visualization and modern software',
-          'Trusted by 200+ happy clients across Delhi NCR',
-        ].map((item, idx) => (
-          <li key={idx} className="flex items-start gap-3 text-gray-800">
-            <FaCheckCircle className="text-yellow-600 mt-1" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+      
     </div>
 
     {/* Right Image with Quote */}
