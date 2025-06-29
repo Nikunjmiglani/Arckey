@@ -212,7 +212,7 @@ export default function Home() {
     img: "/blogimg1.webp",
     date: "MAY 28, 2024",
     title: "Top 5 Bathroom Interior Designers in Delhi NCR | Interior designers near me",
-    slug: "top-5-bathroom-interior-designers-in-delhi-ncr-interior-desginers-near-me",
+    slug: "top-5bathroom-interior-designers-in-delhi-ncr-interior-designers-near-me",
   },
   {
     img: "/blogimg3.webp",
@@ -224,13 +224,13 @@ export default function Home() {
     img: "/blogimg2.webp",
     date: "MAR 15, 2024",
     title: "Modern Luxury Living Room Design Tips to Transform Your Home in 2025",
-    slug: "luxury-living-room-tips-2025",
+    slug: "modern-luxury-living-room-design-tips-to-transform-your-home-in-2025",
   },
   {
     img: "/post-image2.webp",
     date: "FEB 20, 2024",
     title: "Interior Tips for Newly Married Couples",
-    slug: "interior-newly-married-couples",
+    slug: "interior-tips-for-newly-married-couples",
   },
   {
     img: "/post-image3.webp",
