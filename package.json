@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@portabletext/react": "^3.2.1",
     "@sanity/client": "^7.6.0",
+    "@sanity/image-url": "^1.1.0",
     "@tailwindcss/typography": "^0.5.16",
     "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.19.2",
