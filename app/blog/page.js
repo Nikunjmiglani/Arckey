@@ -1,28 +1,20 @@
-'use client'
-import Link from 'next/link'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import { client } from '@/lib/sanity'
+import Link from 'next/link';
+import Image from 'next/image';
+import { client } from '@/lib/sanity';
 
-export default function BlogPage() {
-  const [blogs, setBlogs] = useState([])
+export const dynamic = 'force-dynamic';
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      const query = `*[_type == "post"] | order(publishedAt desc){
-        _id,
-        title,
-        slug,
-        publishedAt,
-        "img": mainImage.asset->url,
-        "desc": body[0].children[0].text
-      }`
-      const data = await client.fetch(query)
-      setBlogs(data)
-    }
+export default async function BlogPage() {
+  const query = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc){
+    _id,
+    title,
+    slug,
+    publishedAt,
+    "img": mainImage.asset->url,
+    "desc": body[0].children[0].text
+  }`;
 
-    fetchBlogs()
-  }, [])
+  const blogs = await client.fetch(query);
 
   return (
     <section className="px-6 sm:px-12 py-12 bg-gray-50 min-h-screen">
@@ -32,7 +24,7 @@ export default function BlogPage() {
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {blogs.map((blog) => (
-          <Link href={`/blog/${blog.slug.current}`} key={blog._id}>
+          <Link href={`/blog/${blog.slug?.current}`} key={blog._id}>
             <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-4 cursor-pointer flex flex-col">
               {blog.img && (
                 <Image
@@ -49,15 +41,13 @@ export default function BlogPage() {
               <h2 className="text-xl font-semibold text-gray-900 mt-2 hover:underline line-clamp-2">
                 {blog.title}
               </h2>
-              <p className="text-gray-600 mt-2 text-sm line-clamp-3">
-                {blog.desc || 'Click to read more...'}
-              </p>
             </div>
           </Link>
         ))}
       </div>
     </section>
-  )
+  );
 }
+
 
 
