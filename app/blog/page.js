@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Head from 'next/head';
 import { client } from '@/lib/sanity';
 
 export const dynamic = 'force-dynamic';
@@ -17,6 +18,10 @@ export default async function BlogPage() {
   const blogs = await client.fetch(query);
 
   return (
+    <>
+     <Head>
+      Meta title -  Discover Miggla – Top interior designers in Delhi NCR offering luxury, vastu-aligned, and custom-made interiors for homes, offices, and commercial spaces.
+    </Head>
     <section className="px-6 sm:px-12 py-12 bg-gray-50 min-h-screen">
       <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-10 text-center">
         Explore Our Blog
@@ -46,6 +51,7 @@ export default async function BlogPage() {
         ))}
       </div>
     </section>
+    </>
   );
 }
 

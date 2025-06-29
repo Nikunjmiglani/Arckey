@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Miggla",
+  title: "Miggla- Office & Retail Interior Designers in Delhi, Noida, Gurgaon",
   description: "",
 };
 const schema = {
