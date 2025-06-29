@@ -412,13 +412,13 @@ export default function Home() {
             { src: '/finalnewimg (2).jpg', title: "Enter Your Dream Space" },
           ].map(({ src, title }, i) => (
             <div key={i} className="flex flex-col items-center text-center sm:block sm:text-center">
-              <div className="w-full">
+             <Link href="#contactform"> <div className="w-full">
                 <img
                   src={src}
                   alt={title}
                   className="w-full h-auto object-cover rounded-xl hover:scale-105 transition-transform duration-500"
                 />
-              </div>
+              </div></Link>
               <div className="mt-3 sm:mt-4">
                 <h2 className="font-bold text-base sm:text-lg">
                   <span className="text-red-500 text-lg sm:text-xl font-semibold block mb-1">
@@ -529,64 +529,67 @@ export default function Home() {
       <div className="border-t border-gray-500 mx-6 sm:mx-20"></div>
 
 
-      <section className="bg-[#f4f0e9] py-16 px-4 sm:px-10 " id="services">
-        <div className="text-center max-w-4xl mx-auto mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">Services We Provide</h2>
-          <p className="text-gray-600 text-lg">
-            Discover our range of expert services that transform spaces into dream homes with thoughtful design and flawless execution.
-          </p>
+      import Link from 'next/link';
+
+<section className="bg-[#f4f0e9] py-16 px-4 sm:px-10" id="services">
+  <div className="text-center max-w-4xl mx-auto mb-12">
+    <h2 className="text-4xl font-bold mb-4 text-gray-800">Services We Provide</h2>
+    <p className="text-gray-600 text-lg">
+      Discover our range of expert services that transform spaces into dream homes with thoughtful design and flawless execution.
+    </p>
+  </div>
+
+  <div className="grid grid-cols-2 sm:grid-cols-2 text-center lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+    {[
+      {
+        title: "Commercial Interior design",
+        img: "/servicesimg (2).jpeg",
+        link: "/commercial-interior-design",
+      },
+      {
+        title: "Residential Interior Design",
+        img: "/servicesimg (5).jpeg",
+        link: "/residential-interior-design",
+      },
+      {
+        title: "Turnkey Projects",
+        img: "/servicesimg (4).jpeg",
+        link: "/turnkey-projects",
+      },
+      {
+        title: "Modular kitchen",
+        img: "/servicesimg (3).jpeg",
+        link: "/modular-kitchen",
+      },
+      {
+        title: "Design Consultation",
+        img: "/servicesimg (6).jpeg",
+        link: "/design-consultation",
+      },
+      {
+        title: "Bathroom Remodelling",
+        img: "/servicesimg (1).jpeg",
+        link: "/bathroom-remodelling",
+      },
+    ].map(({ title, img, link }, i) => (
+      <Link href={link} key={i}>
+        <div className="bg-white rounded-2xl shadow-md hover:scale-110 transition-transform duration-200 overflow-hidden cursor-pointer">
+          <img
+            src={img}
+            alt={title}
+            className="w-full h-48 object-cover"
+          />
+          <div className="p-6">
+            <h3 className="text-xl font-semibold mb-2 text-gray-800">
+              {title}
+            </h3>
+          </div>
         </div>
+      </Link>
+    ))}
+  </div>
+</section>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 text-center lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {[
-            {
-              title: "Commercial Interior design",
-
-              img: "/servicesimg (2).jpeg",
-            },
-            {
-              title: "Residential Interior Design",
-
-              img: "/servicesimg (5).jpeg",
-            },
-            {
-              title: "Turnkey Projects",
-
-              img: "/servicesimg (4).jpeg",
-            },
-            {
-              title: "Modular kitchen",
-
-              img: "/servicesimg (3).jpeg",
-            },
-            {
-              title: "Design Consultation",
-
-              img: "/servicesimg (6).jpeg",
-            },
-            {
-              title: "Bathroom Remodelling",
-
-              img: "/servicesimg (1).jpeg",
-            },
-          ].map(({ title, desc, img }, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-2xl shadow-md hover:scale-110 transition-transform duration-200 overflow-hidden"
-            >
-              <img
-                src={img}
-                alt={title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
-                <p className="text-gray-600 text-sm">{desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
 
 
