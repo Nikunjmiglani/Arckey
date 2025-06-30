@@ -290,7 +290,7 @@ export default function Home() {
     { name: "Careers", href: "/careers" },
     { name: "Privacy Policy", href: "/legal" },
     { name: "Terms & Conditions", href: "/legal" },
-    { name: "FAQ", href: "/legal" },
+    { name: "FAQ", href: "/faq" },
 
 
   ]
