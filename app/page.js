@@ -218,7 +218,7 @@ export default function Home() {
     img: "/blogimg3.webp",
     date: "APR 10, 2024",
     title: "Top 5 Commercial Interior Designers in Delhi NCR – Offices, Retail & Hospitality Spaces",
-    slug: "top-5-commercial-interior-designers-in-delhi-ncr-offices-retail-hospitality-spaces",
+    slug: "top-5-commercial-interior-designers-in-delhi-ncr-offices-retail-amp-hospitality-spaces",
   },
   {
     img: "/blogimg2.webp",
@@ -282,7 +282,7 @@ export default function Home() {
   const leftLinks = [
     { name: "Services", href: "/#services" },
     { name: "Testimonials", href: "/#reviews" },
-    { name: "Blog", href: "/#blogs" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact us", href: "/contact" },
 
   ]
