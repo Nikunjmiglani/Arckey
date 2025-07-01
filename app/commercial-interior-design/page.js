@@ -18,7 +18,7 @@ const cards = [
     title: "South Delhi Office",
   },
   {
-    src: "/top 5 office-cabin-interior-design-ideas 2025.webp",
+    src: "/office-cabin-interior-design-ideas.webp",
     title: "Office Cabin Ideas 2025",
   },
   {
