@@ -1,11 +1,12 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState,  } from 'react';
 import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 import Head from 'next/head'
 
 
 const Navbar = () => {
+  const [darkMode, setDarkMode] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -30,6 +31,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  
 
   return (
     <>
@@ -83,6 +85,7 @@ const Navbar = () => {
           <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer hover:px-6 hidden sm:block animate-bounce" onClick={() => setShowPopup(true)} >
             Get Free Estimate
           </button>
+          
           {showPopup && (
         <div className="fixed inset-0 backdrop-blur-md bg-white/40 flex justify-center items-center z-[1000] px-4">
           <div className="bg-white w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
@@ -92,6 +95,7 @@ const Navbar = () => {
             >
               &times;
             </button>
+           
 
             <h2 className="text-2xl font-bold mb-4 text-center">
               Get a <span className="text-red-500">free design consultation</span>

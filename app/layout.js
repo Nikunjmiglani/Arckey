@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Miggla- Office & Retail Interior Designers in Delhi, Noida, Gurgaon",
   description: " Discover Miggla – Top interior designers in Delhi NCR offering luxury, vastu-aligned, and custom-made interiors for homes, offices, and commercial spaces.",
+  icons: {
+    icon: '/favicon.png', 
+  },
 };
 const schema = {
   "@context": "https://schema.org",
