@@ -232,12 +232,7 @@ export default function Home() {
     title: "Interior Tips for Newly Married Couples",
     slug: "interior-tips-for-newly-married-couples",
   },
-  {
-    img: "/post-image3.webp",
-    date: "JAN 5, 2024",
-    title: "Modular Kitchen Ideas for Indian Homes",
-    slug: "modular-kitchen-indian-homes",
-  },
+  
 ];
 
 
