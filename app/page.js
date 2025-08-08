@@ -996,90 +996,124 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
-        <footer className="bg-[#1e1e23] text-white pt-14 px-6 sm:px-12">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-gray-600">
-
-            {/* Logo + About */}
-            <div>
-              <Link href="/"> <div className="flex items-center gap-2 mb-4">
-                <img src="/logofooter.png" alt="Logo" className="w-12 h-12" />
-                <h1 className="text-xl font-bold leading-tight">
-                  MIGGLA <br />
-                  <span className="text-red-500 font-extralight">luxurious Interior Designer & custom furniture manufacturer</span>
-                </h1>
-              </div></Link>
-              <p className="text-gray-400 text-sm">
-                Miggla is at your service, if you want to give your home interiors a fresh and elegant look without spending huge fortune.
-              </p>
-              <div className="mt-4">
-                <p className="text-white font-semibold">Follow Us On:</p>
-                <div className="flex gap-3 mt-2 text-gray-300 text-lg">
-                  <a href="https://www.facebook.com/migglaofficial" target="/"> <i className=" hover:scale-110 transition-transform duration-200 fab fa-facebook"></i></a>
-                  <a href="https://x.com/miggla_official" target="/"><i className="fab  hover:scale-110 transition-transform duration-200 fa-twitter"></i></a>
-                  <a href="https://www.youtube.com/@miggla_official" target="/"> <i className="fab  hover:scale-110 transition-transform duration-200  fa-youtube"></i></a>
-                  <a href="https://in.pinterest.com/miggla_official/" target="/"><i className="fab  hover:scale-110 transition-transform duration-200 fa-pinterest"></i></a>
-                  <a href="https://www.instagram.com/miggla_official/#" target="/"><i className="fab  hover:scale-110 transition-transform duration-200 fa-instagram"></i></a>
-                  <a href="https://www.linkedin.com/company/miggla/posts/?feedView=all" target=""><i className="fab  hover:scale-110 transition-transform duration-200 fa-linkedin"></i></a>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Useful Links */}
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <h2 className="text-xl font-bold mb-4">Useful Links</h2>
-                {leftLinks.map((link, idx) => (
-                  <Link key={idx} href={link.href}>
-                    <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
-                  </Link>
-                ))}
-              </div>
-
-              <div>
-                <h2 className="text-xl font-bold mb-4 invisible md:visible">&nbsp;</h2>
-                {rightLinks.map((link, idx) => (
-                  <Link key={idx} href={link.href}>
-                    <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Subscribe */}
-            <div>
-              <h2 className="text-xl font-bold mb-4">Subscribe Us</h2>
-              <form
-                action="https://formspree.io/f/mgvynjpo"
-                method="POST"
-                className="flex flex-col sm:flex-row justify-center items-center gap-6"
-              >
-                <input
-                  type="email"
-                  name="email"              // Required by Formspree
-                  placeholder="Email Address"
-                  required                  // Makes the field mandatory
-                  className="w-full p-3 bg-gray-700 text-sm rounded-md placeholder:text-gray-400 text-white"
-                />
-                <button className="mt-3 w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-md font-semibold flex items-center justify-center gap-2">
-                  Subscribe <span className="text-lg">→</span>
-                </button>
-              </form>
-              <p className="text-gray-400 text-sm mt-3">
-                *Subscribe us and get latest news and updates.
-              </p>
-            </div>
-
+    <section>
+  <footer className="bg-[#1e1e23] text-white pt-14 px-6 sm:px-12">
+    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-gray-600">
+      
+      {/* Logo + About */}
+      <div>
+        <Link href="/">
+          <div className="flex items-center gap-2 mb-4">
+            <img src="/logofooter.png" alt="Logo" className="w-12 h-12" />
+            <h1 className="text-xl font-bold leading-tight">
+              MIGGLA <br />
+              <span className="text-red-500 font-extralight">
+                luxurious Interior Designer & custom furniture manufacturer
+              </span>
+            </h1>
           </div>
-
-          {/* Bottom bar */}
-          <div className="text-center text-gray-500 text-xs py-6">
-            © {new Date().getFullYear()} Miggla. All rights reserved.
+        </Link>
+        <p className="text-gray-400 text-sm">
+          Miggla is at your service, if you want to give your home interiors a fresh and elegant look without spending huge fortune.
+        </p>
+        <div className="mt-4">
+          <p className="text-white font-semibold">Follow Us On:</p>
+          <div className="flex gap-3 mt-2 text-gray-300 text-lg">
+            <a href="https://www.facebook.com/migglaofficial" target="_blank"><i className="fab fa-facebook hover:scale-110 transition-transform duration-200"></i></a>
+            <a href="https://x.com/miggla_official" target="_blank"><i className="fab fa-twitter hover:scale-110 transition-transform duration-200"></i></a>
+            <a href="https://www.youtube.com/@miggla_official" target="_blank"><i className="fab fa-youtube hover:scale-110 transition-transform duration-200"></i></a>
+            <a href="https://in.pinterest.com/miggla_official/" target="_blank"><i className="fab fa-pinterest hover:scale-110 transition-transform duration-200"></i></a>
+            <a href="https://www.instagram.com/miggla_official/#" target="_blank"><i className="fab fa-instagram hover:scale-110 transition-transform duration-200"></i></a>
+            <a href="https://www.linkedin.com/company/miggla/posts/?feedView=all" target="_blank"><i className="fab fa-linkedin hover:scale-110 transition-transform duration-200"></i></a>
           </div>
-        </footer>
+        </div>
+      </div>
 
-      </section>
+      {/* Useful Links */}
+      <div className="grid grid-cols-2 gap-5">
+        <div>
+          <h2 className="text-xl font-bold text-center mb-4">Useful Links</h2>
+          {leftLinks.map((link, idx) => (
+            <Link key={idx} href={link.href}>
+              <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
+            </Link>
+          ))}
+        </div>
+        <div>
+          <h2 className="text-xl font-bold mb-4 invisible md:visible">&nbsp;</h2>
+          {rightLinks.map((link, idx) => (
+            <Link key={idx} href={link.href}>
+              <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Our Presence */}
+      <div>
+        <h2 className="text-xl font-bold mb-4">Our Presence</h2>
+        <div className="flex flex-col gap-2 text-sm">
+          <Link href="/interior-designer-in-delhi">
+            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+              Interior Designer in Delhi
+            </p>
+          </Link>
+          <Link href="/interior-designer-in-haryana">
+            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+              Interior Designer in Haryana
+            </p>
+          </Link>
+          <Link href="/interior-designer-in-punjab">
+            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+              Interior Designer in Punjab
+            </p>
+          </Link>
+          <Link href="/interior-designer-in-up">
+            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+              Interior Designer in Uttar Pradesh
+            </p>
+          </Link>
+          <Link href="/interior-designer-in-rajasthan">
+            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+              Interior Designer in Rajasthan
+            </p>
+          </Link>
+        </div>
+      </div>
+
+      {/* Subscribe Us */}
+      <div>
+        <h2 className="text-xl font-bold mb-4">Subscribe Us</h2>
+        <form
+          action="https://formspree.io/f/mgvynjpo"
+          method="POST"
+          className="flex flex-col sm:flex-row justify-center items-center gap-6"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+            className="w-full p-3 bg-gray-700 text-sm rounded-md placeholder:text-gray-400 text-white"
+          />
+          <button className="mt-3 w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-md font-semibold flex items-center justify-center gap-2">
+            Subscribe <span className="text-lg">→</span>
+          </button>
+        </form>
+        <p className="text-gray-400 text-sm mt-3">
+          *Subscribe us and get latest news and updates.
+        </p>
+      </div>
+    </div>
+
+    {/* Bottom Bar */}
+    <div className="text-center text-gray-500 text-xs py-6">
+      © {new Date().getFullYear()} Miggla. All rights reserved.
+    </div>
+  </footer>
+</section>
+
+
 
 
 
