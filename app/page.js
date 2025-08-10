@@ -996,7 +996,7 @@ export default function Home() {
         </div>
       </section>
 
-    <section>
+   <section>
   <footer className="bg-[#1e1e23] text-white pt-14 px-6 sm:px-12">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-gray-600">
       
@@ -1016,20 +1016,9 @@ export default function Home() {
         <p className="text-gray-400 text-sm">
           Miggla is at your service, if you want to give your home interiors a fresh and elegant look without spending huge fortune.
         </p>
-        <div className="mt-4">
-          <p className="text-white font-semibold">Follow Us On:</p>
-          <div className="flex gap-3 mt-2 text-gray-300 text-lg">
-            <a href="https://www.facebook.com/migglaofficial" target="_blank"><i className="fab fa-facebook hover:scale-110 transition-transform duration-200"></i></a>
-            <a href="https://x.com/miggla_official" target="_blank"><i className="fab fa-twitter hover:scale-110 transition-transform duration-200"></i></a>
-            <a href="https://www.youtube.com/@miggla_official" target="_blank"><i className="fab fa-youtube hover:scale-110 transition-transform duration-200"></i></a>
-            <a href="https://in.pinterest.com/miggla_official/" target="_blank"><i className="fab fa-pinterest hover:scale-110 transition-transform duration-200"></i></a>
-            <a href="https://www.instagram.com/miggla_official/#" target="_blank"><i className="fab fa-instagram hover:scale-110 transition-transform duration-200"></i></a>
-            <a href="https://www.linkedin.com/company/miggla/posts/?feedView=all" target="_blank"><i className="fab fa-linkedin hover:scale-110 transition-transform duration-200"></i></a>
-          </div>
-        </div>
       </div>
 
-      {/* Useful Links */}
+      {/* Useful Links + Follow Us */}
       <div className="grid grid-cols-2 gap-5">
         <div>
           <h2 className="text-xl font-bold text-center mb-4">Useful Links</h2>
@@ -1040,12 +1029,25 @@ export default function Home() {
           ))}
         </div>
         <div>
-          <h2 className="text-xl font-bold mb-4 invisible md:visible">&nbsp;</h2>
+          <h2 className="text-xl font-bold mb-0 invisible md:visible">&nbsp;</h2>
           {rightLinks.map((link, idx) => (
             <Link key={idx} href={link.href}>
               <p className="text-gray-400 text-sm hover:text-white cursor-pointer transition-colors">+ {link.name}</p>
             </Link>
           ))}
+        </div>
+
+        {/* Follow Us On */}
+        <div className="col-span-2 mt-0">
+          <p className="text-white font-semibold">Follow Us On:</p>
+          <div className="flex gap-3 mt-0 text-gray-300 text-lg">
+            <a href="https://www.facebook.com/migglaofficial" target="_blank"><i className="fab fa-facebook hover:scale-110 transition-transform duration-200"></i></a>
+            <a href="https://x.com/miggla_official" target="_blank"><i className="fab fa-twitter hover:scale-110 transition-transform duration-200"></i></a>
+            <a href="https://www.youtube.com/@miggla_official" target="_blank"><i className="fab fa-youtube hover:scale-110 transition-transform duration-200"></i></a>
+            <a href="https://in.pinterest.com/miggla_official/" target="_blank"><i className="fab fa-pinterest hover:scale-110 transition-transform duration-200"></i></a>
+            <a href="https://www.instagram.com/miggla_official/#" target="_blank"><i className="fab fa-instagram hover:scale-110 transition-transform duration-200"></i></a>
+            <a href="https://www.linkedin.com/company/miggla/posts/?feedView=all" target="_blank"><i className="fab fa-linkedin hover:scale-110 transition-transform duration-200"></i></a>
+          </div>
         </div>
       </div>
 
@@ -1053,31 +1055,11 @@ export default function Home() {
       <div>
         <h2 className="text-xl font-bold mb-4">Our Presence</h2>
         <div className="flex flex-col gap-2 text-sm">
-          <Link href="/interior-designer-in-delhi">
-            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
-              Interior Designer in Delhi
-            </p>
-          </Link>
-          <Link href="/interior-designer-in-haryana">
-            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
-              Interior Designer in Haryana
-            </p>
-          </Link>
-          <Link href="/interior-designer-in-punjab">
-            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
-              Interior Designer in Punjab
-            </p>
-          </Link>
-          <Link href="/interior-designer-in-up">
-            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
-              Interior Designer in Uttar Pradesh
-            </p>
-          </Link>
-          <Link href="/interior-designer-in-rajasthan">
-            <p className="text-gray-400 hover:text-white transition-colors cursor-pointer">
-              Interior Designer in Rajasthan
-            </p>
-          </Link>
+          <Link href="/interior-designer-in-delhi"><p className="text-gray-400 hover:text-white">Interior Designer in Delhi</p></Link>
+          <Link href="/interior-designer-in-haryana"><p className="text-gray-400 hover:text-white">Interior Designer in Rohtak</p></Link>
+          <Link href="/interior-designer-in-punjab"><p className="text-gray-400 hover:text-white">Interior Designer in Ghaziabad</p></Link>
+          <Link href="/interior-designer-in-up"><p className="text-gray-400 hover:text-white">Interior Designer in Noida</p></Link>
+          <Link href="/interior-designer-in-rajasthan"><p className="text-gray-400 hover:text-white">Interior Designer in Faridabad</p></Link>
         </div>
       </div>
 
@@ -1112,6 +1094,7 @@ export default function Home() {
     </div>
   </footer>
 </section>
+
 
 
 
