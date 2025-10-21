@@ -108,30 +108,34 @@ const tabs = [
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
-  const [blogIndex, setBlogIndex] = useState(0);
-  const visibleCount = 3;
+const [blogIndex, setBlogIndex] = useState(0);
+const [loadingBlogs, setLoadingBlogs] = useState(true);
+const visibleCount = 3;
 
-    useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const query = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...5]{
-          _id,
-          title,
-          slug,
-          publishedAt,
-          "img": mainImage.asset->url,
-          "desc": body[0].children[0].text
-        }`;
-        
-        const result = await client.fetch(query);
-        setBlogs(result);
-      } catch (error) {
-        console.error('Error fetching blogs:', error);
+   useEffect(() => {
+  const fetchBlogs = async () => {
+    try {
+      setLoadingBlogs(true);
+      console.log("Fetching blogs from API route...");
+      
+      const response = await fetch('/api/blogs');
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch blogs');
       }
-    };
+      
+      const result = await response.json();
+      console.log("Blogs fetched successfully:", result);
+      setBlogs(result);
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    } finally {
+      setLoadingBlogs(false);
+    }
+  };
 
-    fetchBlogs();
-  }, []);
+  fetchBlogs();
+}, []);
 
    const nextBlog = () => {
     if (blogIndex + visibleCount < blogs.length) setBlogIndex(blogIndex + 1);
@@ -928,73 +932,76 @@ export default function Home() {
 
 
 
-        {/* DYNAMIC BLOG SECTION */}
-        <section className="px-6 sm:px-12 mb-20 relative" id="blogs">
-          <h1 className="text-left text-xl sm:text-2xl mb-6 mt-10 font-bold text-gray-800">
-            READ BLOG POSTS
-          </h1>
+       {/* BLOG SECTION */}
+<section className="px-6 sm:px-12 mb-20 relative" id="blogs">
+  <h1 className="text-left text-xl sm:text-2xl mb-6 mt-10 font-bold text-gray-800">
+    READ BLOG POSTS
+  </h1>
 
-          <div className="relative overflow-hidden">
-            <div
-              className="flex gap-8 transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${blogIndex * (100 / visibleCount)}%)` }}
-            >
-              {blogs.map((blog) => (
-                <div
-                  key={blog._id}
-                  className="min-w-[100%] sm:min-w-[50%] lg:min-w-[33.3333%]"
-                >
-                  <Link href={`/blog/${blog.slug?.current}`}>
-                    <Image
-                      src={blog.img || "/blog-placeholder.jpg"} // Add a fallback image
-                      alt={blog.title}
-                      width={300}
-                      height={220}
-                      className="object-cover w-full h-[220px] rounded-xl hover:scale-105 transition-transform duration-500 shadow-md cursor-pointer"
-                    />
-                    <h2 className="text-gray-500 mt-3 text-sm sm:text-base">
-                      {new Date(blog.publishedAt).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                      })}
-                    </h2>
-                    <h1 className="mt-2 text-lg sm:text-xl font-semibold hover:underline transition text-gray-800 line-clamp-2">
-                      {blog.title}
-                    </h1>
-                  </Link>
-                </div>
-              ))}
-            </div>
-
-            {/* Show arrows only if there are blogs */}
-            {blogs.length > visibleCount && (
-              <>
-                <button
-                  onClick={prevBlog}
-                  disabled={blogIndex === 0}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow hover:bg-gray-800 transition disabled:opacity-30"
-                >
-                  <FaArrowLeft />
-                </button>
-                <button
-                  onClick={nextBlog}
-                  disabled={blogIndex + visibleCount >= blogs.length}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow hover:bg-gray-800 transition disabled:opacity-30"
-                >
-                  <FaArrowRight />
-                </button>
-              </>
-            )}
+  {loadingBlogs ? (
+    <div className="text-center py-10">
+      <p className="text-gray-500">Loading blog posts...</p>
+    </div>
+  ) : blogs.length > 0 ? (
+    <div className="relative overflow-hidden">
+      <div
+        className="flex gap-8 transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${blogIndex * (100 / visibleCount)}%)` }}
+      >
+        {blogs.map((blog) => (
+          <div
+            key={blog._id}
+            className="min-w-[100%] sm:min-w-[50%] lg:min-w-[33.3333%]"
+          >
+            <Link href={`/blog/${blog.slug?.current}`}>
+              <Image
+                src={blog.img || "/blog-placeholder.jpg"}
+                alt={blog.title}
+                width={300}
+                height={220}
+                className="object-cover w-full h-[220px] rounded-xl hover:scale-105 transition-transform duration-500 shadow-md cursor-pointer"
+              />
+              <h2 className="text-gray-500 mt-3 text-sm sm:text-base">
+                {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric'
+                })}
+              </h2>
+              <h1 className="mt-2 text-lg sm:text-xl font-semibold hover:underline transition text-gray-800 line-clamp-2">
+                {blog.title}
+              </h1>
+            </Link>
           </div>
+        ))}
+      </div>
 
-          {/* Show message when no blogs */}
-          {blogs.length === 0 && (
-            <div className="text-center py-10">
-              <p className="text-gray-500">No blog posts available yet. Check back soon!</p>
-            </div>
-          )}
-        </section>
+      {/* Show arrows only if there are enough blogs */}
+      {blogs.length > visibleCount && (
+        <>
+          <button
+            onClick={prevBlog}
+            disabled={blogIndex === 0}
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow hover:bg-gray-800 transition disabled:opacity-30"
+          >
+            <FaArrowLeft />
+          </button>
+          <button
+            onClick={nextBlog}
+            disabled={blogIndex + visibleCount >= blogs.length}
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow hover:bg-gray-800 transition disabled:opacity-30"
+          >
+            <FaArrowRight />
+          </button>
+        </>
+      )}
+    </div>
+  ) : (
+    <div className="text-center py-10">
+      <p className="text-gray-500">No blog posts available yet. Check back soon!</p>
+    </div>
+  )}
+</section>
         <section>
           <footer className="bg-[#1e1e23] text-white pt-14 px-6 sm:px-12">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-gray-600">
