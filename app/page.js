@@ -946,7 +946,57 @@ export default function Home() {
 
 
      {/* BLOG SECTION */}
- <BlogComp />
+ <section className="px-6 sm:px-12 mb-20 relative" id="blogs">
+        <h1 className="text-left text-xl sm:text-2xl mb-6 mt-10 font-bold text-gray-800">
+          READ BLOG POSTS
+        </h1>
+
+        <div className="relative overflow-hidden">
+          <div
+            className="flex gap-8 transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${blogIndex * (100 / visibleCount)}%)` }}
+          >
+            {blogs.map((post) => (
+              <div
+                key={post.slug}
+                className="min-w-[100%] sm:min-w-[50%] lg:min-w-[33.3333%]"
+              >
+                <Link href={`/blog/${post.slug}`}>
+                  <Image
+                    src={post.img}
+                    alt={post.title}
+                    width={300}
+                    height={220}
+                    className="object-cover w-full h-[220px] rounded-xl hover:scale-105 transition-transform duration-500 shadow-md cursor-pointer"
+                  />
+                  <h2 className="text-gray-500 mt-3 text-sm sm:text-base">
+                    {post.date}
+                  </h2>
+                  <h1 className="mt-2 text-lg sm:text-xl font-semibold hover:underline transition text-gray-800">
+                    {post.title}
+                  </h1>
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Arrow Buttons */}
+          <button
+            onClick={prevBlog}
+            disabled={blogIndex === 0}
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow hover:bg-gray-800 transition disabled:opacity-30"
+          >
+            <FaArrowLeft />
+          </button>
+          <button
+            onClick={nextBlog}
+            disabled={blogIndex + visibleCount >= blogs.length}
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow hover:bg-gray-800 transition disabled:opacity-30"
+          >
+            <FaArrowRight />
+          </button>
+        </div>
+      </section>
 
      <section>
   <footer className="bg-[#1e1e23] text-white pt-14 px-6 sm:px-12">

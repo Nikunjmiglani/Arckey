@@ -1,111 +1,113 @@
-import Link from "next/link";
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import Head from "next/head";
+import Link from "next/link";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { client } from "@/lib/sanity";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
-import { useState } from "react";
 
-export const dynamic = "force-dynamic";
+export default function BlogComp() {
+  const [blogs, setBlogs] = useState([]);
+  const [blogIndex, setBlogIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(3);
 
-export default async function BlogPage() {
-  const query = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc){
-    _id,
-    title,
-    slug,
-    publishedAt,
-    "img": mainImage.asset->url,
-    "desc": body[0].children[0].text
-  }`;
+  // Adjust visible blog count based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setVisibleCount(1);
+      else if (window.innerWidth < 1024) setVisibleCount(2);
+      else setVisibleCount(3);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  const blogs = await client.fetch(query);
+  // Fetch latest blogs directly from Sanity
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const query = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc){
+          _id,
+          title,
+          slug,
+          publishedAt,
+          "img": mainImage.asset->url
+        }`;
+        const data = await client.fetch(query);
+        setBlogs(data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
-  return (
-    <>
-      <Head>
-        <title>Discover Miggla – Luxury Interior Designers in Delhi NCR</title>
-        <meta
-          name="description"
-          content="Explore blogs from Miggla – your destination for luxury, vastu-aligned, and custom-made interiors for homes, offices, and commercial spaces."
-        />
-        <meta
-          name="keywords"
-          content="Miggla, interior designers, Delhi NCR, luxury interiors, vastu design, home interiors, commercial interiors"
-        />
-      </Head>
+  const nextBlog = () => {
+    if (blogIndex + visibleCount < blogs.length) {
+      setBlogIndex(blogIndex + 1);
+    }
+  };
 
-      <section className="px-6 sm:px-12 py-12 bg-gray-50 min-h-screen">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-10 text-center">
-          Explore Our Blog
-        </h1>
-
-        {blogs.length > 0 ? <BlogSlider blogs={blogs} /> : (
-          <p className="text-center text-gray-600">No blogs available yet.</p>
-        )}
-      </section>
-    </>
-  );
-}
-
-// Slider Component
-function BlogSlider({ blogs }) {
-  const [sliderRef, instanceRef] = useKeenSlider({
-    loop: true,
-    slides: { perView: 3, spacing: 20 },
-    breakpoints: {
-      "(max-width: 1024px)": { slides: { perView: 2, spacing: 15 } },
-      "(max-width: 640px)": { slides: { perView: 1, spacing: 10 } },
-    },
-  });
+  const prevBlog = () => {
+    if (blogIndex > 0) {
+      setBlogIndex(blogIndex - 1);
+    }
+  };
 
   return (
-    <div className="relative">
-      <div ref={sliderRef} className="keen-slider">
-        {blogs.map((blog) => (
-          <div key={blog._id} className="keen-slider__slide">
-            <Link href={`/blog/${blog.slug?.current}`}>
-              <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-4 cursor-pointer flex flex-col">
-                {blog.img && (
-                  <Image
-                    src={blog.img}
-                    alt={blog.title}
-                    width={500}
-                    height={280}
-                    className="w-full h-[200px] object-cover rounded-lg mb-4"
-                  />
-                )}
-                <p className="text-gray-500 text-sm">
-                  {new Date(blog.publishedAt).toLocaleDateString()}
-                </p>
-                <h2 className="text-xl font-semibold text-gray-900 mt-2 hover:underline line-clamp-2">
-                  {blog.title}
+    <section className="px-6 sm:px-12 mb-20 relative" id="blogs">
+      <h1 className="text-left text-xl sm:text-2xl mb-6 mt-10 font-bold text-gray-800">
+        READ BLOG POSTS
+      </h1>
+
+      <div className="relative overflow-hidden">
+        <div
+          className="flex gap-8 transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${blogIndex * (100 / visibleCount)}%)`,
+          }}
+        >
+          {blogs.map((post) => (
+            <div
+              key={post._id}
+              className="min-w-[100%] sm:min-w-[50%] lg:min-w-[33.3333%]"
+            >
+              <Link href={`/blog/${post.slug?.current}`}>
+                <Image
+                  src={post.img}
+                  alt={post.title}
+                  width={300}
+                  height={220}
+                  className="object-cover w-full h-[220px] rounded-xl hover:scale-105 transition-transform duration-500 shadow-md cursor-pointer"
+                />
+                <h2 className="text-gray-500 mt-3 text-sm sm:text-base">
+                  {new Date(post.publishedAt).toLocaleDateString()}
                 </h2>
-                <p className="text-gray-600 text-sm mt-2 line-clamp-3">
-                  {blog.desc}
-                </p>
-              </div>
-            </Link>
-          </div>
-        ))}
-      </div>
+                <h1 className="mt-2 text-lg sm:text-xl font-semibold hover:underline transition text-gray-800">
+                  {post.title}
+                </h1>
+              </Link>
+            </div>
+          ))}
+        </div>
 
-      {/* Navigation */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 z-10">
+        {/* Arrow Buttons */}
         <button
-          onClick={() => instanceRef.current?.prev()}
-          className="bg-gray-800 text-white p-2 rounded-full shadow hover:bg-gray-900"
+          onClick={prevBlog}
+          disabled={blogIndex === 0}
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow hover:bg-gray-800 transition disabled:opacity-30"
         >
-          ◀
+          <FaArrowLeft />
+        </button>
+        <button
+          onClick={nextBlog}
+          disabled={blogIndex + visibleCount >= blogs.length}
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow hover:bg-gray-800 transition disabled:opacity-30"
+        >
+          <FaArrowRight />
         </button>
       </div>
-      <div className="absolute top-1/2 -translate-y-1/2 right-0 z-10">
-        <button
-          onClick={() => instanceRef.current?.next()}
-          className="bg-gray-800 text-white p-2 rounded-full shadow hover:bg-gray-900"
-        >
-          ▶
-        </button>
-      </div>
-    </div>
+    </section>
   );
 }
