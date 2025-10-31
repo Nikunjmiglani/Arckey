@@ -179,94 +179,192 @@ export default function LegalPage() {
 
 
                 {/* Privacy Policy */}
-               <section id="privacy" className="px-4 py-10 max-w-4xl mx-auto">
-  <h2 className="text-3xl font-bold text-gray-800 mb-6">Privacy Policy</h2>
+                <section id="privacy" className="px-4 py-10 max-w-4xl mx-auto">
+  <h2 className="text-3xl font-bold text-gray-800 mb-6">Privacy Policy – Miggla.com</h2>
 
   <div className="text-gray-700 space-y-6 leading-relaxed">
-
     <p>
-      We value your privacy. Any personal information shared with us — such as your name, email, or phone number — is stored securely and used only for communication and service purposes.
+      Last Updated: October 31, 2025
+    </p>
+    <p>
+      Welcome to Miggla.com (“Miggla,” “we,” “our,” or “us”).
+    </p>
+    <p>
+      We are a team of interior designers based in Pitampura, Delhi, offering creative residential and commercial design solutions. Through Miggla.com, we share professional insights, décor ideas,tips, and expert blogs related to interior design, modular kitchens, home / office renovation, and Vastu interiors.
+    </p>
+    <p>
+      We respect your privacy and are committed to protecting the personal information you share with us. This policy explains how we collect, use, and safeguard your data when you interact with our website or services.
+    </p>
+    <p>
+      By using our website, you agree to the terms of this Privacy Policy.
     </p>
 
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">1. About Miggla</h3>
     <p>
-      We do not share your information with third parties without consent. Our site may use cookies to enhance user experience.
+      Miggla Interior Designers is a Delhi-based interior design studio specializing in custom home and office interiors, architectural planning, modular furniture, false ceiling designs, and space optimization.
+    </p>
+    <p>
+      Our website, Miggla.com, serves as a platform to:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Showcase our projects and services</li>
+      <li>Publish informative blogs and design tips</li>
+      <li>Connect with potential clients and design enthusiasts</li>
+    </ul>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">2. Information We Collect</h3>
+    <p>
+      We collect two types of data:
+    </p>
+    <p>
+      <strong>a) Personal Information (Provided by You)</strong>
+    </p>
+    <p>
+      When you contact us through inquiry forms or subscribe to updates, we may collect:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Your name</li>
+      <li>Email address</li>
+      <li>Phone number</li>
+      <li>City or project location</li>
+      <li>Any message or query you submit</li>
+    </ul>
+    <p>
+      <strong>b) Non-Personal Information (Automatically Collected)</strong>
+    </p>
+    <p>
+      When you browse our website, we collect certain information automatically through cookies and analytics tools, including:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>IP address</li>
+      <li>Browser and device details</li>
+      <li>Pages visited and time spent</li>
+      <li>Traffic sources (e.g., search engines or social media)</li>
+    </ul>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">3. How We Use the Collected Information</h3>
+    <p>
+      We use your information to:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Respond to inquiries or consultation requests</li>
+      <li>Share interior design insights and blog updates (if you subscribe)</li>
+      <li>Improve our website’s content and functionality</li>
+      <li>Display relevant Google Ads and promotions</li>
+      <li>Analyze website performance and visitor trends</li>
+    </ul>
+    <p>
+      We do not sell or rent your personal information to any third parties.
     </p>
 
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">4. Advertising and Google AdSense Policy</h3>
     <p>
-      You have also read and agree to the Terms of Use and Refund Policy on the website. If we add any new features or tools to our services, they will also be subject to this policy.
+      Miggla.com displays advertisements through Google AdSense and may partner with other trusted ad networks.
+    </p>
+    <p>
+      <strong>a) Google Ads Cookies</strong>
+    </p>
+    <p>
+      Google uses cookies, including the DART cookie, to serve ads based on users’ visits to this and other websites.
+      You can opt out of personalized advertising by visiting the <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-amber-500 hover:underline">Google Ads Settings</a>.
+    </p>
+    <p>
+      <strong>b) Third-Party Advertisers</strong>
+    </p>
+    <p>
+      Third-party vendors may use cookies and similar technologies to display relevant ads.
+      Miggla.com has no control over these cookies but ensures all ads comply with Google’s content and privacy standards.
+    </p>
+    <p>
+      For more information, please visit the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-amber-500 hover:underline">Google Advertising Privacy Policy</a>.
     </p>
 
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">1. Information We Collect About You</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>We collect personal information you share to sign up, create a profile, or purchase our products.</li>
-      <li>Personal Information includes name, address, phone number, email, etc.</li>
-      <li>This data helps us process orders and serve you better.</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">2. How This Information Is Used</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>Provide important communications and notices</li>
-      <li>Resolve queries and complaints</li>
-      <li>Comply with legal obligations</li>
-      <li>Share relevant info with third parties when required</li>
-      <li>Send service and promotional messages (only with consent)</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">3. Hosting on LINKER.store</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>Our store is hosted on www.linker.store</li>
-      <li>They securely store your data with industry-leading mechanisms</li>
-      <li>Using our site means agreeing to LINKER.store’s Terms and Privacy Policy</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">4. Consent</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>By using this site, you confirm you're of legal age or have guardian consent</li>
-      <li>You voluntarily provide your personal/business info for transactions</li>
-      <li>You may opt out of marketing communications anytime by contacting us</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">5. Third Party Links & Redirections</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>External links may lead to other sites; read their privacy policies</li>
-      <li>You're responsible for your login credentials’ security</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">6. Third Party Services</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>Third-party providers collect your info only as needed to deliver services</li>
-      <li>Payment gateways may have separate privacy policies — please review them</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">7. Payments</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>We accept online and offline payments</li>
-      <li>Transactions are encrypted via PCI-DSS-compliant gateways</li>
-      <li>Data is retained only as long as needed for your purchase</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">8. Legal Obligations & Compliance</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>We may share information if legally required or to protect rights/safety</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">9. Information Security</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>Data is protected using standard security practices</li>
-      <li>No online system is 100% secure; use strong passwords and be cautious</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">10. Changes to the Policy</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>This policy may be updated periodically</li>
-      <li>Material changes will be posted; continued use means acceptance</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">11. Contact Us</h3>
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">5. Cookies Policy 🍪</h3>
     <p>
-      For questions, suggestions, or concerns, contact us using the details provided in this Privacy Policy.
+      We use cookies to enhance user experience and analyze traffic.
+    </p>
+    <p>
+      Cookies help us:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Understand which design topics interest visitors most</li>
+      <li>Improve loading speed and layout</li>
+      <li>Deliver location-relevant content (Delhi NCR-based design inspiration)</li>
+      <li>Serve personalized advertisements</li>
+    </ul>
+    <p>
+      You can disable cookies anytime through your browser settings, though some parts of the website may not function optimally.
     </p>
 
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">6. Data Protection</h3>
+    <p>
+      We take data privacy seriously.
+    </p>
+    <p>
+      Miggla uses secure servers and SSL encryption to protect your data from unauthorized access, misuse, or disclosure.
+    </p>
+    <p>
+      Only authorized personnel have access to your contact details for the purpose of communication or consultation.
+    </p>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">7. Third-Party Tools and Services</h3>
+    <p>
+      Miggla uses trusted third-party tools to improve site functionality and marketing:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Google Analytics for traffic analysis</li>
+      <li>Google AdSense for monetization</li>
+      <li>Hosting and email services for communication and security</li>
+    </ul>
+    <p>
+      Each of these services has its own privacy policies that comply with international standards.
+    </p>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">8. Your Rights</h3>
+    <p>
+      You have full control over your data. You may:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Request access, correction, or deletion of your information</li>
+      <li>Unsubscribe from newsletters or marketing emails</li>
+      <li>Withdraw consent for data collection</li>
+    </ul>
+    <p>
+      To exercise these rights, email us at support@miggla.com.
+    </p>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">9. Children’s Privacy</h3>
+    <p>
+      Miggla.com is intended for adults interested in interior design and home improvement.
+    </p>
+    <p>
+      We do not knowingly collect information from children under the age of 13.
+    </p>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">10. Updates to This Policy</h3>
+    <p>
+      We may update this Privacy Policy periodically to reflect changes in our services or legal obligations.
+    </p>
+    <p>
+      The latest version will always be available on this page with the updated date.
+    </p>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">11. Contact Miggla</h3>
+    <p>
+      For questions, feedback, or privacy-related concerns, please contact us:
+    </p>
+    <p>
+      🏢 Miggla Luxury Interiors & Custom Furniture
+    </p>
+    <p>
+      📍 G-02, Best sky tower, Nsp, Pitampura, New Delhi – 110034, India
+    </p>
+    <p>
+      📩 Email: info@miggla.com
+    </p>
+    <p>
+      🌐 Website: https://miggla.com
+    </p>
   </div>
 </section>
 
