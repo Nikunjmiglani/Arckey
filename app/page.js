@@ -204,9 +204,9 @@ const leftLinks = [
 ];
 
 const rightLinks = [
- 
+  { name: "Careers", href: "/careers" },
   { name: "Privacy Policy", href: "/privacy-policy" },
-  { name: "Disclaimer", href: "/disclaimer" },
+ 
   { name: "Terms & Conditions", href: "/terms-and-conditions" },
   { name: "FAQ", href: "/faq" },
 ];
