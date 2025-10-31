@@ -85,100 +85,184 @@ export default function LegalPage() {
 
                 {/* Terms & Conditions */}
                 <section id="terms" className="px-4 py-10 max-w-4xl mx-auto">
-  <h2 className="text-3xl font-bold text-gray-800 mb-6">Terms & Conditions</h2>
+  <h2 className="text-3xl font-bold text-gray-800 mb-6">Terms & Conditions – Miggla.com</h2>
 
   <div className="text-gray-700 space-y-6 leading-relaxed">
 
     <p>
-      By accessing and using our services, you agree to be bound by these terms and conditions. All content, designs, and ideas presented on this website are the property of our interior design company.
+      Last Updated: October 31, 2025
+    </p>
+    <p>
+      Welcome to Miggla.com (“Website,” “we,” “our,” or “us”).
+    </p>
+    <p>
+      These Terms and Conditions govern your access to and use of https://miggla.com, operated by Miggla Interiors, an interior design firm based in Pitampura, New Delhi, India.
+    </p>
+    <p>
+      By accessing or using our website, services, or content, you agree to be bound by these Terms and Conditions. If you do not agree, please refrain from using our website.
     </p>
 
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">🏠 1. About Miggla</h3>
     <p>
-      Reproduction, distribution, or commercial use without permission is strictly prohibited. We reserve the right to modify our terms at any time.
+      Miggla provides professional interior design and décor services in Delhi NCR. Through Miggla.com, we publish design-related blogs, inspiration galleries, décor tips, and other informational resources for homeowners, architects, and design enthusiasts.
+    </p>
+    <p>
+      All materials, articles, and visuals published on this website are intended for general informational and promotional purposes only.
     </p>
 
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">💻 2. Use of the Website</h3>
     <p>
-      Our store is hosted on www.linker.store. They provide the platform that allows us to sell our products and services. Continued use of the site after updates to these terms implies acceptance.
+      By using this website, you agree to:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Access content only for personal, non-commercial use</li>
+      <li>Not misuse, copy, or redistribute any material without written permission</li>
+      <li>Use the website in accordance with applicable laws and ethical standards</li>
+    </ul>
+    <p>
+      You must not:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Upload, post, or transmit any harmful or unlawful content</li>
+      <li>Attempt to hack, disrupt, or damage the website or its servers</li>
+      <li>Misrepresent our services or use Miggla’s name without authorization</li>
+    </ul>
+    <p>
+      Violation of these terms may result in restricted access, legal action, or both.
     </p>
 
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">1. Account Terms</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>You must be at least 18 years old or of the age of majority in your region to use our site.</li>
-      <li>Accurate information must be provided during registration. False details may result in suspension.</li>
-      <li>You are responsible for all activity under your account, and you must ensure confidentiality.</li>
-      <li>We may refuse service, terminate accounts, or remove content at our sole discretion.</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">2. User Obligations</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>You may not use our site for unlawful purposes or violate any laws.</li>
-      <li>Prohibited actions include fraud, harassment, spreading malware, spamming, or IP theft.</li>
-      <li>Unauthorized access or copying of site data/content is strictly prohibited.</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">3. Product Information & Orders</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>Order confirmation emails do not constitute acceptance — it's just an acknowledgment.</li>
-      <li>Orders are for personal use only, not resale.</li>
-      <li>Product images and availability may vary; no guarantee of stock.</li>
-      <li>We reserve rights to cancel or limit orders based on fraud, stock, or policy violations.</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">4. Taxes</h3>
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">🖼 3. Intellectual Property Rights</h3>
     <p>
-      You are responsible for any taxes or charges applicable to your purchases, including VAT and cesses.
+      All content on Miggla.com, including text, images, graphics, designs, logos, videos, and blog articles, are the intellectual property of Miggla Interiors unless otherwise stated.
+    </p>
+    <p>
+      You may:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Read and share blog content for personal or educational purposes (with credit and link back to Miggla.com).</li>
+    </ul>
+    <p>
+      You may not:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Copy, reproduce, republish, or distribute any material for commercial use without prior written consent.</li>
+    </ul>
+    <p>
+      Unauthorized use may lead to copyright claims or legal proceedings under Indian Copyright Law.
     </p>
 
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">5. Communication</h3>
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">🪄 4. Design Consultations & Service Terms</h3>
     <p>
-      By interacting with us, you agree to receive communications via email, SMS, WhatsApp, or phone for order-related or promotional messages.
+      When you contact us through our website or email for design consultation, quotation, or project inquiry:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>You agree to provide accurate and complete information.</li>
+      <li>Any estimate or suggestion provided online is illustrative and non-binding until confirmed via official proposal or site visit.</li>
+      <li>Final design costs, timelines, and materials are subject to written agreement between the client and Miggla Interiors.</li>
+    </ul>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">📢 5. Blog Content Disclaimer</h3>
+    <p>
+      Our blogs and design articles are written for educational and informational purposes only.
+    </p>
+    <p>
+      They reflect professional experience and design opinions, but should not replace personalized consultation.
+    </p>
+    <p>
+      Miggla is not liable for any damages, losses, or results arising from using the information or inspiration featured on this site.
+    </p>
+    <p>
+      For personalized interior design guidance, we encourage you to contact our design team directly.
     </p>
 
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">6. Copyrights & Trademarks</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>All content on the site is protected under copyright and IP laws.</li>
-      <li>Reproduction or use without written consent is prohibited.</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">7. Indemnification & Limitation of Liability</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>We are not liable for any loss or damage resulting from your use of our services or site.</li>
-      <li>Refunds, if applicable, are limited to the amount paid.</li>
-      <li>You agree to indemnify us for any loss caused by breach of these terms or laws.</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">8. Termination</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>These terms remain effective until terminated by you or us.</li>
-      <li>Violation of any terms can result in immediate termination without notice.</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">9. Entire Agreement</h3>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>This agreement overrides all previous agreements and communications.</li>
-      <li>Failure to enforce any term shall not be a waiver of that term.</li>
-    </ul>
-
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">10. Governing Law</h3>
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">💰 6. Advertising and Affiliate Disclosure</h3>
     <p>
-      These terms are governed by Indian law, with exclusive jurisdiction in the courts of Delhi, India.
+      Miggla.com may display advertisements through Google AdSense or collaborate with affiliate programs to generate revenue.
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>We do not endorse every product or service displayed through advertisements.</li>
+      <li>Clicking on ads or third-party links is at your own discretion and risk.</li>
+      <li>Miggla is not responsible for the content, accuracy, or security of external websites.</li>
+    </ul>
+    <p>
+      For details on data use and ad personalization, please visit our <a href="#privacy" className="text-amber-500 hover:underline">Privacy Policy</a>.
     </p>
 
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">11. Waiver</h3>
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">🍪 7. Cookies & Tracking</h3>
     <p>
-      Any delay in enforcement of our rights does not waive our right to enforce them later.
+      Miggla.com uses cookies to improve website functionality, analyze traffic, and display relevant ads.
+    </p>
+    <p>
+      By continuing to browse the site, you consent to our use of cookies in accordance with our <a href="#privacy" className="text-amber-500 hover:underline">Privacy Policy</a>.
+    </p>
+    <p>
+      You may disable cookies anytime through your browser settings.
     </p>
 
-    <h3 className="text-xl font-semibold text-gray-800 mt-8">12. Miscellaneous</h3>
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">🔗 8. Third-Party Links</h3>
     <p>
-      Complaints must be raised within 15 days of order delivery. We will not entertain complaints beyond this period.
+      Our website may contain links to third-party websites or resources.
+    </p>
+    <p>
+      These links are provided solely for informational purposes.
+    </p>
+    <p>
+      Miggla Interiors does not control or endorse the content, policies, or practices of third-party websites and is not responsible for any damage or loss arising from their use.
+    </p>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">🔒 9. Limitation of Liability</h3>
+    <p>
+      Under no circumstances shall Miggla Interiors, its team, or affiliates be held liable for:
+    </p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Any direct, indirect, incidental, or consequential damages resulting from website use</li>
+      <li>Loss of data, revenue, or reputation due to reliance on our content or advertisements</li>
+      <li>Technical issues, downtime, or malware beyond our control</li>
+    </ul>
+    <p>
+      Your use of this website is entirely at your own risk.
+    </p>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">⚙ 10. Indemnification</h3>
+    <p>
+      You agree to indemnify and hold harmless Miggla Interiors and its team from any claims, damages, losses, or legal expenses arising from your misuse of the website, violation of these terms, or infringement of any rights.
+    </p>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">🧾 11. Modifications to the Terms</h3>
+    <p>
+      We reserve the right to update or modify these Terms and Conditions at any time without prior notice.
+    </p>
+    <p>
+      Changes will be effective immediately upon posting on this page, with an updated “Last Updated” date.
+    </p>
+    <p>
+      Continued use of the site after any such changes constitutes your acceptance of the revised terms.
+    </p>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">⚖ 12. Governing Law</h3>
+    <p>
+      These Terms shall be governed and interpreted in accordance with the laws of India, and any disputes shall fall under the jurisdiction of the Courts of Delhi, India.
+    </p>
+
+    <h3 className="text-xl font-semibold text-gray-800 mt-8">📞 13. Contact Information</h3>
+    <p>
+      For any questions, clarifications, or legal concerns about these Terms, please contact us:
+    </p>
+    <p>
+      🏢 Miggla Luxury Interiors & custom furniture
+    </p>
+    <p>
+      📍 G-02, Best Sky tower, Nsp, Pitampura, New Delhi – 110034, India
+    </p>
+    <p>
+      📩 Email: info@miggla.com
+    </p>
+    <p>
+      🌐 Website: https://miggla.com
     </p>
 
   </div>
 </section>
-
-
-              
 
 <br/>
                 {/* FAQs */}
