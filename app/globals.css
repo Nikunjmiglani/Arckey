@@ -3,6 +3,22 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes slideUp {
+  0% {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+
 
 
 
