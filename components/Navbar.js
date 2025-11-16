@@ -80,8 +80,21 @@ const Navbar = () => {
 
         {/* Right Side Buttons */}
         <div className="flex items-center gap-3">
-         <Link href="https://wa.me/919899890157 
-" target="_blank"><FaWhatsapp size={32} className="text-green-500 hover:scale-110 transition-transform animate-pulse " /></Link>
+        <Link
+  href="https://wa.me/919899890157"
+  target="_blank"
+  onClick={() => {
+    if (typeof fireContactTrackingEvent !== "undefined") {
+      fireContactTrackingEvent("whatsapp_click_navbar");
+    }
+  }}
+>
+  <FaWhatsapp
+    size={32}
+    className="text-green-500 hover:scale-110 transition-transform animate-pulse"
+  />
+</Link>
+
           <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer hover:px-6 hidden sm:block animate-bounce" onClick={() => setShowPopup(true)} >
             Get Free Estimate
           </button>

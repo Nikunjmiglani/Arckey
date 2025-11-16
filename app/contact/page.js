@@ -9,6 +9,22 @@ import {
 export default function ContactPage() {
   return (
     <>
+      {/* Tracking function (ONLY loads on contact page) */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            function fireContactTrackingEvent(actionName) {
+              if (typeof gtag !== "undefined") {
+                gtag('event', 'conversion_event_page_view', {
+                  event_category: "contact_page",
+                  event_label: actionName
+                });
+              }
+            }
+          `
+        }}
+      />
+
       <Head>
         <title>Leading Interior Designers in Delhi | Miggla</title>
         <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi NCR." />
@@ -37,7 +53,11 @@ export default function ContactPage() {
           <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700">
             <div>
               <p><strong>📍 Address:</strong> Serving Delhi NCR, Pune, Mumbai & PAN India</p>
-              <p><strong>📞 Phone:</strong> +91-9899890157</p>
+              <p><strong>📞 Phone:</strong> 
+                <a href="tel:+919899890157" onClick={() => fireContactTrackingEvent("call_click")}>
+                  +91-9899890157
+                </a>
+              </p>
               <p><strong>📧 Email:</strong> info@miggla.com</p>
               <p><strong>🌐 Website:</strong> www.miggla.com</p>
               <p><strong>🕘 Hours:</strong> Mon–Sat | 10:00 AM – 7:00 PM</p>
@@ -53,21 +73,13 @@ export default function ContactPage() {
               </ul>
             </div>
           </div>
-          <div className="mt-4 text-gray-800">
-            <p><strong>📌 Popular Searches:</strong></p>
-            <ul className="list-disc pl-5 mt-1 text-sm text-gray-700">
-              <li>Best interior designer near me</li>
-              <li>Affordable bathroom renovation in Delhi</li>
-              <li>Boutique design on a low budget Pune</li>
-              <li>Custom furniture maker in Mumbai</li>
-              <li>Vastu-compliant interiors in India</li>
-            </ul>
-          </div>
+
           <div className="text-center pt-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-2">🗓️ Book Your Free Design Consultation</h3>
             <p className="mb-4">We’ll respond within 24 hours and start planning your space with your vision and budget in mind.</p>
             <a
               href="#"
+              onClick={() => fireContactTrackingEvent("cta_click")}
               className="inline-block bg-black text-white px-6 py-3 rounded-xl text-lg font-semibold hover:bg-gray-800 transition"
             >
               👉 Let's Build Your Dream Space
@@ -84,6 +96,7 @@ export default function ContactPage() {
             <form
               action="https://formspree.io/f/mgvynjpo"
               method="POST"
+              onSubmit={() => fireContactTrackingEvent("form_submit")}
               className="space-y-6"
             >
               <input
@@ -138,8 +151,16 @@ export default function ContactPage() {
               <FaPhoneAlt className="text-amber-500 text-xl" />
               <div>
                 <p className="font-medium">Phone Numbers</p>
-                <p className="text-sm">+91 9899890157</p>
-                <p className="text-sm">+91 9643531515</p>
+                <p className="text-sm">
+                  <a href="tel:+919899890157" onClick={() => fireContactTrackingEvent("call_click")}>
+                    +91 9899890157
+                  </a>
+                </p>
+                <p className="text-sm">
+                  <a href="tel:+919643531515" onClick={() => fireContactTrackingEvent("call_click")}>
+                    +91 9643531515
+                  </a>
+                </p>
               </div>
             </div>
             <div className="flex items-center justify-center gap-4 text-gray-700">
@@ -169,6 +190,3 @@ export default function ContactPage() {
     </>
   )
 }
-
-
-
