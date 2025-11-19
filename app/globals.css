@@ -18,6 +18,11 @@ html {
   animation: slideUp 0.4s ease-out;
 }
 
+.prose p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 
 
 

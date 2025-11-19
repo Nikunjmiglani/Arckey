@@ -4,33 +4,8 @@ import { client } from '@/lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { urlFor } from '@/lib/imageUrlBuilder';
 import BlogSchema from '@/components/BlogSchema';
-
-// PortableText serializers
-const portableComponents = {
-  types: {
-    image: ({ value }) =>
-      value?.asset && (
-        <img
-          src={urlFor(value).width(800).url()}
-          alt={value.alt || 'Blog Image'}
-          loading="lazy"
-          className="rounded-xl shadow-md my-6 w-full max-h-[600px] object-contain"
-        />
-      ),
-  },
-  marks: {
-    link: ({ children, value }) => (
-      <a
-        href={value.href}
-        className="text-blue-500 underline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {children}
-      </a>
-    ),
-  },
-};
+import AuthorBox from '@/components/AuthorBox'; // add this file (code below)
+import PortableTextRendered from '@/components/PortableTextRendered'; // add this file (code below)
 
 // Optional SSG support
 export async function generateStaticParams() {
@@ -38,7 +13,28 @@ export async function generateStaticParams() {
   return slugs.map(({ slug }) => ({ slug }));
 }
 
-// Main Blog Page Component
+function calcReadingTime(text = '') {
+  const words = text.trim().split(/\s+/).length || 0;
+  const wordsPerMin = 200;
+  return Math.max(1, Math.ceil(words / wordsPerMin));
+}
+
+// Helper: convert block content to plain text (small, safe)
+function blocksToPlainText(blocks = []) {
+  if (!Array.isArray(blocks)) return '';
+  return blocks
+    .map(block => {
+      if (block._type === 'block' && Array.isArray(block.children)) {
+        return block.children.map(child => child.text).join('');
+      }
+      if (block._type === 'image' && block.caption) {
+        return block.caption;
+      }
+      return '';
+    })
+    .join('\n\n');
+}
+
 export default async function BlogPostPage({ params }) {
   const slug = params.slug;
 
@@ -46,8 +42,10 @@ export default async function BlogPostPage({ params }) {
     title,
     slug,
     publishedAt,
-    mainImage{ asset->{ url } },
-    body
+    mainImage{ asset->{ url }, alt },
+    excerpt,
+    body,
+    "author": author-> { name, slug, image, bio }
   }`;
 
   const blog = await client.fetch(query, { slug });
@@ -61,42 +59,50 @@ export default async function BlogPostPage({ params }) {
     );
   }
 
+  const plain = blocksToPlainText(blog.body);
+  const readingTime = calcReadingTime(plain);
+  const excerpt = blog.excerpt || (plain.slice(0, 160) + '...');
+
   return (
     <>
       <BlogSchema
         title={blog.title}
-        description={`Blog post: ${blog.title}`}
+        description={excerpt}
         url={`https://miggla.com/blog/${slug}`}
         image={blog.mainImage?.asset?.url}
         datePublished={blog.publishedAt}
       />
 
       <section className="px-6 py-12 max-w-4xl mx-auto text-gray-800">
-        <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
-        <p className="text-sm text-gray-500 mb-8">
-          {new Date(blog.publishedAt).toLocaleDateString()}
-        </p>
-
         {blog.mainImage?.asset?.url && (
-          <img
-            src={blog.mainImage.asset.url}
-            alt={blog.title}
-            className="rounded-xl shadow-xl mb-10 w-full object-cover max-h-[500px]"
-          />
+          <div className="mb-8 overflow-hidden rounded-xl shadow-xl">
+            <img
+              src={urlFor(blog.mainImage).width(1400).url()}
+              alt={blog.mainImage?.alt || blog.title}
+              className="w-full object-cover max-h-[500px]"
+              loading="eager"
+            />
+          </div>
         )}
 
-        <article className="prose prose-lg max-w-none dark:prose-invert">
-          <PortableText value={blog.body} components={portableComponents} />
+        <h1 className="text-4xl font-extrabold tracking-tight leading-tight mb-3">{blog.title}</h1>
+
+        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
+          <div>{new Date(blog.publishedAt).toLocaleDateString()}</div>
+          <div aria-hidden>•</div>
+          <div>{readingTime} min read</div>
+        </div>
+
+        <p className="text-gray-700 mb-6">{excerpt}</p>
+
+       <article className="prose prose-lg prose-headings:font-semibold prose-headings:leading-tight prose-img:rounded-xl prose-img:shadow-lg prose-a:text-blue-600 max-w-none dark:prose-invert">
+
+          {/* use a custom PortableText renderer to control spacing and image captions */}
+          <PortableTextRendered value={blog.body} />
         </article>
+
+        <AuthorBox author={blog.author} className="mt-12" />
       </section>
     </>
   );
 }
-
-
-
-
-
-
-
-
