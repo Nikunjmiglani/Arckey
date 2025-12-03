@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { Analytics } from "@vercel/analytics/next";
 import CookieConsent from "@/components/CookieConsent";
 import Script from "next/script";
+import Footer from "../components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -97,6 +98,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         {children}
+        <Footer/>
         <CookieConsent />
         <Analytics />
       </body>
