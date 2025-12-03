@@ -4,7 +4,7 @@ import Link from "next/link";
 import Head from 'next/head'
 import { client } from "@/lib/sanity";
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Video } from 'lucide-react';
 import { FaCheckCircle } from 'react-icons/fa';
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
@@ -943,6 +943,8 @@ export default function Home() {
           </div>
         </motion.section>
 
+        <VideoSection/>
+
         {/* Testimonials Section */}
         <motion.section
           initial="initial"
@@ -1006,7 +1008,7 @@ export default function Home() {
           variants={fadeInUp}
           className="py-12 bg-white text-center"
         >
-          <motion.h2 variants={fadeInUp} className="text-3xl font-bold mb-10">Our Brands</motion.h2>
+          <motion.h2 variants={fadeInUp} className="text-3xl font-bold mb-10">Partner Brands</motion.h2>
 
           <motion.div
             variants={staggerContainer}

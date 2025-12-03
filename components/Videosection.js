@@ -1,4 +1,39 @@
 import React from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import Head from 'next/head'
+import { client } from "@/lib/sanity";
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Video } from 'lucide-react';
+import { FaCheckCircle } from 'react-icons/fa';
+import { useEffect, useRef, useState } from "react";
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const popIn = {
+  initial: { opacity: 0, scale: 0.8 },
+  animate: { opacity: 1, scale: 1 },
+  transition: { duration: 0.4, ease: "backOut" }
+};
+
+const scaleIn = {
+  initial: { opacity: 0, scale: 0.9 },
+  animate: { opacity: 1, scale: 1 },
+  transition: { duration: 0.5, ease: "easeOut" }
+};
 
 // Sample data for the video cards
 const videos = [
@@ -60,7 +95,7 @@ export default function VideoSection() {
         
         {/* Heading: Re-applies horizontal padding */}
         <h2 id="video-testimonials-heading" className="text-3xl font-extrabold text-gray-900 text-center mb-10 md:mb-12 px-4 sm:px-6 lg:px-8">
-          Hear From Our Happy Clients
+         Our Projects
         </h2>
 
         {/* Video Container: 
@@ -82,6 +117,7 @@ export default function VideoSection() {
           ))}
         </div>
       </div>
+       
     </section>
   );
 }
