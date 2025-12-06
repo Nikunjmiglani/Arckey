@@ -82,7 +82,9 @@ export async function generateStaticParams() {
 // ---------- Metadata (title, description, OG, Twitter) ----------
 
 export async function generateMetadata({ params }) {
-  const slug = params?.slug;
+  // ✅ Next 16: params is a Promise
+  const { slug } = await params;
+
   const blog = await getBlogBySlug(slug);
 
   if (!blog) {
@@ -128,7 +130,9 @@ export async function generateMetadata({ params }) {
 // ---------- Page component ----------
 
 export default async function BlogPostPage({ params }) {
-  const slug = params?.slug;
+  // ✅ Next 16: params is a Promise
+  const { slug } = await params;
+
   const blog = await getBlogBySlug(slug);
 
   if (!blog) {
