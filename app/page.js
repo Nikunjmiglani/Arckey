@@ -91,7 +91,7 @@ const tabs = [
     content: (
       <>
         <p>
-          At Miggla, interior design goes far beyond looks — we craft intelligent, functional, and future-ready spaces. Whether it's a luxury apartment in Delhi or a commercial office in NCR, our team focuses on human-centric design, blending form with function. Every layout is optimized for energy flow, natural light, and usability, creating interiors that not only look stunning but also support better living and working.
+          At Miggla, interior design goes far beyond looks — we craft intelligent, functional, and future-ready spaces. Whether it's a luxury apartment in Delhi or commercial office in NCR, our team focuses on human-centric design, blending form with function. Every layout is optimized for energy flow, natural light, and usability, creating interiors that not only look stunning but also support better living and working.
         </p>
       </>
     ),
