@@ -9,7 +9,6 @@ import { ChevronDown } from 'lucide-react';
 import { FaCheckCircle } from 'react-icons/fa';
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const leftLinks = [
   { name: "Services", href: "/#services" },
