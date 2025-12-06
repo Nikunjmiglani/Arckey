@@ -1,13 +1,18 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import Head from 'next/head'
+import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import VideoSection from "@/components/Videosection";
+import dynamic from "next/dynamic";
+
+// Lazy-load VideoSection to reduce main bundle size
+const VideoSection = dynamic(() => import("@/components/Videosection"), {
+  ssr: false,
+  loading: () => null,
+});
 
 // Motion wrapper for Next/Image
 const MotionImage = motion(Image);
@@ -25,12 +30,6 @@ const staggerContainer = {
       staggerChildren: 0.1
     }
   }
-};
-
-const scaleIn = {
-  initial: { opacity: 0, scale: 0.9 },
-  animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.5, ease: "easeOut" }
 };
 
 const slideInLeft = {
@@ -197,21 +196,6 @@ const testimonials = [
   },
 ];
 
-// Footer Links (currently unused, kept as-is)
-const leftLinks = [
-  { name: "Services", href: "/#services" },
-  { name: "Testimonials", href: "/#reviews" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact us", href: "/contact" },
-];
-
-const rightLinks = [
-  { name: "Careers", href: "/careers" },
-  { name: "Privacy Policy", href: "/privacy-policy" },
-  { name: "Terms & Conditions", href: "/terms-and-conditions" },
-  { name: "FAQ", href: "/faq" },
-];
-
 export default function Home() {
   // Blog States
   const [blogs, setBlogs] = useState([]);
@@ -229,7 +213,6 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
 
   // Popup States
-  const [showPopup, setShowPopup] = useState(true);
   const [showTimedPopup, setShowTimedPopup] = useState(false);
 
   // Stats States
@@ -283,16 +266,16 @@ export default function Home() {
     if (startCount) {
       const targets = [100, 150, 15];
       targets.forEach((target, idx) => {
-        let current = 0;
+        let currentVal = 0;
         const step = Math.ceil(target / 40);
         const interval = setInterval(() => {
-          current += step;
+          currentVal += step;
           setCounts(prev => {
             const updated = [...prev];
-            updated[idx] = current >= target ? target : current;
+            updated[idx] = currentVal >= target ? target : currentVal;
             return updated;
           });
-          if (current >= target) clearInterval(interval);
+          if (currentVal >= target) clearInterval(interval);
         }, 30);
       });
     }
