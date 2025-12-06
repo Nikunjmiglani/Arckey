@@ -2,14 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import Head from 'next/head'
-import { client } from "@/lib/sanity";
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Video } from 'lucide-react';
-import { FaCheckCircle } from 'react-icons/fa';
+import { ChevronDown } from 'lucide-react';
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import VideoSection from "@/components/Videosection";
+
+// Motion wrapper for Next/Image
+const MotionImage = motion(Image);
 
 // Animation variants
 const fadeInUp = {
@@ -196,7 +197,7 @@ const testimonials = [
   },
 ];
 
-// Footer Links
+// Footer Links (currently unused, kept as-is)
 const leftLinks = [
   { name: "Services", href: "/#services" },
   { name: "Testimonials", href: "/#reviews" },
@@ -207,7 +208,6 @@ const leftLinks = [
 const rightLinks = [
   { name: "Careers", href: "/careers" },
   { name: "Privacy Policy", href: "/privacy-policy" },
- 
   { name: "Terms & Conditions", href: "/terms-and-conditions" },
   { name: "FAQ", href: "/faq" },
 ];
@@ -308,6 +308,7 @@ export default function Home() {
 
   // Timed Popup
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const popupShown = sessionStorage.getItem("popupShown");
     if (!popupShown) {
       const timer = setTimeout(() => {
@@ -349,7 +350,7 @@ export default function Home() {
       },
       body: JSON.stringify(formData),
     });
-    const result = await res.text();
+    await res.text();
     alert("Submitted Successfully!");
     setFormData({ name: "", phone: "", email: "", query: "", budget: "" });
   };
@@ -398,17 +399,56 @@ export default function Home() {
                 </button>
                 <h2 className="text-xl font-bold mb-4">Book a Free Design Consultation</h2>
                 <form onSubmit={handleSubmit} className="space-y-3">
-                  <input type="text" name="name" required placeholder="Name" className="w-full border p-2 rounded" onChange={handleChange} value={formData.name} />
-                  <input type="tel" name="phone" required placeholder="Mobile Number" className="w-full border p-2 rounded" onChange={handleChange} value={formData.phone} />
-                  <input type="email" name="email" required placeholder="Email" className="w-full border p-2 rounded" onChange={handleChange} value={formData.email} />
-                  <textarea name="query" required placeholder="Your Query" className="w-full border p-2 rounded" onChange={handleChange} value={formData.query}></textarea>
-                  <select name="budget" required className="w-full border p-2 rounded text-gray-600" onChange={handleChange} value={formData.budget}>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Name"
+                    className="w-full border p-2 rounded"
+                    onChange={handleChange}
+                    value={formData.name}
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    placeholder="Mobile Number"
+                    className="w-full border p-2 rounded"
+                    onChange={handleChange}
+                    value={formData.phone}
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="Email"
+                    className="w-full border p-2 rounded"
+                    onChange={handleChange}
+                    value={formData.email}
+                  />
+                  <textarea
+                    name="query"
+                    required
+                    placeholder="Your Query"
+                    className="w-full border p-2 rounded"
+                    onChange={handleChange}
+                    value={formData.query}
+                  />
+                  <select
+                    name="budget"
+                    required
+                    className="w-full border p-2 rounded text-gray-600"
+                    onChange={handleChange}
+                    value={formData.budget}
+                  >
                     <option value="">Estimated Budget</option>
                     <option>Below ₹5 Lakh</option>
                     <option>₹5 - ₹10 Lakh</option>
                     <option>₹10+ Lakh</option>
                   </select>
-                  <button type="submit" className="w-full bg-red-600 text-white py-2 rounded">Submit</button>
+                  <button type="submit" className="w-full bg-red-600 text-white py-2 rounded">
+                    Submit
+                  </button>
                 </form>
               </motion.div>
             </motion.div>
@@ -416,7 +456,7 @@ export default function Home() {
         </AnimatePresence>
 
         {/* Hero Section */}
-        <motion.section 
+        <motion.section
           initial="initial"
           animate="animate"
           className="relative w-full h-[300px] sm:h-[500px] overflow-hidden bg-gray-100"
@@ -432,13 +472,14 @@ export default function Home() {
               alt="mainimg"
               fill
               priority
+              sizes="100vw"
               className="object-cover"
             />
           </motion.div>
         </motion.section>
 
         {/* Introduction Section */}
-        <motion.section 
+        <motion.section
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -446,13 +487,13 @@ export default function Home() {
           className="mt-10 px-4 sm:px-10"
         >
           <div className="ml-2 sm:ml-10">
-            <motion.h1 
+            <motion.h1
               variants={fadeInUp}
               className="font-bold text-2xl mb-4"
             >
               Let's design a space you'll love — home or office.
             </motion.h1>
-            <motion.p 
+            <motion.p
               variants={fadeInUp}
               className="text-gray-700"
             >
@@ -461,7 +502,7 @@ export default function Home() {
           </div>
 
           {/* Responsive Steps */}
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -482,11 +523,14 @@ export default function Home() {
               >
                 <Link href="#contactform">
                   <div className="w-full">
-                    <motion.img
+                    <MotionImage
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
                       src={src}
                       alt={title}
+                      width={800}
+                      height={600}
+                      loading="lazy"
                       className="w-full h-auto object-cover rounded-xl"
                     />
                   </div>
@@ -504,7 +548,7 @@ export default function Home() {
           </motion.div>
 
           {/* CTA */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -524,7 +568,7 @@ export default function Home() {
         </motion.section>
 
         {/* Contact Form Section */}
-        <motion.section 
+        <motion.section
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -619,16 +663,19 @@ export default function Home() {
             </motion.form>
 
             {/* Image Grid */}
-            <motion.div 
+            <motion.div
               variants={slideInRight}
               className="hidden lg:flex w-full flex-1 gap-10 mt-7"
             >
               <div className="flex-1 h-[504px] rounded-xl overflow-hidden shadow-xl">
-                <motion.img
+                <MotionImage
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
                   src="/roundimg1.webp"
                   alt="Contemporary master bedroom with ambient lighting"
+                  width={900}
+                  height={600}
+                  loading="lazy"
                   className="w-full h-full object-cover rounded-xl"
                 />
               </div>
@@ -637,11 +684,14 @@ export default function Home() {
                   <motion.div
                     key={idx}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className="relative h-[240px] rounded-xl overflow-hidden shadow-xl"
+                    className="relative h-60 rounded-xl overflow-hidden shadow-xl"
                   >
-                    <img
+                    <Image
                       src={src}
                       alt={idx === 0 ? "Luxury 3BHK flat interior design in Noida" : "Vastu-compliant pooja room with custom cabinetry"}
+                      width={600}
+                      height={400}
+                      loading="lazy"
                       className="w-full h-full object-cover rounded-xl"
                     />
                   </motion.div>
@@ -654,7 +704,7 @@ export default function Home() {
         <div className="border-t border-gray-500 mx-6 sm:mx-20"></div>
 
         {/* Services Section */}
-        <motion.section 
+        <motion.section
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -677,19 +727,22 @@ export default function Home() {
               <motion.div
                 key={i}
                 variants={popIn}
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   y: -10,
                   transition: { type: "spring", stiffness: 300 }
                 }}
               >
                 <Link href={link}>
                   <div className="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer">
-                    <motion.img
+                    <MotionImage
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.4 }}
                       src={img}
                       alt={title}
+                      width={800}
+                      height={600}
+                      loading="lazy"
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-6">
@@ -703,7 +756,7 @@ export default function Home() {
         </motion.section>
 
         {/* Stats Section */}
-        <motion.section 
+        <motion.section
           ref={statsRef}
           initial="initial"
           whileInView="animate"
@@ -735,7 +788,7 @@ export default function Home() {
                 variants={popIn}
                 className="text-center"
               >
-                <motion.h3 
+                <motion.h3
                   className="text-3xl font-bold text-[#444444]"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -750,7 +803,7 @@ export default function Home() {
           </motion.div>
 
           {/* Story Behind Section */}
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-0 mt-16"
           >
@@ -768,7 +821,14 @@ export default function Home() {
             </motion.div>
 
             <motion.div variants={slideInRight}>
-              <img src="/bigimg.webp" alt="Modular wardrobe design for compact spaces" className="w-full rounded-lg" />
+              <Image
+                src="/bigimg.webp"
+                alt="Modular wardrobe design for compact spaces"
+                width={900}
+                height={600}
+                loading="lazy"
+                className="w-full rounded-lg object-cover"
+              />
             </motion.div>
           </motion.div>
         </motion.section>
@@ -776,7 +836,7 @@ export default function Home() {
         <div className="border-t border-gray-500 mx-6 sm:mx-20"></div>
 
         {/* Founders Section */}
-        <motion.section 
+        <motion.section
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -817,15 +877,16 @@ export default function Home() {
                   alt="Minimalist TV unit with wall-mounted storage"
                   width={600}
                   height={700}
+                  loading="lazy"
                   className="object-cover w-full h-auto"
                 />
               </div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="absolute bottom-[-40px] left-4 right-4 bg-white p-5 shadow-lg rounded-2xl border-l-4 border-yellow-500"
+                className="absolute -bottom-10 left-4 right-4 bg-white p-5 shadow-lg rounded-2xl border-l-4 border-yellow-500"
               >
                 <p className="italic text-gray-700">"We design spaces that don't just look beautiful, but feel like home."</p>
                 <p className="mt-2 text-right font-semibold text-gray-800">– Founders</p>
@@ -835,7 +896,7 @@ export default function Home() {
         </motion.section>
 
         {/* Projects Section */}
-        <motion.section 
+        <motion.section
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -868,11 +929,14 @@ export default function Home() {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="bg-gray-50 rounded-2xl shadow-md overflow-hidden"
               >
-                <motion.img
+                <MotionImage
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.4 }}
                   src={img}
                   alt={title}
+                  width={800}
+                  height={600}
+                  loading="lazy"
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
@@ -884,7 +948,7 @@ export default function Home() {
         </motion.section>
 
         {/* Why Miggla Section */}
-        <motion.section 
+        <motion.section
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -896,7 +960,10 @@ export default function Home() {
           </motion.h2>
 
           {/* Tab Navigation */}
-          <motion.div variants={fadeInUp} className="flex flex-wrap justify-center sm:justify-start border-b border-gray-300 text-base sm:text-lg font-medium text-gray-700 mb-8 space-x-2">
+          <motion.div
+            variants={fadeInUp}
+            className="flex flex-wrap justify-center sm:justify-start border-b border-gray-300 text-base sm:text-lg font-medium text-gray-700 mb-8 space-x-2"
+          >
             {tabs.map((tab, index) => (
               <motion.button
                 key={index}
@@ -915,21 +982,24 @@ export default function Home() {
 
           {/* Tab Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-            <motion.div 
+            <motion.div
               key={activeTab}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               className="relative w-full max-w-md mx-auto md:mx-0"
             >
-              <img
+              <Image
                 src={tabs[activeTab].image}
                 alt={tabs[activeTab].title}
-                className="w-full rounded-lg shadow"
+                width={800}
+                height={600}
+                loading="lazy"
+                className="w-full rounded-lg shadow object-cover"
               />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               key={activeTab + "content"}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -943,7 +1013,7 @@ export default function Home() {
           </div>
         </motion.section>
 
-        <VideoSection/>
+        <VideoSection />
 
         {/* Testimonials Section */}
         <motion.section
@@ -981,7 +1051,7 @@ export default function Home() {
             </AnimatePresence>
 
             {/* Dots */}
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               className="flex justify-center mt-6 space-x-2"
             >
@@ -991,9 +1061,8 @@ export default function Home() {
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => handleDotClick(index)}
-                  className={`w-3 h-3 rounded-full ${
-                    current === index ? 'bg-amber-500' : 'bg-gray-300'
-                  } transition-transform duration-300`}
+                  className={`w-3 h-3 rounded-full ${current === index ? 'bg-amber-500' : 'bg-gray-300'
+                    } transition-transform duration-300`}
                 />
               ))}
             </motion.div>
@@ -1001,14 +1070,16 @@ export default function Home() {
         </motion.section>
 
         {/* Brands Section */}
-        <motion.section 
+        <motion.section
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
           className="py-12 bg-white text-center"
         >
-          <motion.h2 variants={fadeInUp} className="text-3xl font-bold mb-10">Partner Brands</motion.h2>
+          <motion.h2 variants={fadeInUp} className="text-3xl font-bold mb-10">
+            Partner Brands
+          </motion.h2>
 
           <motion.div
             variants={staggerContainer}
@@ -1026,13 +1097,16 @@ export default function Home() {
               "/brandimg9.webp",
               "/brandimg10.webp"
             ].map((src, idx) => (
-              <motion.img
+              <MotionImage
                 key={idx}
                 variants={popIn}
                 whileHover={{ scale: 1.1, grayscale: 0 }}
                 src={src}
                 alt={`Brand ${idx + 1}`}
-                className="h-12 object-contain grayscale hover:grayscale-0 transition duration-300"
+                width={240}
+                height={60}
+                loading="lazy"
+                className="h-12 object-contain grayscale hover:grayscale-0 transition duration-300 w-auto"
               />
             ))}
           </motion.div>
@@ -1044,9 +1118,9 @@ export default function Home() {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="min-h-screen px-4 py-15 bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] flex items-center justify-center"
+          className="min-h-screen px-4 py-15 bg-linear-to-br from-[#f5f5f5] to-[#e8e8e8] flex items-center justify-center"
         >
-          <div className="w-full max-w-7xl flex flex-col md:flex-row items-center gap-5 md:ml-[-80px]">
+          <div className="w-full max-w-7xl flex flex-col md:flex-row items-center gap-5 md:-ml-20">
             <div className="hidden md:flex w-full md:w-1/2 justify-center items-center">
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
@@ -1060,6 +1134,7 @@ export default function Home() {
                   alt="L-shaped modular kitchen in matte finish"
                   width={350}
                   height={500}
+                  loading="lazy"
                   className="rounded-2xl shadow-xl object-cover w-full h-full"
                 />
               </motion.div>
@@ -1124,7 +1199,7 @@ export default function Home() {
         </motion.section>
 
         {/* Blog Section */}
-        <motion.section 
+        <motion.section
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -1132,7 +1207,7 @@ export default function Home() {
           className="px-6 sm:px-12 mb-20 relative"
           id="blogs"
         >
-          <motion.h1 
+          <motion.h1
             variants={fadeInUp}
             className="text-left text-xl sm:text-2xl mb-6 mt-10 font-bold text-gray-800"
           >
@@ -1165,7 +1240,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="min-w-[100%] sm:min-w-[50%] lg:min-w-[33.3333%]"
+                    className="min-w-full sm:min-w-[50%] lg:min-w-[33.3333%]"
                   >
                     <Link href={`/blog/${blog.slug?.current}`}>
                       <motion.div
@@ -1182,6 +1257,7 @@ export default function Home() {
                             alt={blog.title}
                             width={300}
                             height={220}
+                            loading={index === 0 ? "eager" : "lazy"}
                             className="object-cover w-full h-[220px] rounded-xl shadow-md"
                           />
                         </motion.div>
@@ -1234,8 +1310,6 @@ export default function Home() {
             </motion.div>
           )}
         </motion.section>
-
-       
       </main>
     </>
   );

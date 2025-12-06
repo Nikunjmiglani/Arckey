@@ -83,7 +83,7 @@ export default function VideoSection() {
           {videos.map((video) => (
             <div
               key={video.id}
-              className="flex-shrink-0 min-w-[80vw] sm:min-w-[50vw] lg:min-w-0 lg:flex-1 snap-start"
+              className="shrink-0 min-w-[80vw] sm:min-w-[50vw] lg:min-w-0 lg:flex-1 snap-start"
             >
               <VideoCard
                 title={video.title}
