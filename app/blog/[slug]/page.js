@@ -62,6 +62,15 @@ export async function generateStaticParams() {
 // ---------- Metadata (title, description, OG, Twitter) ----------
 export async function generateMetadata({ params }) {
   const slug = params.slug;
+
+  // 🐛 FIX: Check if slug is provided before fetching data
+  if (!slug) {
+    return {
+      title: "Blog Post Not Found | Miggla",
+      description: "The blog post page could not be found.",
+    };
+  }
+
   const blog = await client.fetch(blogQuery, { slug });
 
   if (!blog) {
@@ -107,6 +116,19 @@ export async function generateMetadata({ params }) {
 // ---------- Page component ----------
 export default async function BlogPostPage({ params }) {
   const slug = params.slug;
+
+  // 🐛 FIX: Check if slug is provided before fetching data
+  if (!slug) {
+    return (
+      <div className="max-w-4xl mx-auto p-6 text-center">
+        <h1 className="text-3xl font-bold mb-4">404: Blog Not Found</h1>
+        <p className="mb-6">The URL seems incomplete. Please check the address.</p>
+        <a href="/blog" className="text-red-500 underline">
+          ← Go back to Blog
+        </a>
+      </div>
+    );
+  }
 
   const blog = await client.fetch(blogQuery, { slug });
 
