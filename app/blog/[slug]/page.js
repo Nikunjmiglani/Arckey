@@ -1,17 +1,15 @@
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
-import { client } from '@/lib/sanity';
-import { urlFor } from '@/lib/imageUrlBuilder';
-import AuthorBox from '@/components/AuthorBox';
-import PortableTextRendered from '@/components/PortableTextRendered';
-import {
-  getArticleJsonLd,
-  getFaqJsonLd,
-} from '@/lib/structuredData';
+import Image from "next/image";
+import { client } from "@/lib/sanity";
+import { urlFor } from "@/lib/imageUrlBuilder";
+import AuthorBox from "@/components/AuthorBox";
+import PortableTextRendered from "@/components/PortableTextRendered";
+import { getArticleJsonLd, getFaqJsonLd } from "@/lib/structuredData";
 
 // ---------- helpers ----------
 
-function calcReadingTime(text = '') {
+function calcReadingTime(text = "") {
   const words = text.trim().split(/\s+/).length || 0;
   const wordsPerMin = 200;
   return Math.max(1, Math.ceil(words / wordsPerMin));
@@ -19,18 +17,18 @@ function calcReadingTime(text = '') {
 
 // convert Portable Text blocks → plain text (for description / reading time)
 function blocksToPlainText(blocks = []) {
-  if (!Array.isArray(blocks)) return '';
+  if (!Array.isArray(blocks)) return "";
   return blocks
     .map((block) => {
-      if (block._type === 'block' && Array.isArray(block.children)) {
-        return block.children.map((child) => child.text).join('');
+      if (block._type === "block" && Array.isArray(block.children)) {
+        return block.children.map((child) => child.text).join("");
       }
-      if (block._type === 'image' && block.caption) {
+      if (block._type === "image" && block.caption) {
         return block.caption;
       }
-      return '';
+      return "";
     })
-    .join('\n\n');
+    .join("\n\n");
 }
 
 const blogQuery = `
@@ -68,20 +66,21 @@ export async function generateMetadata({ params }) {
 
   if (!blog) {
     return {
-      title: 'Blog post not found | Miggla',
-      description: 'The blog post you are looking for does not exist.',
+      title: "Blog post not found | Miggla",
+      description: "The blog post you are looking for does not exist.",
     };
   }
 
   const plain = blocksToPlainText(blog.body);
-  const fallbackDesc = plain ? `${plain.slice(0, 160)}...` : 'Interior design and construction insights.';
-  const description =
-    blog.metaDescription || blog.excerpt || fallbackDesc;
+  const fallbackDesc = plain
+    ? `${plain.slice(0, 160)}...`
+    : "Interior design and construction insights.";
+  const description = blog.metaDescription || blog.excerpt || fallbackDesc;
 
-  const pageTitle = blog.metaTitle || blog.title || 'Miggla';
+  const pageTitle = blog.metaTitle || blog.title || "Miggla";
   const pageUrl = `https://miggla.com/blog/${slug}`;
   const ogImage =
-    blog.mainImage?.asset?.url || 'https://miggla.com/og-image.jpg';
+    blog.mainImage?.asset?.url || "https://miggla.com/og-image.jpg";
 
   return {
     title: pageTitle,
@@ -90,18 +89,14 @@ export async function generateMetadata({ params }) {
       canonical: pageUrl,
     },
     openGraph: {
-      type: 'article',
+      type: "article",
       url: pageUrl,
       title: pageTitle,
       description,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      images: [{ url: ogImage }],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: pageTitle,
       description,
       images: [ogImage],
@@ -127,10 +122,8 @@ export default async function BlogPostPage({ params }) {
   }
 
   const plain = blocksToPlainText(blog.body);
-  const baseExcerpt = plain ? `${plain.slice(0, 160)}...` : '';
-  const excerpt =
-    blog.excerpt || blog.metaDescription || baseExcerpt;
-
+  const baseExcerpt = plain ? `${plain.slice(0, 160)}...` : "";
+  const excerpt = blog.excerpt || blog.metaDescription || baseExcerpt;
   const readingTime = calcReadingTime(plain);
 
   // ---------- JSON-LD generation ----------
@@ -142,14 +135,18 @@ export default async function BlogPostPage({ params }) {
       const parsed = JSON.parse(blog.schemaMarkup);
       jsonLdArray.push(parsed);
     } catch (e) {
-      console.warn('Invalid JSON-LD in schemaMarkup', e);
+      console.warn("Invalid JSON-LD in schemaMarkup", e);
     }
   } else if (blog.autoGenerateSchema !== false) {
     const pageUrl = `https://miggla.com/blog/${slug}`;
     const imageUrl = blog.mainImage?.asset?.url;
 
     // Default / Article schema
-    if (!blog.schemaType || blog.schemaType === 'article' || blog.schemaType === 'none') {
+    if (
+      !blog.schemaType ||
+      blog.schemaType === "article" ||
+      blog.schemaType === "none"
+    ) {
       jsonLdArray.push(
         getArticleJsonLd({
           headline: blog.title,
@@ -159,19 +156,23 @@ export default async function BlogPostPage({ params }) {
           datePublished: blog.publishedAt || blog._createdAt,
           dateModified:
             blog._updatedAt || blog.publishedAt || blog._createdAt,
-          authorName: blog.author?.name || 'Miggla Editorial',
-          publisherName: 'Miggla',
-          publisherLogo: 'https://miggla.com/logo.png',
+          authorName: blog.author?.name || "Miggla Editorial",
+          publisherName: "Miggla",
+          publisherLogo: "https://miggla.com/logo.png",
         })
       );
     }
 
     // FAQ schema if selected + faqs exist
-    if (blog.schemaType === 'faq' && blog.faqs?.length) {
+    if (blog.schemaType === "faq" && blog.faqs?.length) {
       const faqJsonLd = getFaqJsonLd(blog.faqs);
       if (faqJsonLd) jsonLdArray.push(faqJsonLd);
     }
   }
+
+  const heroUrl =
+    blog.mainImage?.asset?.url &&
+    urlFor(blog.mainImage).width(1400).height(700).url();
 
   return (
     <>
@@ -185,13 +186,15 @@ export default async function BlogPostPage({ params }) {
       ))}
 
       <section className="px-6 py-12 max-w-4xl mx-auto text-gray-800">
-        {blog.mainImage?.asset?.url && (
+        {heroUrl && (
           <div className="mb-8 overflow-hidden rounded-xl shadow-xl">
-            <img
-              src={urlFor(blog.mainImage).width(1400).url()}
+            <Image
+              src={heroUrl}
               alt={blog.mainImage?.alt || blog.title}
-              className="w-full object-cover max-h-[500px]"
-              loading="eager"
+              width={1400}
+              height={700}
+              priority
+              className="w-full max-h-[500px] object-cover"
             />
           </div>
         )}
