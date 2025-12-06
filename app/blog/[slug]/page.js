@@ -30,51 +30,60 @@ function blocksToPlainText(blocks = []) {
     .join('\n\n');
 }
 
-/**
- * NOTE:
- * This query NO LONGER uses `$slug`.
- * It fetches all posts and we filter by slug in JS.
- * This completely avoids the “param $slug referenced, but not provided” error.
- */
-const blogQuery = `
-  *[_type == "post"]{
-    title,
-    "slug": slug.current,
-    publishedAt,
-    mainImage{ asset->{ url }, alt },
-    excerpt,
-    body,
-    metaTitle,
-    metaDescription,
-    schemaType,
-    autoGenerateSchema,
-    schemaMarkup,
-    faqs,
-    "author": author-> { name, slug, image, bio },
-    _createdAt,
-    _updatedAt
-  }
+// common field selection so we don't duplicate the object shape
+const blogFields = `
+  title,
+  "slug": slug.current,
+  publishedAt,
+  mainImage{ asset->{ url }, alt },
+  excerpt,
+  body,
+  metaTitle,
+  metaDescription,
+  schemaType,
+  autoGenerateSchema,
+  schemaMarkup,
+  faqs,
+  "author": author->{ name, slug, image, bio },
+  _createdAt,
+  _updatedAt
 `;
 
-// ---------- SSG params (optional) ----------
-export async function generateStaticParams() {
-  const slugs = await client.fetch(
+// ---------- data helpers (NO $slug PARAMS) ----------
+
+async function getBlogBySlug(slug) {
+  if (!slug || typeof slug !== 'string') return null;
+
+  // very basic escaping so quotes in slug can't break the query
+  const safeSlug = slug.replace(/"/g, '\\"');
+
+  const query = `
+    *[_type == "post" && slug.current == "${safeSlug}"][0]{
+      ${blogFields}
+    }
+  `;
+
+  return client.fetch(query);
+}
+
+async function getAllSlugs() {
+  return client.fetch(
     `*[_type == "post" && defined(slug.current)]{ "slug": slug.current }`
   );
+}
+
+// ---------- SSG params (optional) ----------
+
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs();
   return slugs.map(({ slug }) => ({ slug }));
 }
 
-// small helper to get a single post by slug
-async function getPostBySlug(slug) {
-  if (!slug) return null;
-  const posts = await client.fetch(blogQuery);
-  return posts.find((post) => post.slug === slug) || null;
-}
-
 // ---------- Metadata (title, description, OG, Twitter) ----------
+
 export async function generateMetadata({ params }) {
   const slug = params?.slug;
-  const blog = await getPostBySlug(slug);
+  const blog = await getBlogBySlug(slug);
 
   if (!blog) {
     return {
@@ -117,18 +126,19 @@ export async function generateMetadata({ params }) {
 }
 
 // ---------- Page component ----------
+
 export default async function BlogPostPage({ params }) {
   const slug = params?.slug;
-  const blog = await getPostBySlug(slug);
+  const blog = await getBlogBySlug(slug);
 
   if (!blog) {
     return (
-      <div className="max-w-4xl mx-auto p-6 text-center">
+      <section className="max-w-4xl mx-auto p-6 text-center">
         <h1 className="text-3xl font-bold mb-4">404: Blog Not Found</h1>
         <a href="/blog" className="text-red-500 underline">
           ← Go back to Blog
         </a>
-      </div>
+      </section>
     );
   }
 
@@ -141,7 +151,6 @@ export default async function BlogPostPage({ params }) {
   const jsonLdArray = [];
 
   if (blog.schemaMarkup) {
-    // manual override from Sanity
     try {
       const parsed = JSON.parse(blog.schemaMarkup);
       jsonLdArray.push(parsed);
@@ -152,7 +161,6 @@ export default async function BlogPostPage({ params }) {
     const pageUrl = `https://miggla.com/blog/${slug}`;
     const imageUrl = blog.mainImage?.asset?.url;
 
-    // Default / Article schema
     if (
       !blog.schemaType ||
       blog.schemaType === 'article' ||
@@ -174,7 +182,6 @@ export default async function BlogPostPage({ params }) {
       );
     }
 
-    // FAQ schema if selected + faqs exist
     if (blog.schemaType === 'faq' && blog.faqs?.length) {
       const faqJsonLd = getFaqJsonLd(blog.faqs);
       if (faqJsonLd) jsonLdArray.push(faqJsonLd);
@@ -183,7 +190,6 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <>
-      {/* JSON-LD scripts */}
       {jsonLdArray.map((jsonLd, idx) => (
         <script
           key={idx}
@@ -212,7 +218,7 @@ export default async function BlogPostPage({ params }) {
           <div>
             {blog.publishedAt
               ? new Date(blog.publishedAt).toLocaleDateString()
-              : '—'}
+              : ''}
           </div>
           <div aria-hidden>•</div>
           <div>{readingTime} min read</div>
