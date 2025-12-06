@@ -252,7 +252,7 @@ const Navbar = () => {
             </Link>
             <Link href="/contact">
               <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer animate-bounce">
-                Get Free Estimate Now!!
+                Get Free Estimate Now!
               </button>
             </Link>
           </ul>
