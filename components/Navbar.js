@@ -1,12 +1,11 @@
 'use client';
-import React, { useState,  } from 'react';
+import React, { useState } from 'react';
 import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
-import Head from 'next/head'
-
+import Head from 'next/head';
+import Image from 'next/image';
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -27,206 +26,240 @@ const Navbar = () => {
     alert("Form submitted!");
     setShowPopup(false); // Close popup after submit
   };
-  
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  
 
   return (
     <>
-    <Head>
+      <Head>
         <title>Leading Interior Designers in Delhi | Miggla</title>
-        <meta name="description" content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr." />
-        <meta name="keywords" content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me" />
+        <meta
+          name="description"
+          content="Miggla is recognized as one of the best interior designers in Delhi, offering end-to-end residential and commercial interior design services across Delhi Ncr."
+        />
+        <meta
+          name="keywords"
+          content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me"
+        />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
         <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
-        
         <meta property="og:url" content="arckey.vercel.app" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-    <nav className="bg-red-50 shadow-sm px-4 py-0">
-      {/* Top Row: Logo + Hamburger + Right Buttons */}
-      <div className="flex justify-between items-center">
-        {/* Logo */}
-   <Link href="/"> <div className="flex items-center">
-  <img
-  src="/logofinal.png"
-  alt="Stylish kids’ room interior with bunk bed setup
 
-"
-  className="h-16 sm:h-20 w-auto object-scale-down"
-/>
-
-</div>
-
-</Link>
-
-
-        {/* Desktop Menu */}
-        <ul className="hidden lg:flex gap-6 font-medium text-gray-800 text-sm">
-       <Link  href="/about" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">About</li></Link>
-         
-        <Link  href="/#reviews" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li></Link>
-          <Link  href="/#services" >   <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
-           <Link  href="/gallery" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
-          <Link  href="/projectss" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li></Link>
-          <Link  href="/blog" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
-           <Link  href="/cities" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Our Presence</li></Link>
-            <Link  href="/contact" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link>
-         
-        </ul>
-
-        {/* Right Side Buttons */}
-        <div className="flex items-center gap-3">
-        <Link
-  href="https://wa.me/919899890157"
-  target="_blank"
-  onClick={() => {
-    if (typeof fireContactTrackingEvent !== "undefined") {
-      fireContactTrackingEvent("whatsapp_click_navbar");
-    }
-  }}
->
-  <FaWhatsapp
-    size={32}
-    className="text-green-500 hover:scale-110 transition-transform animate-pulse"
-  />
-</Link>
-
-          <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer hover:px-6 hidden sm:block animate-bounce" onClick={() => setShowPopup(true)} >
-            Get Free Estimate
-          </button>
-          
-          {showPopup && (
-        <div className="fixed inset-0 backdrop-blur-md bg-white/40 flex justify-center items-center z-1000 px-4">
-          <div className="bg-white w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
-            <button
-              onClick={() => setShowPopup(false)}
-              className="absolute top-3 right-4 text-2xl font-bold text-gray-600 hover:text-black"
-            >
-              &times;
-            </button>
-           
-
-            <h2 className="text-2xl font-bold mb-4 text-center">
-              Get a <span className="text-red-500">free design consultation</span>
-            </h2>
-
-            <div className="flex flex-wrap gap-2 justify-center mb-4">
-              {["1 BHK", "2 BHK", "3 BHK", "4+ BHK / Duplex"].map(type => (
-                <button
-                  key={type}
-                  className="border border-gray-400 px-3 py-1 rounded-full text-sm"
-                >
-                  {type}
-                </button>
-              ))}
+      <nav className="bg-red-50 shadow-sm px-4 py-0">
+        {/* Top Row: Logo + Hamburger + Right Buttons */}
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link href="/">
+            <div className="flex items-center">
+              <Image
+                src="/logofinal.png"
+                alt="Stylish kids’ room interior with bunk bed setup"
+                width={160}
+                height={80}
+                loading="lazy"
+                className="h-16 sm:h-20 w-auto object-scale-down"
+              />
             </div>
+          </Link>
 
-            <form
-              onSubmit={handleSubmit}
-              className="w-full sm:max-w-md flex flex-col gap-4 mx-auto"
+          {/* Desktop Menu */}
+          <ul className="hidden lg:flex gap-6 font-medium text-gray-800 text-sm">
+            <Link href="/about">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">About</li>
+            </Link>
+
+            <Link href="/#reviews">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li>
+            </Link>
+            <Link href="/#services">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li>
+            </Link>
+            <Link href="/gallery">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li>
+            </Link>
+            <Link href="/projectss">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li>
+            </Link>
+            <Link href="/blog">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li>
+            </Link>
+            <Link href="/cities">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Our Presence</li>
+            </Link>
+            <Link href="/contact">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li>
+            </Link>
+          </ul>
+
+          {/* Right Side Buttons */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="https://wa.me/919899890157"
+              target="_blank"
+              onClick={() => {
+                if (typeof fireContactTrackingEvent !== "undefined") {
+                  fireContactTrackingEvent("whatsapp_click_navbar");
+                }
+              }}
             >
-              <input
-                type="text"
-                name="name"
-                placeholder="Name*"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
+              <FaWhatsapp
+                size={32}
+                className="text-green-500 hover:scale-110 transition-transform animate-pulse"
               />
-              <input
-                type="text"
-                name="phone"
-                placeholder="Mobile Number*"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email*"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
-              />
-              <textarea
-                name="query"
-                placeholder="Your Query*"
-                rows="4"
-                value={formData.query}
-                onChange={handleChange}
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full resize-none"
-              />
-              <select
-                name="budget"
-                value={formData.budget}
-                onChange={handleChange}
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full text-gray-500"
-              >
-                <option value="">Estimated Budget*</option>
-                <option value="Below ₹5 Lakh">Below ₹5 Lakh</option>
-                <option value="₹5 - ₹10 Lakh">₹5 - ₹10 Lakh</option>
-                <option value="₹10+ Lakh">₹10+ Lakh</option>
-              </select>
-              <button
-                type="submit"
-                className="bg-black text-white font-bold rounded-full py-3 shadow-lg hover:scale-110 transition-transform duration-200"
-              >
-                SUBMIT
+            </Link>
+
+            <button
+              className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer hover:px-6 hidden sm:block animate-bounce"
+              onClick={() => setShowPopup(true)}
+            >
+              Get Free Estimate
+            </button>
+
+            {showPopup && (
+              <div className="fixed inset-0 backdrop-blur-md bg-white/40 flex justify-center items-center z-1000 px-4">
+                <div className="bg-white w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
+                  <button
+                    onClick={() => setShowPopup(false)}
+                    className="absolute top-3 right-4 text-2xl font-bold text-gray-600 hover:text-black"
+                  >
+                    &times;
+                  </button>
+
+                  <h2 className="text-2xl font-bold mb-4 text-center">
+                    Get a <span className="text-red-500">free design consultation</span>
+                  </h2>
+
+                  <div className="flex flex-wrap gap-2 justify-center mb-4">
+                    {["1 BHK", "2 BHK", "3 BHK", "4+ BHK / Duplex"].map(type => (
+                      <button
+                        key={type}
+                        className="border border-gray-400 px-3 py-1 rounded-full text-sm"
+                      >
+                        {type}
+                      </button>
+                    ))}
+                  </div>
+
+                  <form
+                    onSubmit={handleSubmit}
+                    className="w-full sm:max-w-md flex flex-col gap-4 mx-auto"
+                  >
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name*"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
+                    />
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="Mobile Number*"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email*"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
+                    />
+                    <textarea
+                      name="query"
+                      placeholder="Your Query*"
+                      rows="4"
+                      value={formData.query}
+                      onChange={handleChange}
+                      required
+                      className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full resize-none"
+                    />
+                    <select
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      required
+                      className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full text-gray-500"
+                    >
+                      <option value="">Estimated Budget*</option>
+                      <option value="Below ₹5 Lakh">Below ₹5 Lakh</option>
+                      <option value="₹5 - ₹10 Lakh">₹5 - ₹10 Lakh</option>
+                      <option value="₹10+ Lakh">₹10+ Lakh</option>
+                    </select>
+                    <button
+                      type="submit"
+                      className="bg-black text-white font-bold rounded-full py-3 shadow-lg hover:scale-110 transition-transform duration-200"
+                    >
+                      SUBMIT
+                    </button>
+                  </form>
+
+                  <p className="text-xs text-center mt-3 text-gray-500">
+                    By submitting, you consent to our{' '}
+                    <a href="#" className="underline">privacy policy</a> and{' '}
+                    <a href="#" className="underline">terms of use</a>.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Hamburger Icon */}
+            <div className="lg:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
+              {isOpen ? <FaTimes /> : <FaBars />}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <ul className="flex flex-col gap-3 mt-4 text-gray-800 text-sm font-medium lg:hidden">
+            <Link href="/about">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">About</li>
+            </Link>
+            <Link href="/contact">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li>
+            </Link>
+            <Link href="/#reviews">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li>
+            </Link>
+
+            <Link href="/#services">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li>
+            </Link>
+            <Link href="/gallery">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li>
+            </Link>
+            <Link href="/projectss">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li>
+            </Link>
+
+            <Link href="/blog">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li>
+            </Link>
+            <Link href="/cities">
+              <li className="hover:text-red-600 hover:font-bold cursor-pointer">Our Presence</li>
+            </Link>
+            <Link href="/contact">
+              <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer animate-bounce">
+                Get Free Estimate Now!!
               </button>
-            </form>
-
-            <p className="text-xs text-center mt-3 text-gray-500">
-              By submitting, you consent to our{' '}
-              <a href="#" className="underline">privacy policy</a> and{' '}
-              <a href="#" className="underline">terms of use</a>.
-            </p>
-          </div>
-        </div>
-      )}
-
-          {/* Hamburger Icon */}
-          <div className="lg:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
-            {isOpen ? <FaTimes /> : <FaBars />}
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="flex flex-col gap-3 mt-4 text-gray-800 text-sm font-medium lg:hidden">
-          <Link  href="/about"> <li className="hover:text-red-600 hover:font-bold cursor-pointer">About</li></Link>  
-          <Link  href="/contact"><li className="hover:text-red-600 hover:font-bold cursor-pointer">Contact Us</li></Link> 
-          <Link  href="/#reviews">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Reviews</li></Link>
-          
-          <Link  href="/#services" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Services</li></Link>
-          <Link  href="/gallery" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Design Gallery</li></Link>
-         <Link  href="/projectss" > <li className="hover:text-red-600 hover:font-bold cursor-pointer">Recent Projects</li></Link> 
-         
-          <Link  href="/blog" >  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Blogs</li></Link>
-         <Link  href="/cities">  <li className="hover:text-red-600 hover:font-bold cursor-pointer">Our Presence</li></Link>
-        <Link href="/contact">  <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition-all duration-300 cursor-pointer animate-bounce " >
-            Get Free Estimate Now!!
-          </button></Link>
-          
-        </ul>
-      )}
-      
-    </nav>
+            </Link>
+          </ul>
+        )}
+      </nav>
     </>
   );
 };
 
 export default Navbar;
-
-
-
