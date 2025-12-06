@@ -1,5 +1,4 @@
-@tailwind utilities;
-
+@import "tailwindcss";
 html {
   scroll-behavior: smooth;
 }
@@ -23,3 +22,9 @@ html {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+
+
+
+
+
