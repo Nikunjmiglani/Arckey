@@ -5,45 +5,46 @@ import React from "react";
 const projects = [
   {
     id: 1,
-   
-    src: "/ytimg1.jpg", // <-- replace with your image in /public
-    href: "https://www.youtube.com/shorts/_xQ_dBDECqg", // <-- replace with your channel / video link
+    title: "Living room interior project video",
+    src: "/ytimg1.jpg", // image in /public
+    href: "https://www.youtube.com/shorts/_xQ_dBDECqg",
   },
   {
     id: 2,
-    
-    src: "/ytimg.jpg", // <-- main (bigger) middle image
-    href: "https://www.youtube.com/watch?v=wy7c_hmqUQE", // <-- main video / channel link
+    title: "Full home interior project walkthrough",
+    src: "/ytimg.jpg", // main (bigger) middle image
+    href: "https://www.youtube.com/watch?v=wy7c_hmqUQE",
   },
   {
     id: 3,
-    
-    src: "/ytimg2.jpg", // <-- replace with your image in /public
-    href: "https://www.youtube.com/shorts/w7V8Pt-2zZE", // <-- replace as needed
+    title: "Kitchen interior project video",
+    src: "/ytimg2.jpg",
+    href: "https://www.youtube.com/shorts/w7V8Pt-2zZE",
   },
 ];
 
 const ImageCard = ({ title, src, href, isCenter }) => {
-  return (
-   <a
-  href={href}
-  target="_blank"
-  rel="noopener noreferrer"
-  className={`group block bg-white rounded-xl shadow-2xl overflow-hidden transform transition duration-500 hover:scale-[1.02] hover:shadow-2xl ${
-    isCenter ? "lg:scale-105" : "lg:opacity-95"
-  }`}
-  aria-label={title}
->
-  <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-    <img
-      src={src}
-      alt={title}
-      className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      loading="lazy"
-    />
-  </div>
-</a>
+  const accessibleLabel = title || "Project video";
 
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group block bg-white rounded-xl shadow-2xl overflow-hidden transform transition duration-500 hover:scale-[1.02] hover:shadow-2xl ${
+        isCenter ? "lg:scale-105" : "lg:opacity-95"
+      }`}
+      aria-label={accessibleLabel}
+    >
+      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+        <img
+          src={src}
+          alt={accessibleLabel}
+          className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+      </div>
+    </a>
   );
 };
 
@@ -74,7 +75,6 @@ export default function VideoSection() {
               <div
                 key={project.id}
                 className={`shrink-0 snap-start ${
-                  // mobile/tablet: wide cards, desktop: 3-column with bigger center
                   isCenter
                     ? "min-w-[80vw] sm:min-w-[60vw] lg:min-w-0 lg:flex-[1.2]"
                     : "min-w-[70vw] sm:min-w-[50vw] lg:min-w-0 lg:flex-[0.9] lg:mt-6"

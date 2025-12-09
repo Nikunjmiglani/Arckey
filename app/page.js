@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import Head from 'next/head';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import Head from "next/head";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import dynamic from "next/dynamic";
 
 // Lazy-load VideoSection to reduce main bundle size
@@ -21,33 +21,33 @@ const MotionImage = motion(Image);
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  transition: { duration: 0.6, ease: "easeOut" },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const slideInLeft = {
   initial: { opacity: 0, x: -60 },
   animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  transition: { duration: 0.6, ease: "easeOut" },
 };
 
 const slideInRight = {
   initial: { opacity: 0, x: 60 },
   animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  transition: { duration: 0.6, ease: "easeOut" },
 };
 
 const popIn = {
   initial: { opacity: 0, scale: 0.8 },
   animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.4, ease: "backOut" }
+  transition: { duration: 0.4, ease: "backOut" },
 };
 
 // FAQ Data
@@ -95,7 +95,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/roundimg4.webp"
+    image: "/roundimg4.webp",
   },
   {
     title: "Tailored For You",
@@ -106,7 +106,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/ff.jpg"
+    image: "/ff.jpg",
   },
   {
     title: "On-Time Always",
@@ -117,7 +117,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/1 (2).jpg"
+    image: "/1 (2).jpg",
   },
   {
     title: "Crafted With Innovation",
@@ -128,7 +128,7 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/mm.jpg"
+    image: "/mm.jpg",
   },
   {
     title: "Delhi's Trusted Designers",
@@ -139,8 +139,8 @@ const tabs = [
         </p>
       </>
     ),
-    image: "/fgfg.jpg"
-  }
+    image: "/fgfg.jpg",
+  },
 ];
 
 // Services Data
@@ -237,8 +237,8 @@ export default function Home() {
     const fetchBlogs = async () => {
       try {
         setLoadingBlogs(true);
-        const response = await fetch('/api/blogs');
-        if (!response.ok) throw new Error('Failed to fetch blogs');
+        const response = await fetch("/api/blogs");
+        if (!response.ok) throw new Error("Failed to fetch blogs");
         const result = await response.json();
         setBlogs(result);
       } catch (error) {
@@ -252,9 +252,12 @@ export default function Home() {
 
   // Stats Counter Animation
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !startCount) setStartCount(true);
-    }, { threshold: 0.5 });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !startCount) setStartCount(true);
+      },
+      { threshold: 0.5 }
+    );
 
     if (statsRef.current) observer.observe(statsRef.current);
     return () => {
@@ -270,7 +273,7 @@ export default function Home() {
         const step = Math.ceil(target / 40);
         const interval = setInterval(() => {
           currentVal += step;
-          setCounts(prev => {
+          setCounts((prev) => {
             const updated = [...prev];
             updated[idx] = currentVal >= target ? target : currentVal;
             return updated;
@@ -312,8 +315,10 @@ export default function Home() {
   };
 
   // Testimonial Navigation
-  const nextTestimonial = () => setCurrent((prev) => (prev + 1) % testimonials.length);
-  const prevTestimonial = () => setCurrent((prev) => prev === 0 ? testimonials.length - 1 : prev - 1);
+  const nextTestimonial = () =>
+    setCurrent((prev) => (prev + 1) % testimonials.length);
+  const prevTestimonial = () =>
+    setCurrent((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
   const handleDotClick = (index) => setCurrent(index);
 
   // Form Handlers
@@ -329,7 +334,7 @@ export default function Home() {
     const res = await fetch("https://formspree.io/f/mgvynjpo", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     });
@@ -351,8 +356,14 @@ export default function Home() {
           content="interior designer in Delhi NCR, best interior designers in Noida, famous commercial Interior designer in delhi, home interior designer Delhi, luxury interior designers Gurgaon, interior decorators near me"
         />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Miggla Interiors - Transform Your Space" />
-        <meta property="og:description" content="High-quality interior design services in Delhi NCR." />
+        <meta
+          property="og:title"
+          content="Miggla Interiors - Transform Your Space"
+        />
+        <meta
+          property="og:description"
+          content="High-quality interior design services in Delhi NCR."
+        />
         <meta property="og:url" content="https://miggla.com" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
@@ -377,59 +388,111 @@ export default function Home() {
                 <button
                   className="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl"
                   onClick={() => setShowTimedPopup(false)}
+                  type="button"
+                  aria-label="Close consultation form popup"
                 >
                   ×
                 </button>
-                <h2 className="text-xl font-bold mb-4">Book a Free Design Consultation</h2>
+                <h2 className="text-xl font-bold mb-4">
+                  Book a Free Design Consultation
+                </h2>
                 <form onSubmit={handleSubmit} className="space-y-3">
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Name"
-                    className="w-full border p-2 rounded"
-                    onChange={handleChange}
-                    value={formData.name}
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    placeholder="Mobile Number"
-                    className="w-full border p-2 rounded"
-                    onChange={handleChange}
-                    value={formData.phone}
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="Email"
-                    className="w-full border p-2 rounded"
-                    onChange={handleChange}
-                    value={formData.email}
-                  />
-                  <textarea
-                    name="query"
-                    required
-                    placeholder="Your Query"
-                    className="w-full border p-2 rounded"
-                    onChange={handleChange}
-                    value={formData.query}
-                  />
-                  <select
-                    name="budget"
-                    required
-                    className="w-full border p-2 rounded text-gray-600"
-                    onChange={handleChange}
-                    value={formData.budget}
+                  <div>
+                    <label
+                      htmlFor="popup-name"
+                      className="sr-only"
+                    >
+                      Name
+                    </label>
+                    <input
+                      id="popup-name"
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="Name"
+                      className="w-full border p-2 rounded"
+                      onChange={handleChange}
+                      value={formData.name}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="popup-phone"
+                      className="sr-only"
+                    >
+                      Mobile Number
+                    </label>
+                    <input
+                      id="popup-phone"
+                      type="tel"
+                      name="phone"
+                      required
+                      placeholder="Mobile Number"
+                      className="w-full border p-2 rounded"
+                      onChange={handleChange}
+                      value={formData.phone}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="popup-email"
+                      className="sr-only"
+                    >
+                      Email
+                    </label>
+                    <input
+                      id="popup-email"
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="Email"
+                      className="w-full border p-2 rounded"
+                      onChange={handleChange}
+                      value={formData.email}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="popup-query"
+                      className="sr-only"
+                    >
+                      Your Query
+                    </label>
+                    <textarea
+                      id="popup-query"
+                      name="query"
+                      required
+                      placeholder="Your Query"
+                      className="w-full border p-2 rounded"
+                      onChange={handleChange}
+                      value={formData.query}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="popup-budget"
+                      className="sr-only"
+                    >
+                      Estimated Budget
+                    </label>
+                    <select
+                      id="popup-budget"
+                      name="budget"
+                      required
+                      className="w-full border p-2 rounded text-gray-600"
+                      onChange={handleChange}
+                      value={formData.budget}
+                    >
+                      <option value="">Estimated Budget</option>
+                      <option>Below ₹5 Lakh</option>
+                      <option>₹5 - ₹10 Lakh</option>
+                      <option>₹10+ Lakh</option>
+                    </select>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-red-600 text-white py-2 rounded"
                   >
-                    <option value="">Estimated Budget</option>
-                    <option>Below ₹5 Lakh</option>
-                    <option>₹5 - ₹10 Lakh</option>
-                    <option>₹10+ Lakh</option>
-                  </select>
-                  <button type="submit" className="w-full bg-red-600 text-white py-2 rounded">
                     Submit
                   </button>
                 </form>
@@ -452,7 +515,7 @@ export default function Home() {
           >
             <Image
               src="/logologo.webp"
-              alt="mainimg"
+              alt="Miggla interiors hero banner"
               fill
               priority
               sizes="100vw"
@@ -476,11 +539,12 @@ export default function Home() {
             >
               Let's design a space you'll love — home or office.
             </motion.h1>
-            <motion.p
-              variants={fadeInUp}
-              className="text-gray-700"
-            >
-              Book your free consultation with Delhi's top interior designers! From stunning commercial and residential interiors to complete turnkey execution, we design for style, function, and timely delivery. Miggla excels in modular kitchens, custom furniture, and transforming spaces you'll love to live or work in.
+            <motion.p variants={fadeInUp} className="text-gray-700">
+              Book your free consultation with Delhi's top interior designers!
+              From stunning commercial and residential interiors to complete
+              turnkey execution, we design for style, function, and timely
+              delivery. Miggla excels in modular kitchens, custom furniture, and
+              transforming spaces you'll love to live or work in.
             </motion.p>
           </div>
 
@@ -493,10 +557,10 @@ export default function Home() {
             className="mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {[
-              { src: '/finalnewimg (3).jpg', title: "Schedule a visit" },
-              { src: '/finalnewimg (4).jpg', title: "Consult Our Experts" },
-              { src: '/finalnewimg (1).jpg', title: "Tailor Your Space" },
-              { src: '/finalnewimg (2).jpg', title: "Enter Your Dream Space" },
+              { src: "/finalnewimg (3).jpg", title: "Schedule a visit" },
+              { src: "/finalnewimg (4).jpg", title: "Consult Our Experts" },
+              { src: "/finalnewimg (1).jpg", title: "Tailor Your Space" },
+              { src: "/finalnewimg (2).jpg", title: "Enter Your Dream Space" },
             ].map(({ src, title }, i) => (
               <motion.div
                 key={i}
@@ -504,7 +568,7 @@ export default function Home() {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="flex flex-col items-center text-center sm:block sm:text-center"
               >
-                <Link href="#contactform">
+                <Link href="#contactform" aria-label={`${title} - go to contact form`}>
                   <div className="w-full">
                     <MotionImage
                       whileHover={{ scale: 1.1 }}
@@ -540,7 +604,11 @@ export default function Home() {
           >
             <a href="#contactform">
               <motion.button
-                whileHover={{ scale: 1.1, boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.4)" }}
+                whileHover={{
+                  scale: 1.1,
+                  boxShadow:
+                    "0 10px 25px -5px rgba(239, 68, 68, 0.4)",
+                }}
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-5 rounded-full bg-red-400 font-mono text-center"
               >
@@ -559,18 +627,25 @@ export default function Home() {
           className="bg-[#f4f0e9] py-10 px-4 sm:px-10 mt-10"
           id="contactform"
         >
-          <motion.div variants={fadeInUp} className="text-center max-w-3xl mx-auto mb-10">
+          <motion.div
+            variants={fadeInUp}
+            className="text-center max-w-3xl mx-auto mb-10"
+          >
             <h1 className="font-bold text-3xl sm:text-4xl mb-3">
               Transform Your Space With The Best Interior Designers In Delhi
             </h1>
             <p className="text-gray-700">
-              Your dream home is just a click away. Take the first step towards a more beautiful and functional living space.
+              Your dream home is just a click away. Take the first step towards
+              a more beautiful and functional living space.
             </p>
-            <h2 className="mt-3 text-lg font-medium">Let's bring your vision to life!</h2>
+            <h2 className="mt-3 text-lg font-medium">
+              Let's bring your vision to life!
+            </h2>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-green-950 text-white font-bold rounded-full px-6 py-3 mt-4"
+              type="button"
             >
               Fill the form Now to get a Call
             </motion.button>
@@ -583,60 +658,108 @@ export default function Home() {
               method="POST"
               className="w-full sm:max-w-md flex flex-col gap-4 mx-auto"
             >
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="text"
-                name="name"
-                required
-                placeholder="Name*"
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
-                onChange={handleChange}
-                value={formData.name}
-              />
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="tel"
-                name="phone"
-                required
-                placeholder="Mobile Number*"
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
-                onChange={handleChange}
-                value={formData.phone}
-              />
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="email"
-                name="email"
-                required
-                placeholder="Email*"
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
-                onChange={handleChange}
-                value={formData.email}
-              />
-              <motion.textarea
-                whileFocus={{ scale: 1.02 }}
-                name="query"
-                required
-                placeholder="Your Query*"
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full resize-none"
-                onChange={handleChange}
-                value={formData.query}
-              />
-              <motion.select
-                whileFocus={{ scale: 1.02 }}
-                name="budget"
-                required
-                className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full text-gray-500"
-                onChange={handleChange}
-                value={formData.budget}
-              >
-                <option value="">Estimated Budget*</option>
-                <option>Below ₹5 Lakh</option>
-                <option>₹5 - ₹10 Lakh</option>
-                <option>₹10+ Lakh</option>
-              </motion.select>
+              <div>
+                <label
+                  htmlFor="contact-name"
+                  className="sr-only"
+                >
+                  Name
+                </label>
+                <motion.input
+                  whileFocus={{ scale: 1.02 }}
+                  id="contact-name"
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Name*"
+                  className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
+                  onChange={handleChange}
+                  value={formData.name}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="contact-phone"
+                  className="sr-only"
+                >
+                  Mobile Number
+                </label>
+                <motion.input
+                  whileFocus={{ scale: 1.02 }}
+                  id="contact-phone"
+                  type="tel"
+                  name="phone"
+                  required
+                  placeholder="Mobile Number*"
+                  className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
+                  onChange={handleChange}
+                  value={formData.phone}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="contact-email"
+                  className="sr-only"
+                >
+                  Email
+                </label>
+                <motion.input
+                  whileFocus={{ scale: 1.02 }}
+                  id="contact-email"
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Email*"
+                  className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full"
+                  onChange={handleChange}
+                  value={formData.email}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="contact-query"
+                  className="sr-only"
+                >
+                  Your Query
+                </label>
+                <motion.textarea
+                  whileFocus={{ scale: 1.02 }}
+                  id="contact-query"
+                  name="query"
+                  required
+                  placeholder="Your Query*"
+                  className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full resize-none"
+                  onChange={handleChange}
+                  value={formData.query}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="contact-budget"
+                  className="sr-only"
+                >
+                  Estimated Budget
+                </label>
+                <motion.select
+                  whileFocus={{ scale: 1.02 }}
+                  id="contact-budget"
+                  name="budget"
+                  required
+                  className="rounded-2xl bg-white shadow-xl px-4 py-3 border border-green-900 w-full text-gray-500"
+                  onChange={handleChange}
+                  value={formData.budget}
+                >
+                  <option value="">Estimated Budget*</option>
+                  <option>Below ₹5 Lakh</option>
+                  <option>₹5 - ₹10 Lakh</option>
+                  <option>₹10+ Lakh</option>
+                </motion.select>
+              </div>
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)" }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)",
+                }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
                 className="bg-black text-white font-bold rounded-full py-3 shadow-lg cursor-pointer"
@@ -663,7 +786,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex flex-col gap-6 w-[40%]">
-                {['/roundimg2.webp', '/roundimg3.webp'].map((src, idx) => (
+                {["/roundimg2.webp", "/roundimg3.webp"].map((src, idx) => (
                   <motion.div
                     key={idx}
                     whileHover={{ scale: 1.05, y: -5 }}
@@ -671,7 +794,11 @@ export default function Home() {
                   >
                     <Image
                       src={src}
-                      alt={idx === 0 ? "Luxury 3BHK flat interior design in Noida" : "Vastu-compliant pooja room with custom cabinetry"}
+                      alt={
+                        idx === 0
+                          ? "Luxury 3BHK flat interior design in Noida"
+                          : "Vastu-compliant pooja room with custom cabinetry"
+                      }
                       width={600}
                       height={400}
                       loading="lazy"
@@ -695,10 +822,16 @@ export default function Home() {
           className="bg-[#f4f0e9] py-16 px-4 sm:px-10"
           id="services"
         >
-          <motion.div variants={fadeInUp} className="text-center max-w-4xl mx-auto mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-gray-800">Services We Provide</h2>
+          <motion.div
+            variants={fadeInUp}
+            className="text-center max-w-4xl mx-auto mb-12"
+          >
+            <h2 className="text-4xl font-bold mb-4 text-gray-800">
+              Services We Provide
+            </h2>
             <p className="text-gray-600 text-lg">
-              Discover our range of expert services that transform spaces into dream homes with thoughtful design and flawless execution.
+              Discover our range of expert services that transform spaces into
+              dream homes with thoughtful design and flawless execution.
             </p>
           </motion.div>
 
@@ -713,10 +846,10 @@ export default function Home() {
                 whileHover={{
                   scale: 1.05,
                   y: -10,
-                  transition: { type: "spring", stiffness: 300 }
+                  transition: { type: "spring", stiffness: 300 },
                 }}
               >
-                <Link href={link}>
+                <Link href={link} aria-label={`Learn more about ${title}`}>
                   <div className="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer">
                     <MotionImage
                       whileHover={{ scale: 1.1 }}
@@ -729,7 +862,9 @@ export default function Home() {
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-6">
-                      <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+                      <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                        {title}
+                      </h3>
                     </div>
                   </div>
                 </Link>
@@ -752,7 +887,9 @@ export default function Home() {
               Why Clients Trust Us as the Best Interior Designers in Delhi
             </h2>
             <p className="text-gray-700 mb-12 max-w-4xl mx-auto">
-              Clients trust Miggla as the best interior designers in Delhi for our perfect blend of luxury interior design, functional space planning, and customized turnkey solutions.
+              Clients trust Miggla as the best interior designers in Delhi for
+              our perfect blend of luxury interior design, functional space
+              planning, and customized turnkey solutions.
             </p>
           </motion.div>
 
@@ -761,22 +898,24 @@ export default function Home() {
             className="border-t border-b py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {[
-              { number: "Journey", text: "Miggla began with a vision to transform ordinary spaces into timeless." },
+              {
+                number: "Journey",
+                text: "Miggla began with a vision to transform ordinary spaces into timeless.",
+              },
               { number: `${counts[0]}+`, text: "Satisfied Customers" },
               { number: `${counts[1]}+`, text: "Projects Completed" },
               { number: `${counts[2]}+`, text: "Years Experience" },
             ].map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={popIn}
-                className="text-center"
-              >
+              <motion.div key={index} variants={popIn} className="text-center">
                 <motion.h3
                   className="text-3xl font-bold text-[#444444]"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.5, type: "spring" }}
+                  transition={{
+                    delay: index * 0.1 + 0.5,
+                    type: "spring",
+                  }}
                 >
                   {stat.number}
                 </motion.h3>
@@ -791,15 +930,28 @@ export default function Home() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-0 mt-16"
           >
             <motion.div variants={slideInLeft}>
-              <h2 className="text-4xl font-bold mb-6">The Story Behind Delhi's Best Interiors</h2>
+              <h2 className="text-4xl font-bold mb-6">
+                The Story Behind Delhi's Best Interiors
+              </h2>
               <p className="text-gray-700 mb-4">
-                Miggla's journey to becoming one of the best interior designers in Delhi is built on vision, creativity, and commitment. Led by Director Sandeep Kumar and award-winning designer Arti Gupta, we create luxurious, functional interiors for both residential and commercial projects across Delhi NCR.
+                Miggla's journey to becoming one of the best interior designers
+                in Delhi is built on vision, creativity, and commitment. Led by
+                Director Sandeep Kumar and award-winning designer Arti Gupta, we
+                create luxurious, functional interiors for both residential and
+                commercial projects across Delhi NCR.
               </p>
               <p className="text-gray-700 mb-4">
-                From luxury homes to modern corporate offices, Miggla delivers turnkey interior solutions that blend innovation, style, and functionality. With a client-focused approach, we're redefining interior design in Delhi NCR through trend-driven, personalized spaces.
+                From luxury homes to modern corporate offices, Miggla delivers
+                turnkey interior solutions that blend innovation, style, and
+                functionality. With a client-focused approach, we're redefining
+                interior design in Delhi NCR through trend-driven, personalized
+                spaces.
               </p>
               <p className="text-gray-700 mb-6">
-                Miggla delivers turnkey interior solutions for luxury homes and corporate offices, blending innovation, style, and functionality. With a client-first mindset and trend-led design, we're redefining interior design in Delhi NCR.
+                Miggla delivers turnkey interior solutions for luxury homes and
+                corporate offices, blending innovation, style, and
+                functionality. With a client-first mindset and trend-led design,
+                we're redefining interior design in Delhi NCR.
               </p>
             </motion.div>
 
@@ -827,37 +979,64 @@ export default function Home() {
           className="bg-white py-20 px-4 sm:px-10"
         >
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <motion.div variants={slideInLeft} className="w-full md:w-1/2 space-y-6">
-              <h2 className="text-4xl font-bold text-gray-800">Meet Our Founders</h2>
+            <motion.div
+              variants={slideInLeft}
+              className="w-full md:w-1/2 space-y-6"
+            >
+              <h2 className="text-4xl font-bold text-gray-800">
+                Meet Our Founders
+              </h2>
               <p className="text-gray-700 text-lg leading-relaxed">
-                With over a decade of experience in architectural and interior excellence, our founders envisioned a design house that not only delivers style but also understands space, budget, and human emotion.
+                With over a decade of experience in architectural and interior
+                excellence, our founders envisioned a design house that not only
+                delivers style but also understands space, budget, and human
+                emotion.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Their journey began with a shared passion for elegant functionality. Today, they lead a team of passionate designers delivering turn-key solutions tailored for every lifestyle.
+                Their journey began with a shared passion for elegant
+                functionality. Today, they lead a team of passionate designers
+                delivering turn-key solutions tailored for every lifestyle.
               </p>
 
               <div className="space-y-4">
-                <h3 className="text-2xl font-semibold text-gray-800">Designing Beyond Aesthetics</h3>
+                <h3 className="text-2xl font-semibold text-gray-800">
+                  Designing Beyond Aesthetics
+                </h3>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  <strong> Miggla</strong> is driven by two creative leaders transforming both <strong> residential </strong> and <strong> commercial interiors </strong> across <strong> Delhi NCR.</strong>
+                  <strong> Miggla</strong> is driven by two creative leaders
+                  transforming both <strong> residential </strong> and{" "}
+                  <strong> commercial interiors </strong> across{" "}
+                  <strong> Delhi NCR.</strong>
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  <strong>Sandeep Kumar</strong>, <strong>Founder & Director</strong>, brings strategic vision and precision to every project. Known for delivering luxury interiors and custom furniture on time, he leads with innovation, ensuring every space performs beautifully.
+                  <strong>Sandeep Kumar</strong>,{" "}
+                  <strong>Founder &amp; Director</strong>, brings strategic
+                  vision and precision to every project. Known for delivering
+                  luxury interiors and custom furniture on time, he leads with
+                  innovation, ensuring every space performs beautifully.
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  <strong>Arti Gupta</strong>, <strong>Co-Founder & Lead Designer</strong>, is the creative force behind Miggla's signature style. Her designs marry modern elegance with vastu harmony, crafting interiors that are both soulful and stunning.
+                  <strong>Arti Gupta</strong>,{" "}
+                  <strong>Co-Founder &amp; Lead Designer</strong>, is the
+                  creative force behind Miggla's signature style. Her designs
+                  marry modern elegance with vastu harmony, crafting interiors
+                  that are both soulful and stunning.
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  Together, they shape interiors that inspire, function, and endure.
+                  Together, they shape interiors that inspire, function, and
+                  endure.
                 </p>
               </div>
             </motion.div>
 
-            <motion.div variants={slideInRight} className="w-full md:w-1/2 relative">
+            <motion.div
+              variants={slideInRight}
+              className="w-full md:w-1/2 relative"
+            >
               <div className="rounded-3xl overflow-hidden shadow-xl">
                 <Image
                   src="/founderfounder.jpg"
-                  alt="Minimalist TV unit with wall-mounted storage"
+                  alt="Miggla founders portrait"
                   width={600}
                   height={700}
                   loading="lazy"
@@ -871,8 +1050,13 @@ export default function Home() {
                 transition={{ delay: 0.5 }}
                 className="absolute -bottom-10 left-4 right-4 bg-white p-5 shadow-lg rounded-2xl border-l-4 border-yellow-500"
               >
-                <p className="italic text-gray-700">"We design spaces that don't just look beautiful, but feel like home."</p>
-                <p className="mt-2 text-right font-semibold text-gray-800">– Founders</p>
+                <p className="italic text-gray-700">
+                  "We design spaces that don't just look beautiful, but feel
+                  like home."
+                </p>
+                <p className="mt-2 text-right font-semibold text-gray-800">
+                  – Founders
+                </p>
               </motion.div>
             </motion.div>
           </div>
@@ -887,10 +1071,16 @@ export default function Home() {
           className="bg-[#f4f0e9] py-10 px-4 sm:px-10"
           id="delivered-projects"
         >
-          <motion.div variants={fadeInUp} className="text-center max-w-4xl mx-auto mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-gray-800">Delivered Projects</h2>
+          <motion.div
+            variants={fadeInUp}
+            className="text-center max-w-4xl mx-auto mb-12"
+          >
+            <h2 className="text-4xl font-bold mb-4 text-gray-800">
+              Delivered Projects
+            </h2>
             <p className="text-gray-600 text-lg">
-              Take a look at some of the beautiful spaces we've had the pleasure of creating for our clients.
+              Take a look at some of the beautiful spaces we've had the
+              pleasure of creating for our clients.
             </p>
           </motion.div>
 
@@ -901,7 +1091,10 @@ export default function Home() {
             {[
               { title: "Elegant 3BHK in Gurgaon", img: "/nowimg (6).jpeg" },
               { title: "Modern Kitchen in Noida", img: "/servicesimg (5).jpeg" },
-              { title: "Luxury Living Room Delhi", img: "/servicesimg (2).jpeg" },
+              {
+                title: "Luxury Living Room Delhi",
+                img: "/servicesimg (2).jpeg",
+              },
               { title: "Office Interior Mumbai", img: "/servicesimg (1).jpeg" },
               { title: "Classic Bedroom Setup", img: "/nowimg (3).jpeg" },
               { title: "Rustic Theme Apartment", img: "/nowimg (4).jpeg" },
@@ -923,7 +1116,9 @@ export default function Home() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                    {title}
+                  </h3>
                 </div>
               </motion.div>
             ))}
@@ -938,7 +1133,10 @@ export default function Home() {
           variants={fadeInUp}
           className="py-10 px-4 sm:px-6 md:px-20 bg-white"
         >
-          <motion.h2 variants={fadeInUp} className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800 text-center sm:text-left">
+          <motion.h2
+            variants={fadeInUp}
+            className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800 text-center sm:text-left"
+          >
             Why Miggla
           </motion.h2>
 
@@ -952,11 +1150,14 @@ export default function Home() {
                 key={index}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-3 sm:px-4 py-2 transition ${activeTab === index
-                  ? 'border-b-2 border-yellow-500 text-black'
-                  : 'text-gray-600 hover:text-black'
-                  }`}
+                className={`px-3 sm:px-4 py-2 transition ${
+                  activeTab === index
+                    ? "border-b-2 border-yellow-500 text-black"
+                    : "text-gray-600 hover:text-black"
+                }`}
                 onClick={() => setActiveTab(index)}
+                type="button"
+                aria-pressed={activeTab === index}
               >
                 {tab.title}
               </motion.button>
@@ -1025,7 +1226,9 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
                 className="relative bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-gray-200 min-h-[250px]"
               >
-                <h3 className="text-xl font-bold mb-4">{testimonials[current].name}</h3>
+                <h3 className="text-xl font-bold mb-4">
+                  {testimonials[current].name}
+                </h3>
                 <hr className="my-4 w-20 mx-auto border-gray-300" />
                 <p className="text-gray-700 text-base">
                   {testimonials[current].message}
@@ -1044,8 +1247,12 @@ export default function Home() {
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => handleDotClick(index)}
-                  className={`w-3 h-3 rounded-full ${current === index ? 'bg-amber-500' : 'bg-gray-300'
-                    } transition-transform duration-300`}
+                  className={`w-3 h-3 rounded-full ${
+                    current === index ? "bg-amber-500" : "bg-gray-300"
+                  } transition-transform duration-300`}
+                  type="button"
+                  aria-label={`Show testimonial ${index + 1}`}
+                  aria-current={current === index ? "true" : undefined}
                 />
               ))}
             </motion.div>
@@ -1078,14 +1285,14 @@ export default function Home() {
               "/brandimg7.webp",
               "/brandimg8.webp",
               "/brandimg9.webp",
-              "/brandimg10.webp"
+              "/brandimg10.webp",
             ].map((src, idx) => (
               <MotionImage
                 key={idx}
                 variants={popIn}
                 whileHover={{ scale: 1.1, grayscale: 0 }}
                 src={src}
-                alt={`Brand ${idx + 1}`}
+                alt={`Partner brand logo ${idx + 1}`}
                 width={240}
                 height={60}
                 loading="lazy"
@@ -1136,7 +1343,8 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-gray-800"
               >
-                Frequently Asked <span className="text-indigo-500">Questions</span>
+                Frequently Asked{" "}
+                <span className="text-indigo-500">Questions</span>
               </motion.h2>
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
@@ -1149,16 +1357,22 @@ export default function Home() {
                     className="bg-white/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/30 shadow-md"
                   >
                     <motion.button
-                      whileHover={{ backgroundColor: "rgba(255,255,255,0.5)" }}
+                      whileHover={{
+                        backgroundColor: "rgba(255,255,255,0.5)",
+                      }}
                       onClick={() => toggleFAQ(index)}
                       className="w-full flex justify-between items-center px-6 py-4 text-left text-gray-800 font-semibold text-lg transition"
+                      type="button"
+                      aria-expanded={activeIndex === index}
                     >
                       {faq.question}
                       <motion.div
-                        animate={{ rotate: activeIndex === index ? 180 : 0 }}
+                        animate={{
+                          rotate: activeIndex === index ? 180 : 0,
+                        }}
                         transition={{ duration: 0.2 }}
                       >
-                        <ChevronDown className="w-5 h-5" />
+                        <ChevronDown className="w-5 h-5" aria-hidden="true" />
                       </motion.div>
                     </motion.button>
                     <AnimatePresence initial={false}>
@@ -1205,8 +1419,13 @@ export default function Home() {
             >
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                transition={{
+                  duration: 1,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
                 className="w-8 h-8 border-2 border-red-500 border-t-transparent rounded-full mx-auto mb-4"
+                aria-label="Loading blog posts"
               />
               <p className="text-gray-500">Loading blog posts...</p>
             </motion.div>
@@ -1214,7 +1433,11 @@ export default function Home() {
             <div className="relative overflow-hidden">
               <motion.div
                 className="flex gap-8 transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${blogIndex * (100 / visibleCount)}%)` }}
+                style={{
+                  transform: `translateX(-${
+                    blogIndex * (100 / visibleCount)
+                  }%)`,
+                }}
               >
                 {blogs.map((blog, index) => (
                   <motion.div
@@ -1225,9 +1448,15 @@ export default function Home() {
                     transition={{ delay: index * 0.1 }}
                     className="min-w-full sm:min-w-[50%] lg:min-w-[33.3333%]"
                   >
-                    <Link href={`/blog/${blog.slug?.current}`}>
+                    <Link
+                      href={`/blog/${blog.slug?.current}`}
+                      aria-label={`Read blog: ${blog.title}`}
+                    >
                       <motion.div
-                        whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                        whileHover={{
+                          y: -10,
+                          transition: { duration: 0.3 },
+                        }}
                         className="cursor-pointer"
                       >
                         <motion.div
@@ -1245,11 +1474,14 @@ export default function Home() {
                           />
                         </motion.div>
                         <h2 className="text-gray-500 mt-3 text-sm sm:text-base">
-                          {new Date(blog.publishedAt).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
-                          })}
+                          {new Date(blog.publishedAt).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "short",
+                              day: "numeric",
+                            }
+                          )}
                         </h2>
                         <h1 className="mt-2 text-lg sm:text-xl font-semibold hover:underline transition text-gray-800 line-clamp-2">
                           {blog.title}
@@ -1263,22 +1495,32 @@ export default function Home() {
               {blogs.length > visibleCount && (
                 <>
                   <motion.button
-                    whileHover={{ scale: 1.1, backgroundColor: "#1f2937" }}
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "#1f2937",
+                    }}
                     whileTap={{ scale: 0.9 }}
                     onClick={prevBlog}
                     disabled={blogIndex === 0}
                     className="absolute left-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow disabled:opacity-30"
+                    type="button"
+                    aria-label="Show previous blog posts"
                   >
-                    <FaArrowLeft />
+                    <FaArrowLeft aria-hidden="true" />
                   </motion.button>
                   <motion.button
-                    whileHover={{ scale: 1.1, backgroundColor: "#1f2937" }}
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "#1f2937",
+                    }}
                     whileTap={{ scale: 0.9 }}
                     onClick={nextBlog}
                     disabled={blogIndex + visibleCount >= blogs.length}
                     className="absolute right-0 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10 shadow disabled:opacity-30"
+                    type="button"
+                    aria-label="Show next blog posts"
                   >
-                    <FaArrowRight />
+                    <FaArrowRight aria-hidden="true" />
                   </motion.button>
                 </>
               )}
@@ -1289,7 +1531,9 @@ export default function Home() {
               animate={{ opacity: 1 }}
               className="text-center py-10"
             >
-              <p className="text-gray-500">No blog posts available yet. Check back soon!</p>
+              <p className="text-gray-500">
+                No blog posts available yet. Check back soon!
+              </p>
             </motion.div>
           )}
         </motion.section>
