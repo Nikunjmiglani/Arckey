@@ -432,7 +432,7 @@ export default function Home() {
 <div className="absolute inset-0 z-10 flex items-center px-6 sm:px-12">
   <div className="max-w-3xl mt-40 text-white">
     
-    <h1 className="font-sans sm:text-2xl lg:text-3xl font-bold leading-tight">
+    <h1 className="font-sans sm:text-3xl lg:text-3xl font-bold leading-tight">
       Best Interior Designer <br />
       in Delhi NCR
     </h1>
