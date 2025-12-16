@@ -567,8 +567,8 @@ export default function Home() {
       in Delhi NCR
     </h1>
 
-    <p className="mt-5 text-sm sm:text-lg text-gray-200 max-w-xl">
-      Residential and commercial interior solutions with disciplined execution and on-time delivery record.
+    <p className="mt-5 text-sm sm:text-lg text-gray-200 max-w-xs">
+      Residential and commercial interiors delivered on time—without cost surprises.
     </p>
 
     <Link href="/contact">
@@ -611,10 +611,10 @@ export default function Home() {
               variants={fadeInUp}
               className="font-bold text-2xl mb-4"
             >
-              Design a space that works as hard as you do.
+              Interior design isn’t just about looks—it’s about execution.
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-gray-700">
-              Miggla delivers thoughtfully planned home and office interiors with end-to-end turnkey execution—on time, without chaos, and without cost overruns. From modular kitchens and custom furniture to complete residential and commercial transformations, our Delhi-based experts combine aesthetics, functionality, and execution discipline to create spaces built for real life and real work.
+             Miggla delivers planned home and office interiors through end-to-end turnkey execution—on time, without chaos or cost overruns. From modular kitchens and custom furniture to complete residential and commercial projects, our experts balance aesthetics, functionality, and disciplined execution for practical spaces.
             </motion.p>
           </div>
 
