@@ -558,7 +558,7 @@ export default function Home() {
 
       {/* STATIC TEXT — ALWAYS VISIBLE */}
       <div className="absolute inset-0 z-10 flex items-center justify-center text-center px-4 pointer-events-none">
-        <div className="max-w-4xl text-white">
+        <div className="max-w-6xl text-white">
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
             Miggla: Delhi’s Leading Interior Designers
           </h1>
