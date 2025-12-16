@@ -431,11 +431,11 @@ export default function Home() {
           {/* STATIC TEXT — ALWAYS VISIBLE */}
 <div className="absolute inset-0 z-10 flex items-center px-6 sm:px-12">
   <div className="max-w-3xl mt-40 text-white">
-    
-    <h1 className="font-serif sm:text-5xl lg:text-4xl font-extrabold leading-tight">
-      Best Interior Designer <br />
-      in Delhi NCR
-    </h1>
+    <h1 className="font-serif text-xl sm:text-5xl lg:text-4xl font-extrabold leading-tight">
+  Best Interior Designer <br />
+  in Delhi NCR
+</h1>
+
 
     <p className="mt-5 text-sm sm:text-lg text-gray-200 max-w-2xs">
       Residential and commercial interiors <br />
