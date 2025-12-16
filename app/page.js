@@ -556,23 +556,46 @@ export default function Home() {
             ))}
           </div>
 
+          
           {/* STATIC TEXT — ALWAYS VISIBLE */}
-          <div className="absolute inset-0 z-10 flex items-center justify-center text-center px-4 ">
-            <div className="text-white flex flex-col items-center">
-              <h1 className="text-2xl max-w-6xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
-                Best Interior Designer in Delhi NCR for Home & Office Interiors
-              </h1>
+          {/* STATIC TEXT — ALWAYS VISIBLE */}
+<div className="absolute inset-0 z-10 flex items-center px-6 sm:px-12">
+  <div className="max-w-3xl text-white">
+    
+    <h1 className="text-3xl font-serif sm:text-4xl lg:text-5xl font-bold leading-tight">
+      Best Interior Designer <br />
+      in Delhi NCR
+    </h1>
 
-              <p className="mt-4 text-sm max-w-5xl text-center sm:text-lg text-gray-200">
-                Residential and commercial interior solutions with disciplined execution,
-                experienced designers, and a proven on-time delivery record.
-              </p>
+    <p className="mt-5 text-sm sm:text-lg text-gray-200 max-w-2xl">
+      Residential and commercial interior solutions with disciplined execution,
+      experienced designers, and a proven on-time delivery record.
+    </p>
 
-              <Link href="/contact"><button className="mt-6 inline-flex items-center justify-center bg-green-950 text-white text-sm sm:text-base font-semibold rounded-full px-5 py-2.5 cursor-pointer">
-                Book a Free Design Consultation
-              </button></Link>
-            </div>
-          </div>
+    <Link href="/contact">
+      <button
+        className="
+          mt-6
+          inline-flex items-center
+          bg-amber-400
+          hover:bg-amber-500
+          text-black
+          text-sm sm:text-base
+          font-semibold
+          rounded-full
+          px-4 py-2
+          transition
+          cursor-pointer
+        "
+      >
+        Book a Free Consultation
+      </button>
+    </Link>
+
+  </div>
+</div>
+
+
         </motion.section>
 
         {/* Introduction Section */}
@@ -1198,8 +1221,8 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`px-3 sm:px-4 py-2 transition ${activeTab === index
-                    ? "border-b-2 border-yellow-500 text-black"
-                    : "text-gray-600 hover:text-black"
+                  ? "border-b-2 border-yellow-500 text-black"
+                  : "text-gray-600 hover:text-black"
                   }`}
                 onClick={() => setActiveTab(index)}
                 type="button"
