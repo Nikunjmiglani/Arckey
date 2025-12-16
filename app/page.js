@@ -430,14 +430,14 @@ export default function Home() {
           
           {/* STATIC TEXT — ALWAYS VISIBLE */}
 <div className="absolute inset-0 z-10 flex items-center px-6 sm:px-12">
-  <div className="max-w-3xl mt-40 text-white">
+  <div className="max-w-3xl mt-24 sm:mt-32 text-white">
+    
     <h1 className="font-serif text-xl sm:text-5xl lg:text-4xl font-extrabold leading-tight">
-  Best Interior Designer <br />
-  in Delhi NCR
-</h1>
+      Best Interior Designer <br />
+      in Delhi NCR
+    </h1>
 
-
-    <p className="mt-5 text-sm sm:text-lg text-gray-200 max-w-2xs">
+    <p className="mt-1 sm:mt-2 text-sm sm:text-lg text-gray-200 max-w-xs">
       Residential and commercial interiors <br />
       delivered on time.
     </p>
@@ -445,16 +445,14 @@ export default function Home() {
     <Link href="/contact">
       <button
         className="
-          mt-6
-          mb-15
+          mt-2 sm:mt-2
           inline-flex items-center
-          bg-amber-400
-          hover:bg-amber-500
+          bg-amber-400 hover:bg-amber-500
           text-black
           text-sm sm:text-base
           font-semibold
           rounded-lg
-          px-3 py-1
+          px-4 py-2
           transition
           cursor-pointer
         "
@@ -465,6 +463,7 @@ export default function Home() {
 
   </div>
 </div>
+
 
 
         </motion.section>
