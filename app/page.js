@@ -50,6 +50,23 @@ const popIn = {
   transition: { duration: 0.4, ease: "backOut" },
 };
 
+const slides = [
+  {
+    image: "/home and office interior design.webp",
+    alt: "Modern living room interior designed by Miggla with warm lighting and contemporary furniture",
+  },
+  {
+    image: "/best interior designer in Delhi NCR.webp",
+    alt: "Luxury bedroom interior with minimalist decor and natural light",
+  },
+  {
+    image: "/interior designer near me.webp",
+    alt: "Contemporary office interior designed by Miggla with clean lines and functional layout",
+  },
+];
+
+
+
 // FAQ Data
 const faqs = [
   {
@@ -343,6 +360,16 @@ export default function Home() {
     setFormData({ name: "", phone: "", email: "", query: "", budget: "" });
   };
 
+  const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <Head>
@@ -501,28 +528,47 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        {/* Hero Section */}
         <motion.section
-          initial="initial"
-          animate="animate"
-          className="relative w-full h-[300px] sm:h-[500px] overflow-hidden bg-gray-100"
-        >
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="relative w-full h-[300px] sm:h-[500px] overflow-hidden"
+    >
+      {/* BACKGROUND IMAGES */}
+      <div className="absolute inset-0 z-0">
+        {slides.map((slide, i) => (
           <motion.div
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="relative w-full h-full"
+            key={slide.image}
+            animate={{ opacity: i === index ? 1 : 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0"
           >
             <Image
-              src="/logologo.webp"
-              alt="Miggla interiors hero banner"
+              src={slide.image}
+              alt={slide.alt}
               fill
-              priority
+              priority={i === 0}
               sizes="100vw"
               className="object-cover"
             />
+            <div className="absolute inset-0 bg-black/40" />
           </motion.div>
-        </motion.section>
+        ))}
+      </div>
+
+      {/* STATIC TEXT — ALWAYS VISIBLE */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center text-center px-4 pointer-events-none">
+        <div className="max-w-4xl text-white">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
+            Miggla: Delhi’s Leading Interior Designers
+          </h1>
+
+          <p className="mt-4 text-sm sm:text-lg text-gray-200">
+            Crafting soulful homes and bold commercial spaces
+          </p>
+        </div>
+      </div>
+    </motion.section>
 
         {/* Introduction Section */}
         <motion.section
