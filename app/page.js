@@ -562,14 +562,13 @@ export default function Home() {
 <div className="absolute inset-0 z-10 flex items-center px-6 sm:px-12">
   <div className="max-w-3xl text-white">
     
-    <h1 className="text-3xl font-serif sm:text-4xl lg:text-5xl font-bold leading-tight">
+    <h1 className="text-2xl font-serif sm:text-4xl lg:text-5xl font-bold leading-tight">
       Best Interior Designer <br />
       in Delhi NCR
     </h1>
 
     <p className="mt-5 text-sm sm:text-lg text-gray-200 max-w-2xl">
-      Residential and commercial interior solutions with disciplined execution,
-      experienced designers, and a proven on-time delivery record.
+      Residential and commercial interior solutions with disciplined execution and on-time delivery record.
     </p>
 
     <Link href="/contact">
