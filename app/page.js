@@ -560,7 +560,7 @@ export default function Home() {
       <div className="absolute inset-0 z-10 flex items-center justify-center text-center px-4 pointer-events-none">
         <div className="max-w-6xl text-white">
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
-            Miggla: Delhi’s Leading Interior Designers
+            Best Interior Designer in Delhi NCR for Home & Office Interiors
           </h1>
 
           <p className="mt-4 text-sm sm:text-lg text-gray-200">
@@ -583,14 +583,10 @@ export default function Home() {
               variants={fadeInUp}
               className="font-bold text-2xl mb-4"
             >
-              Let's design a space you'll love — home or office.
+             Design a space that works as hard as you do.
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-gray-700">
-              Book your free consultation with Delhi's top interior designers!
-              From stunning commercial and residential interiors to complete
-              turnkey execution, we design for style, function, and timely
-              delivery. Miggla excels in modular kitchens, custom furniture, and
-              transforming spaces you'll love to live or work in.
+             Miggla delivers thoughtfully planned home and office interiors with end-to-end turnkey execution—on time, without chaos, and without cost overruns. From modular kitchens and custom furniture to complete residential and commercial transformations, our Delhi-based experts combine aesthetics, functionality, and execution discipline to create spaces built for real life and real work.
             </motion.p>
           </div>
 
