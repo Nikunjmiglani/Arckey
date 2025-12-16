@@ -437,7 +437,7 @@ export default function Home() {
       in Delhi NCR
     </h1>
 
-    <p className="mt-5 text-sm sm:text-lg text-gray-200 max-w-xs">
+    <p className="mt-5 text-sm sm:text-lg text-gray-200 max-w-2xs">
       Residential and commercial interiors delivered on time—without cost surprises.
     </p>
 
