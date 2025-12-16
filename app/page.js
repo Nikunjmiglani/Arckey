@@ -362,7 +362,7 @@ export default function Home() {
 
   const [index, setIndex] = useState(0);
 
-    useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
     }, 3000);
@@ -529,46 +529,51 @@ export default function Home() {
         </AnimatePresence>
 
         <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="relative w-full h-[300px] sm:h-[500px] overflow-hidden"
-    >
-      {/* BACKGROUND IMAGES */}
-      <div className="absolute inset-0 z-0">
-        {slides.map((slide, i) => (
-          <motion.div
-            key={slide.image}
-            animate={{ opacity: i === index ? 1 : 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={slide.image}
-              alt={slide.alt}
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40" />
-          </motion.div>
-        ))}
-      </div>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative w-full h-[300px] sm:h-[500px] overflow-hidden"
+        >
+          {/* BACKGROUND IMAGES */}
+          <div className="absolute inset-0 z-0">
+            {slides.map((slide, i) => (
+              <motion.div
+                key={slide.image}
+                animate={{ opacity: i === index ? 1 : 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={slide.image}
+                  alt={slide.alt}
+                  fill
+                  priority={i === 0}
+                  sizes="100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40" />
+              </motion.div>
+            ))}
+          </div>
 
-      {/* STATIC TEXT — ALWAYS VISIBLE */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center text-center px-4 pointer-events-none">
-        <div className="max-w-6xl text-white">
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
-            Best Interior Designer in Delhi NCR for Home & Office Interiors
-          </h1>
+          {/* STATIC TEXT — ALWAYS VISIBLE */}
+          <div className="absolute inset-0 z-10 flex items-center justify-center text-center px-4 ">
+            <div className="text-white flex flex-col items-center">
+              <h1 className="text-2xl max-w-6xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
+                Best Interior Designer in Delhi NCR for Home & Office Interiors
+              </h1>
 
-          <p className="mt-4 text-sm sm:text-lg text-gray-200">
-            Crafting soulful homes and bold commercial spaces
-          </p>
-        </div>
-      </div>
-    </motion.section>
+              <p className="mt-4 text-sm max-w-5xl text-center sm:text-lg text-gray-200">
+                Residential and commercial interior solutions with disciplined execution,
+                experienced designers, and a proven on-time delivery record.
+              </p>
+
+              <Link href="/contact"><button className="mt-6 inline-flex items-center justify-center bg-green-950 text-white text-sm sm:text-base font-semibold rounded-full px-5 py-2.5 cursor-pointer">
+                Book a Free Design Consultation
+              </button></Link>
+            </div>
+          </div>
+        </motion.section>
 
         {/* Introduction Section */}
         <motion.section
@@ -583,10 +588,10 @@ export default function Home() {
               variants={fadeInUp}
               className="font-bold text-2xl mb-4"
             >
-             Design a space that works as hard as you do.
+              Design a space that works as hard as you do.
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-gray-700">
-             Miggla delivers thoughtfully planned home and office interiors with end-to-end turnkey execution—on time, without chaos, and without cost overruns. From modular kitchens and custom furniture to complete residential and commercial transformations, our Delhi-based experts combine aesthetics, functionality, and execution discipline to create spaces built for real life and real work.
+              Miggla delivers thoughtfully planned home and office interiors with end-to-end turnkey execution—on time, without chaos, and without cost overruns. From modular kitchens and custom furniture to complete residential and commercial transformations, our Delhi-based experts combine aesthetics, functionality, and execution discipline to create spaces built for real life and real work.
             </motion.p>
           </div>
 
@@ -1192,11 +1197,10 @@ export default function Home() {
                 key={index}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-3 sm:px-4 py-2 transition ${
-                  activeTab === index
+                className={`px-3 sm:px-4 py-2 transition ${activeTab === index
                     ? "border-b-2 border-yellow-500 text-black"
                     : "text-gray-600 hover:text-black"
-                }`}
+                  }`}
                 onClick={() => setActiveTab(index)}
                 type="button"
                 aria-pressed={activeTab === index}
@@ -1289,9 +1293,8 @@ export default function Home() {
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => handleDotClick(index)}
-                  className={`w-3 h-3 rounded-full ${
-                    current === index ? "bg-amber-500" : "bg-gray-300"
-                  } transition-transform duration-300`}
+                  className={`w-3 h-3 rounded-full ${current === index ? "bg-amber-500" : "bg-gray-300"
+                    } transition-transform duration-300`}
                   type="button"
                   aria-label={`Show testimonial ${index + 1}`}
                   aria-current={current === index ? "true" : undefined}
@@ -1476,9 +1479,8 @@ export default function Home() {
               <motion.div
                 className="flex gap-8 transition-transform duration-500 ease-in-out"
                 style={{
-                  transform: `translateX(-${
-                    blogIndex * (100 / visibleCount)
-                  }%)`,
+                  transform: `translateX(-${blogIndex * (100 / visibleCount)
+                    }%)`,
                 }}
               >
                 {blogs.map((blog, index) => (
