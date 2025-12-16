@@ -557,12 +557,12 @@ export default function Home() {
           </div>
 
           
-          {/* STATIC TEXT — ALWAYS VISIBLE */}
+          
           {/* STATIC TEXT — ALWAYS VISIBLE */}
 <div className="absolute inset-0 z-10 flex items-center px-6 sm:px-12">
-  <div className="max-w-3xl text-white">
+  <div className="max-w-3xl mt-40 text-white">
     
-    <h1 className="text-2xl font-serif sm:text-4xl lg:text-5xl font-bold leading-tight">
+    <h1 className="font-serif sm:text-2xl lg:text-4xl font-bold leading-tight">
       Best Interior Designer <br />
       in Delhi NCR
     </h1>
@@ -575,19 +575,20 @@ export default function Home() {
       <button
         className="
           mt-6
+          mb-15
           inline-flex items-center
           bg-amber-400
           hover:bg-amber-500
           text-black
           text-sm sm:text-base
           font-semibold
-          rounded-full
-          px-4 py-2
+          rounded-lg
+          px-3 py-1
           transition
           cursor-pointer
         "
       >
-        Book a Free Consultation
+        Book Consultation
       </button>
     </Link>
 
