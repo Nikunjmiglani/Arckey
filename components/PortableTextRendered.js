@@ -25,11 +25,31 @@ const components = {
       );
     },
 
-    callout: ({ value }) => (
-      <div className="my-6 p-5 border-l-4 border-red-500 bg-red-50 rounded">
-        <PortableText value={value.content} />
-      </div>
-    ),
+    // ✅ FIXED callout renderer
+    callout: ({ value }) => {
+      if (!value) return null;
+
+      const toneStyles = {
+        info: 'border-blue-500 bg-blue-50',
+        success: 'border-green-500 bg-green-50',
+        warning: 'border-yellow-500 bg-yellow-50',
+      };
+
+      return (
+        <div
+          className={`my-6 p-5 border-l-4 rounded ${
+            toneStyles[value.tone] || toneStyles.info
+          }`}
+        >
+          {value.title && (
+            <h4 className="font-semibold mb-2">{value.title}</h4>
+          )}
+          {value.body && (
+            <p className="text-sm leading-relaxed">{value.body}</p>
+          )}
+        </div>
+      );
+    },
   },
 
   block: {
@@ -85,6 +105,11 @@ const components = {
       <strong className="font-semibold">{children}</strong>
     ),
     em: ({ children }) => <em className="italic">{children}</em>,
+    code: ({ children }) => (
+      <code className="px-1 py-0.5 bg-gray-100 rounded text-sm">
+        {children}
+      </code>
+    ),
   },
 };
 

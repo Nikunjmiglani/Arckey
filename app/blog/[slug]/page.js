@@ -27,7 +27,7 @@ function blocksToPlainText(blocks = []) {
     .join('\n\n');
 }
 
-// ---------- GROQ fields (MATCHES YOUR SCHEMA) ----------
+// ---------- GROQ fields (SUPPORTS OLD + NEW POSTS) ----------
 
 const blogFields = `
   title,
@@ -40,6 +40,7 @@ const blogFields = `
     alt
   },
   content,
+  body,
   seo,
   _createdAt,
   _updatedAt
@@ -72,7 +73,10 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const plain = blocksToPlainText(blog.content);
+  // 🔑 fallback: content → body → []
+  const portable = blog.content || blog.body || [];
+  const plain = blocksToPlainText(portable);
+
   const fallbackDesc = plain
     ? `${plain.slice(0, 160)}...`
     : 'Interior design and construction insights.';
@@ -107,7 +111,9 @@ export default async function BlogPostPage({ params }) {
     );
   }
 
-  const plain = blocksToPlainText(blog.content);
+  // 🔑 fallback: content → body → []
+  const portable = blog.content || blog.body || [];
+  const plain = blocksToPlainText(portable);
   const readingTime = calcReadingTime(plain);
 
   return (
@@ -139,7 +145,7 @@ export default async function BlogPostPage({ params }) {
       )}
 
       <article className="prose prose-lg max-w-none">
-        <PortableTextRendered value={blog.content} />
+        <PortableTextRendered value={portable} />
       </article>
     </section>
   );
