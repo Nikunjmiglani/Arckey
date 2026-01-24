@@ -182,14 +182,26 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="text-center text-gray-500 text-xs py-6"
-      >
-        © {currentYear} Miggla. All rights reserved.
-      </motion.div>
+     <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+  className="text-center text-gray-500 text-xs py-6 space-y-2"
+>
+  <p>© {currentYear} Miggla. All rights reserved.</p>
+
+  <p className="text-gray-400">
+    Developed and managed by{" "}
+    <a
+      href="https://www.nikunj.space"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-red-500 hover:text-red-400 transition-colors font-medium"
+    >
+      Nikunj Miglani
+    </a>
+  </p>
+</motion.div>
     </motion.footer>
   );
 };
