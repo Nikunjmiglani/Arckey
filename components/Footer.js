@@ -193,12 +193,12 @@ const Footer = () => {
   <p className="text-gray-400">
     Developed and managed by{" "}
     <a
-      href="https://www.nikunj.space"
+      href="https://www.devllz.in"
       target="_blank"
       rel="noopener noreferrer"
       className="text-red-500 hover:text-red-400 transition-colors font-medium"
     >
-      Nikunj Miglani
+      DevlLz.in
     </a>
   </p>
 </motion.div>
