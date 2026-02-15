@@ -156,11 +156,7 @@ export default function ContactPage() {
                     +91 9899890157
                   </a>
                 </p>
-                <p className="text-sm">
-                  <a href="tel:+919643531515" onClick={() => fireContactTrackingEvent("call_click")}>
-                    +91 9643531515
-                  </a>
-                </p>
+               
               </div>
             </div>
             <div className="flex items-center justify-center gap-4 text-gray-700">
